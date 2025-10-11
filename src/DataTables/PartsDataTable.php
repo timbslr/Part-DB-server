@@ -45,6 +45,7 @@ use App\Entity\Parts\PartLot;
 use App\Entity\ProjectSystem\Project;
 use App\Services\EntityURLGenerator;
 use App\Services\Formatters\AmountFormatter;
+use App\Settings\BehaviorSettings\TableSettings;
 use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\QueryBuilder;
 use Omines\DataTablesBundle\Adapter\Doctrine\ORM\SearchCriteriaProvider;
@@ -65,8 +66,8 @@ final class PartsDataTable implements DataTableTypeInterface
         private readonly AmountFormatter $amountFormatter,
         private readonly PartDataTableHelper $partDataTableHelper,
         private readonly Security $security,
-        private readonly string $visible_columns,
         private readonly ColumnSortHelper $csh,
+        private readonly TableSettings $tableSettings,
     ) {
     }
 
@@ -139,7 +140,8 @@ final class PartsDataTable implements DataTableTypeInterface
             ])
             ->add('storelocation', TextColumn::class, [
                 'label' => $this->translator->trans('part.table.storeLocations'),
-                'orderField' => 'NATSORT(_storelocations)',
+                //We need to use a aggregate function to get the first store location, as we have a one-to-many relation
+                'orderField' => 'NATSORT(MIN(_storelocations.name))',
                 'render' => fn($value, Part $context) => $this->partDataTableHelper->renderStorageLocations($context),
             ], alias: 'storage_location')
 
@@ -247,11 +249,8 @@ final class PartsDataTable implements DataTableTypeInterface
             ]);
 
         //Apply the user configured order and visibility and add the columns to the table
-        $this->csh->applyVisibilityAndConfigureColumns(
-            $dataTable,
-            $this->visible_columns,
-            "TABLE_PARTS_DEFAULT_COLUMNS"
-        );
+        $this->csh->applyVisibilityAndConfigureColumns($dataTable, $this->tableSettings->partsDefaultColumns,
+            "TABLE_PARTS_DEFAULT_COLUMNS");
 
         $dataTable->addOrderBy('name')
             ->createAdapter(TwoStepORMAdapter::class, [
@@ -425,6 +424,13 @@ final class PartsDataTable implements DataTableTypeInterface
             $builder->leftJoin('part.project_bom_entries', '_projectBomEntries');
             //Do not group by many-to-* relations, as it would restrict the COUNT having clauses to be maximum 1
             //$builder->addGroupBy('_projectBomEntries');
+        }
+        if (str_contains($dql, '_jobPart')) {
+            $builder->leftJoin('part.bulkImportJobParts', '_jobPart');
+            $builder->leftJoin('_jobPart.job', '_bulkImportJob');
+            //Do not group by many-to-* relations, as it would restrict the COUNT having clauses to be maximum 1
+            //$builder->addGroupBy('_jobPart');
+            //$builder->addGroupBy('_bulkImportJob');
         }
 
         return $builder;

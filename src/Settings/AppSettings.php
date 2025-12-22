@@ -26,7 +26,7 @@ namespace App\Settings;
 use App\Settings\BehaviorSettings\BehaviorSettings;
 use App\Settings\InfoProviderSystem\InfoProviderSettings;
 use App\Settings\MiscSettings\MiscSettings;
-use App\Settings\SystemSettings\AttachmentsSettings;
+use App\Settings\SystemSettings\SystemSettings;
 use Jbtronics\SettingsBundle\Settings\EmbeddedSettings;
 use Jbtronics\SettingsBundle\Settings\Settings;
 use Jbtronics\SettingsBundle\Settings\SettingsTrait;
@@ -47,6 +47,12 @@ class AppSettings
     #[EmbeddedSettings()]
     public ?InfoProviderSettings $infoProviders = null;
 
+    #[EmbeddedSettings]
+    public ?SynonymSettings $synonyms = null;
+
     #[EmbeddedSettings()]
     public ?MiscSettings $miscSettings = null;
+
+
+
 }

@@ -66,12 +66,6 @@
     {% block javascripts %}
         {{ encore_entry_script_tags('app') }}
         {{ encore_entry_script_tags('webauthn_tfa') }}
-
-        {# load translation files for ckeditor #}
-        {% set two_chars_locale = app.request.locale|default("en")|slice(0,2) %}
-        {% if two_chars_locale != "en" %}
-            <script src="{{ asset("build/ckeditor_translations/" ~ two_chars_locale ~ ".js") }}"></script>
-        {% endif %}
     {% endblock %}
 </head>
 <body data-base-url="{{ path('homepage', {'_locale': app.request.locale}) }}" data-locale="{{ app.request.locale|default("en")|slice(0,2) }}">
@@ -126,7 +120,7 @@
 
     {# Must be outside of the sidebar or it will be hidden too #}
     <button class="btn btn-outline-secondary btn-sm p-0 d-md-block d-none" type="button" id="sidebar-toggle-button" title="{% trans %}sidebar.big.toggle{% endtrans %}"
-            {{ stimulus_controller('common/hide_sidebar') }} {{ stimulus_action('common/hide_sidebar', 'toggleSidebar') }}>
+            {{ stimulus_controller('common/hide_sidebar') }} {{ stimulus_action('common/hide_sidebar', 'toggleSidebar') }} style="--fa-width: 10px;">
         <i class="fas fa-angle-left"></i>
     </button>
 

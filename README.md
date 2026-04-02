@@ -2,7 +2,7 @@
 
 ```console
 git remote add jbtronics https://github.com/Part-DB/Part-DB-server.git
-composer install
+composer install --no-dev -o
 npm install
 yarn install
 yarn build

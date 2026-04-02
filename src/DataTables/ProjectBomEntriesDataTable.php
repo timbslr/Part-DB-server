@@ -23,12 +23,15 @@ declare(strict_types=1);
 namespace App\DataTables;
 
 use App\DataTables\Column\EntityColumn;
+use App\DataTables\Column\EnumColumn;
 use App\DataTables\Column\LocaleDateTimeColumn;
 use App\DataTables\Column\MarkdownColumn;
 use App\DataTables\Helpers\PartDataTableHelper;
 use App\Entity\Attachments\Attachment;
 use App\Entity\Parts\Part;
+use App\Entity\Parts\ManufacturingStatus;
 use App\Entity\ProjectSystem\ProjectBOMEntry;
+use App\Services\ElementTypeNameGenerator;
 use App\Services\EntityURLGenerator;
 use App\Services\Formatters\AmountFormatter;
 use Doctrine\ORM\QueryBuilder;
@@ -41,7 +44,8 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class ProjectBomEntriesDataTable implements DataTableTypeInterface
 {
-    public function __construct(protected TranslatorInterface $translator, protected PartDataTableHelper $partDataTableHelper, protected EntityURLGenerator $entityURLGenerator, protected AmountFormatter $amountFormatter)
+    public function __construct(protected TranslatorInterface $translator, protected PartDataTableHelper $partDataTableHelper,
+        protected EntityURLGenerator $entityURLGenerator, protected AmountFormatter $amountFormatter)
     {
     }
 
@@ -79,7 +83,14 @@ class ProjectBomEntriesDataTable implements DataTableTypeInterface
                     return htmlspecialchars($this->amountFormatter->format($context->getQuantity(), $context->getPart()->getPartUnit()));
                 },
             ])
-
+			->add('partId', TextColumn::class, [
+				'label' => $this->translator->trans('project.bom.part_id'),
+				'visible' => true,
+				'orderField' => 'part.id',
+				'render' => function ($value, ProjectBOMEntry $context) {
+					return $context->getPart() instanceof Part ? (string) $context->getPart()->getId() : '';
+				},
+			])
             ->add('name', TextColumn::class, [
                 'label' => $this->translator->trans('part.table.name'),
                 'orderField' => 'NATSORT(part.name)',
@@ -134,6 +145,19 @@ class ProjectBomEntriesDataTable implements DataTableTypeInterface
                 'property' => 'part.manufacturer',
                 'label' => $this->translator->trans('part.table.manufacturer'),
                 'orderField' => 'NATSORT(manufacturer.name)',
+            ])
+
+            ->add('manufacturing_status', EnumColumn::class, [
+                'label' => $this->translator->trans('part.table.manufacturingStatus'),
+		'data' => static fn(ProjectBOMEntry $context): ?ManufacturingStatus => $context->getPart()?->getManufacturingStatus(),
+               	'class' => ManufacturingStatus::class,
+                'render' => function (?ManufacturingStatus $status, ProjectBOMEntry $context): string {
+                    if ($status === null) {
+                        return '';
+                    }
+
+                    return $this->translator->trans($status->toTranslationKey());
+                },
             ])
 
             ->add('mountnames', TextColumn::class, [

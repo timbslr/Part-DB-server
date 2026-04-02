@@ -1,3 +1,6 @@
+includes:
+    - phpstan.banned_code.neon
+
 parameters:
 
     level: 5
@@ -61,3 +64,9 @@ parameters:
 
         # Ignore error of unused WithPermPresetsTrait, as it is used in the migrations which are not analyzed by Phpstan
         - '#Trait App\\Migration\\WithPermPresetsTrait is used zero times and is not analysed#'
+        -
+            message: '#Should not use function "shell_exec"#'
+            path: src/Services/System/UpdateExecutor.php
+
+        - message: '#Access to an undefined property Brick\\Schema\\Interfaces\\#'
+          path: src/Services/InfoProviderSystem/Providers/GenericWebProvider.php

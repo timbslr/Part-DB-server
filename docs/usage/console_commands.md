@@ -50,6 +50,14 @@ docker exec --user=www-data partdb php bin/console cache:clear
 * `php bin/console partdb:currencies:update-exchange-rates`: Update the exchange rates of all currencies from the
   internet
 
+## Update Manager commands
+
+{: .note }
+> The Update Manager is an experimental feature. See the [Update Manager documentation](update_manager.md) for details.
+
+* `php bin/console partdb:update`: Check for and perform updates to Part-DB. Use `--check` to only check for updates without installing.
+* `php bin/console partdb:maintenance-mode`: Enable, disable, or check the status of maintenance mode. Use `--enable`, `--disable`, or `--status`.
+
 ## Installation/Maintenance commands
 
 * `php bin/console partdb:backup`: Backup the database and the attachments
@@ -68,6 +76,7 @@ docker exec --user=www-data partdb php bin/console cache:clear
   deleted!*
 * `settings:migrate-env-to-settings`: Migrate configuration from environment variables to the settings interface.
 The value of the environment variable is copied to the settings database, so the environment variable can be removed afterwards without losing the configuration.
+* `partdb:migrations:convert-db-platform`: Convert the database platform (e.g. from SQLite to MySQL/MariaDB or PostgreSQL, or vice versa).
 
 ## Database commands
 
@@ -79,3 +88,6 @@ The value of the environment variable is copied to the settings database, so the
 * `php bin/console partdb:attachments:download`: Download all attachments that are not already downloaded to the
   local filesystem. This is useful to create local backups of the attachments, no matter what happens on the remote, and
   also makes picture thumbnails available for the frontend for them.
+
+## EDA integration commands
+* `php bin/console partdb:kicad:populate`: Populate KiCad footprint paths and symbol paths for footprints and categories based on their names. Use `--dry-run` to preview changes without applying them, and `--list` to list current values. See the [EDA integration documentation](eda_integration.md) for more details.

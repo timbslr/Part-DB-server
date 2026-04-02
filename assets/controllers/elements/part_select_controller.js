@@ -18,11 +18,13 @@ export default class extends Controller {
 
         let settings = {
             allowEmptyOption: true,
-            plugins: ['dropdown_input'],
+            plugins: ['dropdown_input', this.element.required ? null : 'clear_button'],
             searchField: ["name", "description", "category", "footprint"],
             valueField: "id",
             labelField: "name",
             dropdownParent: dropdownParent,
+            selectOnTab: true,
+            clearAfterSelect: true,
             preload: "focus",
             render: {
                 item: (data, escape) => {

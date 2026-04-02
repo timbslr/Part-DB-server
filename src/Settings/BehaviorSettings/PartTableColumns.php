@@ -48,8 +48,16 @@ enum PartTableColumns : string implements TranslatableInterface
     case MPN = "manufacturer_product_number";
     case CUSTOM_PART_STATE = 'partCustomState';
     case MASS = "mass";
+    case GTIN = "gtin";
     case TAGS = "tags";
     case ATTACHMENTS = "attachments";
+
+    case EDA_REFERENCE = "eda_reference";
+
+    case EDA_VALUE = "eda_value";
+
+    case EDA_STATUS = "eda_status";
+
     case EDIT = "edit";
 
     public function trans(TranslatorInterface $translator, ?string $locale = null): string

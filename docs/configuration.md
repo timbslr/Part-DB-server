@@ -86,6 +86,9 @@ bundled with Part-DB. Set `DATABASE_MYSQL_SSL_VERIFY_CERT` if you want to accept
 * `ATTACHMENT_DOWNLOAD_BY_DEFAULT`: When this is set to 1, the "download external file" checkbox is checked by default
   when adding a new attachment. Otherwise, it is unchecked by default. Use this if you wanna download all attachments
   locally by default. Attachment download is only possible, when `ALLOW_ATTACHMENT_DOWNLOADS` is set to 1.
+* `ATTACHMENT_SHOW_HTML_FILES`: When enabled, user uploaded HTML attachments can be viewed directly in the browser. 
+  Many potential malicious functions are restricted, still this is a potential security risk and should only be enabled,
+  if you trust the users who can upload files. When set to 0, HTML files are rendered as plain text.
 * `USE_GRAVATAR`: Set to `1` to use [gravatar.com](https://gravatar.com/) images for user avatars (as long as they have
   not set their own picture). The users browsers have to download the pictures from a third-party (gravatar) server, so
   this might be a privacy risk.
@@ -126,6 +129,8 @@ bundled with Part-DB. Set `DATABASE_MYSQL_SSL_VERIFY_CERT` if you want to accept
   unique increments for parts within a category hierarchy, ensuring consistency and uniqueness in IPN generation.
 * `IPN_USE_DUPLICATE_DESCRIPTION`: When enabled, the part’s description is used to find existing parts with the same 
   description and to determine the next available IPN by incrementing their numeric suffix for the suggestion list.
+* `KEYBINDINGS_SPECIAL_CHARS_ENABLED`: Set this to 0 to disable the special character keybindings (Alt + key) for inserting special characters. This can be useful if
+  they conflict with your keyboard layout or system shortcuts.
 
 ### E-Mail settings (all env only)
 
@@ -138,6 +143,18 @@ bundled with Part-DB. Set `DATABASE_MYSQL_SSL_VERIFY_CERT` if you want to accept
   sent from.
 * `ALLOW_EMAIL_PW_RESET`: Set this value to true, if you want to allow users to reset their password via an email
   notification. You have to configure the mail provider first before via the MAILER_DSN setting.
+
+### Update manager settings
+* `DISABLE_WEB_UPDATES` (default `1`): Set this to 0 to enable web-based updates. When enabled, you can perform updates
+  via the web interface in the update manager. This is disabled by default for security reasons, as it can be a risk if
+  not used carefully. You can still use the CLI commands to perform updates, even when web updates are disabled.
+* `DISABLE_BACKUP_RESTORE` (default `1`): Set this to 0 to enable backup restore via the web interface. When enabled, you can
+  restore backups via the web interface in the update manager. This is disabled by default for security reasons, as it can
+  be a risk if not used carefully. You can still use the CLI commands to perform backup restores, even when web-based
+  backup restore is disabled.
+* `DISABLE_BACKUP_DOWNLOAD` (default `1`): Set this to 0 to enable backup download via the web interface. When enabled, you can download backups via the web interface
+  in the update manager. This is disabled by default for security reasons, as it can be a risk if not used carefully, as
+  the downloads contain sensitive data like password hashes or secrets.
 
 ### Table related settings
 

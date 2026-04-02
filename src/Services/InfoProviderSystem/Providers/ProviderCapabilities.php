@@ -31,9 +31,6 @@ enum ProviderCapabilities
     /** Basic information about a part, like the name, description, part number, manufacturer etc */
     case BASIC;
 
-    /** Information about the footprint of a part */
-    case FOOTPRINT;
-
     /** Provider can provide a picture for a part */
     case PICTURE;
 
@@ -43,6 +40,28 @@ enum ProviderCapabilities
     /** Provider can provide prices for a part */
     case PRICE;
 
+    /** Information about the footprint of a part */
+    case FOOTPRINT;
+
+    /** Provider can provide GTIN for a part */
+    case GTIN;
+
+    /**
+     * Get the order index for displaying capabilities in a stable order.
+     * @return int
+     */
+    public function getOrderIndex(): int
+    {
+        return match($this) {
+            self::BASIC => 1,
+            self::PICTURE => 2,
+            self::DATASHEET => 3,
+            self::PRICE => 4,
+            self::FOOTPRINT => 5,
+            self::GTIN => 6,
+        };
+    }
+
     public function getTranslationKey(): string
     {
         return 'info_providers.capabilities.' . match($this) {
@@ -51,6 +70,7 @@ enum ProviderCapabilities
                 self::PICTURE => 'picture',
                 self::DATASHEET => 'datasheet',
                 self::PRICE => 'price',
+                self::GTIN => 'gtin',
             };
     }
 
@@ -62,6 +82,7 @@ enum ProviderCapabilities
                 self::PICTURE => 'fa-image',
                 self::DATASHEET => 'fa-file-alt',
                 self::PRICE => 'fa-money-bill-wave',
+                self::GTIN => 'fa-barcode',
             };
     }
 }

@@ -36,10 +36,12 @@ use App\Entity\PriceInformations\Orderdetail;
 use App\Entity\ProjectSystem\Project;
 use App\Exceptions\AttachmentDownloadException;
 use App\Form\Part\PartBaseType;
+use App\Form\Part\PartLotType;
 use App\Services\Attachments\AttachmentSubmitHandler;
 use App\Services\Attachments\PartPreviewGenerator;
 use App\Services\EntityMergers\Mergers\PartMerger;
 use App\Services\InfoProviderSystem\PartInfoRetriever;
+use App\Services\InfoProviderSystem\Providers\InfoProviderInterface;
 use App\Services\LogSystem\EventCommentHelper;
 use App\Services\LogSystem\HistoryHelper;
 use App\Services\LogSystem\TimeTravel;
@@ -127,6 +129,17 @@ final class PartController extends AbstractController
             $table = null;
         }
 
+        // Build the add-lot form for the INFO page modal (only when not in time-travel mode)
+        $addLotForm = null;
+        if ($timeTravel_timestamp === null && $this->isGranted('edit', $part)) {
+            $newLot = new PartLot();
+            $newLot->setPart($part);
+            $addLotForm = $this->createForm(PartLotType::class, $newLot, [
+                'measurement_unit' => $part->getPartUnit(),
+                'action' => $this->generateUrl('part_lot_add', ['id' => $part->getID()]),
+            ]);
+        }
+
         return $this->render(
             'parts/info/show_part_info.html.twig',
             [
@@ -139,8 +152,37 @@ final class PartController extends AbstractController
                 'comment_params' => $this->partInfoSettings->extractParamsFromNotes ? $parameterExtractor->extractParameters($part->getComment()) : [],
                 'withdraw_add_helper' => $withdrawAddHelper,
                 'highlightLotId' => $request->query->getInt('highlightLot', 0),
+                'add_lot_form' => $addLotForm,
             ]
         );
+    }
+
+    #[Route(path: '/{id}/add_lot', name: 'part_lot_add', methods: ['POST'])]
+    public function addLot(Part $part, Request $request, EntityManagerInterface $em): Response
+    {
+        $this->denyAccessUnlessGranted('edit', $part);
+
+        $newLot = new PartLot();
+        $newLot->setPart($part);
+
+        $form = $this->createForm(PartLotType::class, $newLot, [
+            'measurement_unit' => $part->getPartUnit(),
+        ]);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em->persist($newLot);
+            $em->flush();
+            $this->addFlash('success', 'part.edited_flash');
+            return $this->redirectToRoute('part_info', [
+                'id' => $part->getID(),
+                'highlightLot' => $newLot->getID(),
+            ]);
+        }
+
+        $this->addFlash('error', 'part.created_flash.invalid');
+        return $this->redirectToRoute('part_info', ['id' => $part->getID()]);
     }
 
     #[Route(path: '/{id}/edit', name: 'part_edit')]
@@ -283,7 +325,14 @@ final class PartController extends AbstractController
     {
         $this->denyAccessUnlessGranted('@info_providers.create_parts');
 
-        $dto = $infoRetriever->getDetails($providerKey, $providerId);
+        //Force info providers to not use cache, when retrieving part details for creating a new part, because otherwise we might end up with outdated information
+        $no_cache = $request->query->getBoolean('no_cache', false);
+        $skip_delegation = $request->query->getBoolean('skip_delegation', false);
+
+        $dto = $infoRetriever->getDetails($providerKey, $providerId, [
+            InfoProviderInterface::OPTION_NO_CACHE => $no_cache,
+            InfoProviderInterface::OPTION_SKIP_DELEGATION => $skip_delegation,
+        ]);
         $new_part = $infoRetriever->dtoToPart($dto);
 
         if ($new_part->getCategory() === null || $new_part->getCategory()->getID() === null) {
@@ -342,10 +391,13 @@ final class PartController extends AbstractController
         $this->denyAccessUnlessGranted('edit', $part);
         $this->denyAccessUnlessGranted('@info_providers.create_parts');
 
+        //Force info providers to not use cache, when retrieving part details for creating a new part, because otherwise we might end up with outdated information
+        $no_cache = $request->query->getBoolean('no_cache', false);
+
         //Save the old name of the target part for the template
         $old_name = $part->getName();
 
-        $dto = $infoRetriever->getDetails($providerKey, $providerId);
+        $dto = $infoRetriever->getDetails($providerKey, $providerId, [InfoProviderInterface::OPTION_NO_CACHE => $no_cache]);
         $provider_part = $infoRetriever->dtoToPart($dto);
 
         $part = $partMerger->merge($part, $provider_part);

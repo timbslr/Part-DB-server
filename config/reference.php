@@ -128,7 +128,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  * @psalm-type FrameworkConfig = array{
  *     secret?: scalar|Param|null,
  *     http_method_override?: bool|Param, // Set true to enable support for the '_method' request parameter to determine the intended HTTP method on POST requests. // Default: false
- *     allowed_http_method_override?: list<string|Param>|null,
+ *     allowed_http_method_override?: null|list<string|Param>,
  *     trust_x_sendfile_type_header?: scalar|Param|null, // Set true to enable support for xsendfile in binary file responses. // Default: "%env(bool:default::SYMFONY_TRUST_X_SENDFILE_TYPE_HEADER)%"
  *     ide?: scalar|Param|null, // Default: "%env(default::SYMFONY_IDE)%"
  *     test?: bool|Param,
@@ -136,9 +136,9 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     set_locale_from_accept_language?: bool|Param, // Whether to use the Accept-Language HTTP header to set the Request locale (only when the "_locale" request attribute is not passed). // Default: false
  *     set_content_language_from_locale?: bool|Param, // Whether to set the Content-Language HTTP header on the Response using the Request locale. // Default: false
  *     enabled_locales?: list<scalar|Param|null>,
- *     trusted_hosts?: list<scalar|Param|null>,
+ *     trusted_hosts?: string|list<scalar|Param|null>,
  *     trusted_proxies?: mixed, // Default: ["%env(default::SYMFONY_TRUSTED_PROXIES)%"]
- *     trusted_headers?: list<scalar|Param|null>,
+ *     trusted_headers?: string|list<scalar|Param|null>,
  *     error_controller?: scalar|Param|null, // Default: "error_controller"
  *     handle_all_throwables?: bool|Param, // HttpKernel will handle all kinds of \Throwable. // Default: true
  *     csrf_protection?: bool|array{
@@ -202,23 +202,23 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *                 property?: scalar|Param|null,
  *                 service?: scalar|Param|null,
  *             },
- *             supports?: list<scalar|Param|null>,
+ *             supports?: string|list<scalar|Param|null>,
  *             definition_validators?: list<scalar|Param|null>,
  *             support_strategy?: scalar|Param|null,
- *             initial_marking?: list<scalar|Param|null>,
- *             events_to_dispatch?: list<string|Param>|null,
- *             places?: list<array{ // Default: []
+ *             initial_marking?: \BackedEnum|string|list<scalar|Param|null>,
+ *             events_to_dispatch?: null|list<string|Param>,
+ *             places?: string|list<array{ // Default: []
  *                 name?: scalar|Param|null,
  *                 metadata?: array<string, mixed>,
  *             }>,
  *             transitions?: list<array{ // Default: []
  *                 name?: string|Param,
  *                 guard?: string|Param, // An expression to block the transition.
- *                 from?: list<array{ // Default: []
+ *                 from?: \BackedEnum|string|list<array{ // Default: []
  *                     place?: string|Param,
  *                     weight?: int|Param, // Default: 1
  *                 }>,
- *                 to?: list<array{ // Default: []
+ *                 to?: \BackedEnum|string|list<array{ // Default: []
  *                     place?: string|Param,
  *                     weight?: int|Param, // Default: 1
  *                 }>,
@@ -271,7 +271,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         version_format?: scalar|Param|null, // Default: "%%s?%%s"
  *         json_manifest_path?: scalar|Param|null, // Default: null
  *         base_path?: scalar|Param|null, // Default: ""
- *         base_urls?: list<scalar|Param|null>,
+ *         base_urls?: string|list<scalar|Param|null>,
  *         packages?: array<string, array{ // Default: []
  *             strict_mode?: bool|Param, // Throw an exception if an entry is missing from the manifest.json. // Default: false
  *             version_strategy?: scalar|Param|null, // Default: null
@@ -279,12 +279,12 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *             version_format?: scalar|Param|null, // Default: null
  *             json_manifest_path?: scalar|Param|null, // Default: null
  *             base_path?: scalar|Param|null, // Default: ""
- *             base_urls?: list<scalar|Param|null>,
+ *             base_urls?: string|list<scalar|Param|null>,
  *         }>,
  *     },
  *     asset_mapper?: bool|array{ // Asset Mapper configuration
  *         enabled?: bool|Param, // Default: false
- *         paths?: array<string, scalar|Param|null>,
+ *         paths?: string|array<string, scalar|Param|null>,
  *         excluded_patterns?: list<scalar|Param|null>,
  *         exclude_dotfiles?: bool|Param, // If true, any files starting with "." will be excluded from the asset mapper. // Default: true
  *         server?: bool|Param, // If true, a "dev server" will return the assets from the public directory (true in "debug" mode only by default). // Default: true
@@ -303,7 +303,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     },
  *     translator?: bool|array{ // Translator configuration
  *         enabled?: bool|Param, // Default: true
- *         fallbacks?: list<scalar|Param|null>,
+ *         fallbacks?: string|list<scalar|Param|null>,
  *         logging?: bool|Param, // Default: false
  *         formatter?: scalar|Param|null, // Default: "translator.formatter.default"
  *         cache_dir?: scalar|Param|null, // Default: "%kernel.cache_dir%/translations"
@@ -333,7 +333,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         enabled?: bool|Param, // Default: true
  *         cache?: scalar|Param|null, // Deprecated: Setting the "framework.validation.cache.cache" configuration option is deprecated. It will be removed in version 8.0.
  *         enable_attributes?: bool|Param, // Default: true
- *         static_method?: list<scalar|Param|null>,
+ *         static_method?: string|list<scalar|Param|null>,
  *         translation_domain?: scalar|Param|null, // Default: "validators"
  *         email_validation_mode?: "html5"|"html5-allow-no-tld"|"strict"|"loose"|Param, // Default: "html5"
  *         mapping?: array{
@@ -396,7 +396,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         default_doctrine_dbal_provider?: scalar|Param|null, // Default: "database_connection"
  *         default_pdo_provider?: scalar|Param|null, // Default: null
  *         pools?: array<string, array{ // Default: []
- *             adapters?: list<scalar|Param|null>,
+ *             adapters?: string|list<scalar|Param|null>,
  *             tags?: scalar|Param|null, // Default: null
  *             public?: bool|Param, // Default: false
  *             default_lifetime?: scalar|Param|null, // Default lifetime of the pool.
@@ -419,11 +419,11 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     },
  *     lock?: bool|string|array{ // Lock configuration
  *         enabled?: bool|Param, // Default: false
- *         resources?: array<string, string|list<scalar|Param|null>>,
+ *         resources?: string|array<string, string|list<scalar|Param|null>>,
  *     },
  *     semaphore?: bool|string|array{ // Semaphore configuration
  *         enabled?: bool|Param, // Default: false
- *         resources?: array<string, scalar|Param|null>,
+ *         resources?: string|array<string, scalar|Param|null>,
  *     },
  *     messenger?: bool|array{ // Messenger configuration
  *         enabled?: bool|Param, // Default: false
@@ -453,7 +453,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *             rate_limiter?: scalar|Param|null, // Rate limiter name to use when processing messages. // Default: null
  *         }>,
  *         failure_transport?: scalar|Param|null, // Transport name to send failed messages to (after all retries have failed). // Default: null
- *         stop_worker_on_signals?: list<scalar|Param|null>,
+ *         stop_worker_on_signals?: int|string|list<scalar|Param|null>,
  *         default_bus?: scalar|Param|null, // Default: null
  *         buses?: array<string, array{ // Default: {"messenger.bus.default":{"default_middleware":{"enabled":true,"allow_no_handlers":false,"allow_no_senders":true},"middleware":[]}}
  *             default_middleware?: bool|string|array{
@@ -461,7 +461,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *                 allow_no_handlers?: bool|Param, // Default: false
  *                 allow_no_senders?: bool|Param, // Default: true
  *             },
- *             middleware?: list<string|array{ // Default: []
+ *             middleware?: string|list<string|array{ // Default: []
  *                 id?: scalar|Param|null,
  *                 arguments?: list<mixed>,
  *             }>,
@@ -510,9 +510,9 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *             retry_failed?: bool|array{
  *                 enabled?: bool|Param, // Default: false
  *                 retry_strategy?: scalar|Param|null, // service id to override the retry strategy. // Default: null
- *                 http_codes?: array<string, array{ // Default: []
+ *                 http_codes?: int|string|array<string, array{ // Default: []
  *                     code?: int|Param,
- *                     methods?: list<string|Param>,
+ *                     methods?: string|list<string|Param>,
  *                 }>,
  *                 max_retries?: int|Param, // Default: 3
  *                 delay?: int|Param, // Time in ms to delay (or the initial value when multiplier is used). // Default: 1000
@@ -563,9 +563,9 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *             retry_failed?: bool|array{
  *                 enabled?: bool|Param, // Default: false
  *                 retry_strategy?: scalar|Param|null, // service id to override the retry strategy. // Default: null
- *                 http_codes?: array<string, array{ // Default: []
+ *                 http_codes?: int|string|array<string, array{ // Default: []
  *                     code?: int|Param,
- *                     methods?: list<string|Param>,
+ *                     methods?: string|list<string|Param>,
  *                 }>,
  *                 max_retries?: int|Param, // Default: 3
  *                 delay?: int|Param, // Time in ms to delay (or the initial value when multiplier is used). // Default: 1000
@@ -582,8 +582,8 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         transports?: array<string, scalar|Param|null>,
  *         envelope?: array{ // Mailer Envelope configuration
  *             sender?: scalar|Param|null,
- *             recipients?: list<scalar|Param|null>,
- *             allowed_recipients?: list<scalar|Param|null>,
+ *             recipients?: string|list<scalar|Param|null>,
+ *             allowed_recipients?: string|list<scalar|Param|null>,
  *         },
  *         headers?: array<string, string|array{ // Default: []
  *             value?: mixed,
@@ -635,7 +635,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *             cache_pool?: scalar|Param|null, // The cache pool to use for storing the current limiter state. // Default: "cache.rate_limiter"
  *             storage_service?: scalar|Param|null, // The service ID of a custom storage implementation, this precedes any configured "cache_pool". // Default: null
  *             policy?: "fixed_window"|"token_bucket"|"sliding_window"|"compound"|"no_limit"|Param, // The algorithm to be used by this limiter.
- *             limiters?: list<scalar|Param|null>,
+ *             limiters?: string|list<scalar|Param|null>,
  *             limit?: int|Param, // The maximum allowed hits in a fixed interval or burst.
  *             interval?: scalar|Param|null, // Configures the fixed interval if "policy" is set to "fixed_window" or "sliding_window". The value must be a number followed by "second", "minute", "hour", "day", "week" or "month" (or their plural equivalent).
  *             rate?: array{ // Configures the fill rate if "policy" is set to "token_bucket".
@@ -658,20 +658,20 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *             allow_safe_elements?: bool|Param, // Allows "safe" elements and attributes. // Default: false
  *             allow_static_elements?: bool|Param, // Allows all static elements and attributes from the W3C Sanitizer API standard. // Default: false
  *             allow_elements?: array<string, mixed>,
- *             block_elements?: list<string|Param>,
- *             drop_elements?: list<string|Param>,
+ *             block_elements?: string|list<string|Param>,
+ *             drop_elements?: string|list<string|Param>,
  *             allow_attributes?: array<string, mixed>,
  *             drop_attributes?: array<string, mixed>,
  *             force_attributes?: array<string, array<string, string|Param>>,
  *             force_https_urls?: bool|Param, // Transforms URLs using the HTTP scheme to use the HTTPS scheme instead. // Default: false
- *             allowed_link_schemes?: list<string|Param>,
- *             allowed_link_hosts?: list<string|Param>|null,
+ *             allowed_link_schemes?: string|list<string|Param>,
+ *             allowed_link_hosts?: null|string|list<string|Param>,
  *             allow_relative_links?: bool|Param, // Allows relative URLs to be used in links href attributes. // Default: false
- *             allowed_media_schemes?: list<string|Param>,
- *             allowed_media_hosts?: list<string|Param>|null,
+ *             allowed_media_schemes?: string|list<string|Param>,
+ *             allowed_media_hosts?: null|string|list<string|Param>,
  *             allow_relative_medias?: bool|Param, // Allows relative URLs to be used in media source attributes (img, audio, video, ...). // Default: false
- *             with_attribute_sanitizers?: list<string|Param>,
- *             without_attribute_sanitizers?: list<string|Param>,
+ *             with_attribute_sanitizers?: string|list<string|Param>,
+ *             without_attribute_sanitizers?: string|list<string|Param>,
  *             max_input_length?: int|Param, // The maximum length allowed for the sanitized input. // Default: 0
  *         }>,
  *     },
@@ -958,7 +958,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     },
  *     password_hashers?: array<string, string|array{ // Default: []
  *         algorithm?: scalar|Param|null,
- *         migrate_from?: list<scalar|Param|null>,
+ *         migrate_from?: string|list<scalar|Param|null>,
  *         hash_algorithm?: scalar|Param|null, // Name of hashing algorithm for PBKDF2 (i.e. sha256, sha512, etc..) See hash_algos() for a list of supported algorithms. // Default: "sha512"
  *         key_length?: scalar|Param|null, // Default: 40
  *         ignore_case?: bool|Param, // Default: false
@@ -972,7 +972,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     providers?: array<string, array{ // Default: []
  *         id?: scalar|Param|null,
  *         chain?: array{
- *             providers?: list<scalar|Param|null>,
+ *             providers?: string|list<scalar|Param|null>,
  *         },
  *         entity?: array{
  *             class?: scalar|Param|null, // The full entity class name of your user class.
@@ -982,7 +982,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         memory?: array{
  *             users?: array<string, array{ // Default: []
  *                 password?: scalar|Param|null, // Default: null
- *                 roles?: list<scalar|Param|null>,
+ *                 roles?: string|list<scalar|Param|null>,
  *             }>,
  *         },
  *         ldap?: array{
@@ -991,7 +991,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *             search_dn?: scalar|Param|null, // Default: null
  *             search_password?: scalar|Param|null, // Default: null
  *             extra_fields?: list<scalar|Param|null>,
- *             default_roles?: list<scalar|Param|null>,
+ *             default_roles?: string|list<scalar|Param|null>,
  *             role_fetcher?: scalar|Param|null, // Default: null
  *             uid_key?: scalar|Param|null, // Default: "sAMAccountName"
  *             filter?: scalar|Param|null, // Default: "({uid_key}={user_identifier})"
@@ -1005,7 +1005,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     firewalls?: array<string, array{ // Default: []
  *         pattern?: scalar|Param|null,
  *         host?: scalar|Param|null,
- *         methods?: list<scalar|Param|null>,
+ *         methods?: string|list<scalar|Param|null>,
  *         security?: bool|Param, // Default: true
  *         user_checker?: scalar|Param|null, // The UserChecker to use when authenticating users in this firewall. // Default: "security.user_checker"
  *         request_matcher?: scalar|Param|null,
@@ -1024,8 +1024,8 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *             path?: scalar|Param|null, // Default: "/logout"
  *             target?: scalar|Param|null, // Default: "/"
  *             invalidate_session?: bool|Param, // Default: true
- *             clear_site_data?: list<"*"|"cache"|"cookies"|"storage"|"executionContexts"|Param>,
- *             delete_cookies?: array<string, array{ // Default: []
+ *             clear_site_data?: string|list<"*"|"cache"|"cookies"|"storage"|"executionContexts"|Param>,
+ *             delete_cookies?: string|array<string, array{ // Default: []
  *                 path?: scalar|Param|null, // Default: null
  *                 domain?: scalar|Param|null, // Default: null
  *                 secure?: scalar|Param|null, // Default: false
@@ -1092,6 +1092,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *             },
  *             registration?: bool|array{
  *                 enabled?: bool|Param, // Default: false
+ *                 hide_existing_credentials?: bool|Param, // Default: true
  *                 profile?: scalar|Param|null, // Default: "default"
  *                 options_builder?: scalar|Param|null, // Default: null
  *                 routes?: array{
@@ -1239,7 +1240,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *             success_handler?: scalar|Param|null,
  *             failure_handler?: scalar|Param|null,
  *             realm?: scalar|Param|null, // Default: null
- *             token_extractors?: list<scalar|Param|null>,
+ *             token_extractors?: string|list<scalar|Param|null>,
  *             token_handler?: string|array{
  *                 id?: scalar|Param|null,
  *                 oidc_user_info?: string|array{
@@ -1254,7 +1255,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *                 },
  *                 oidc?: array{
  *                     discovery?: array{ // Enable the OIDC discovery.
- *                         base_uri?: list<scalar|Param|null>,
+ *                         base_uri?: string|list<scalar|Param|null>,
  *                         cache?: array{
  *                             id?: scalar|Param|null, // Cache service id to use to cache the OIDC discovery configuration.
  *                         },
@@ -1297,7 +1298,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         remember_me?: array{
  *             secret?: scalar|Param|null, // Default: "%kernel.secret%"
  *             service?: scalar|Param|null,
- *             user_providers?: list<scalar|Param|null>,
+ *             user_providers?: string|list<scalar|Param|null>,
  *             catch_exceptions?: bool|Param, // Default: true
  *             signature_properties?: list<scalar|Param|null>,
  *             token_provider?: string|array{
@@ -1325,12 +1326,12 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         path?: scalar|Param|null, // Use the urldecoded format. // Default: null
  *         host?: scalar|Param|null, // Default: null
  *         port?: int|Param, // Default: null
- *         ips?: list<scalar|Param|null>,
+ *         ips?: string|list<scalar|Param|null>,
  *         attributes?: array<string, scalar|Param|null>,
  *         route?: scalar|Param|null, // Default: null
- *         methods?: list<scalar|Param|null>,
+ *         methods?: string|list<scalar|Param|null>,
  *         allow_if?: scalar|Param|null, // Default: null
- *         roles?: list<scalar|Param|null>,
+ *         roles?: string|list<scalar|Param|null>,
  *     }>,
  *     role_hierarchy?: array<string, string|list<scalar|Param|null>>,
  * }
@@ -1351,7 +1352,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     auto_reload?: scalar|Param|null,
  *     optimizations?: int|Param,
  *     default_path?: scalar|Param|null, // The default path used to load templates. // Default: "%kernel.project_dir%/templates"
- *     file_name_pattern?: list<scalar|Param|null>,
+ *     file_name_pattern?: string|list<scalar|Param|null>,
  *     paths?: array<string, mixed>,
  *     date?: array{ // The default format options used by the date filter.
  *         format?: scalar|Param|null, // Default: "F j, Y H:i"
@@ -1452,7 +1453,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         delay_between_messages?: bool|Param, // Default: false
  *         topic?: int|Param, // Default: null
  *         factor?: int|Param, // Default: 1
- *         tags?: list<scalar|Param|null>,
+ *         tags?: string|list<scalar|Param|null>,
  *         console_formatter_options?: mixed, // Default: []
  *         formatter?: scalar|Param|null,
  *         nested?: bool|Param, // Default: false
@@ -1496,7 +1497,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *             host?: scalar|Param|null,
  *         },
  *         from_email?: scalar|Param|null,
- *         to_email?: list<scalar|Param|null>,
+ *         to_email?: string|list<scalar|Param|null>,
  *         subject?: scalar|Param|null,
  *         content_type?: scalar|Param|null, // Default: null
  *         headers?: list<scalar|Param|null>,
@@ -1550,7 +1551,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     template_parameters?: array{ // Default parameters to be passed to the template
  *         className?: scalar|Param|null, // Default class attribute to apply to the root table elements // Default: "table table-bordered"
  *         columnFilter?: "thead"|"tfoot"|"both"|Param|null, // If and where to enable the DataTables Filter module // Default: null
- *         ...<mixed>
+ *         ...<string, mixed>
  *     },
  *     translation_domain?: scalar|Param|null, // Default translation domain to be used // Default: "messages"
  * }
@@ -1586,7 +1587,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         },
  *         filesystem?: array{
  *             locator?: "filesystem"|"filesystem_insecure"|Param, // Using the "filesystem_insecure" locator is not recommended due to a less secure resolver mechanism, but is provided for those using heavily symlinked projects. // Default: "filesystem"
- *             data_root?: list<scalar|Param|null>,
+ *             data_root?: string|list<scalar|Param|null>,
  *             allow_unresolvable_data_roots?: bool|Param, // Default: false
  *             bundle_resources?: array{
  *                 enabled?: bool|Param, // Default: false
@@ -1705,14 +1706,14 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *             use_underscore?: bool|Param, // Default: true
  *             unordered_list_markers?: list<scalar|Param|null>,
  *         },
- *         ...<mixed>
+ *         ...<string, mixed>
  *     },
  * }
  * @psalm-type GregwarCaptchaConfig = array{
  *     length?: scalar|Param|null, // Default: 5
  *     width?: scalar|Param|null, // Default: 130
  *     height?: scalar|Param|null, // Default: 50
- *     font?: scalar|Param|null, // Default: "E:\\PHP\\Part-DB-server\\vendor\\gregwar\\captcha-bundle\\DependencyInjection/../Generator/Font/captcha.ttf"
+ *     font?: scalar|Param|null, // Default: "/home/jan/php/Part-DB-server/vendor/gregwar/captcha-bundle/DependencyInjection/../Generator/Font/captcha.ttf"
  *     keep_value?: scalar|Param|null, // Default: false
  *     charset?: scalar|Param|null, // Default: "abcdefhjkmnprstuvwxyz23456789"
  *     as_file?: scalar|Param|null, // Default: false
@@ -1930,7 +1931,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *             script-src?: list<scalar|Param|null>,
  *             style-src?: list<scalar|Param|null>,
  *             upgrade-insecure-requests?: bool|Param, // Default: false
- *             report-uri?: list<scalar|Param|null>,
+ *             report-uri?: string|list<scalar|Param|null>,
  *             worker-src?: list<scalar|Param|null>,
  *             prefetch-src?: list<scalar|Param|null>,
  *             report-to?: scalar|Param|null,
@@ -1958,7 +1959,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *             script-src?: list<scalar|Param|null>,
  *             style-src?: list<scalar|Param|null>,
  *             upgrade-insecure-requests?: bool|Param, // Default: false
- *             report-uri?: list<scalar|Param|null>,
+ *             report-uri?: string|list<scalar|Param|null>,
  *             worker-src?: list<scalar|Param|null>,
  *             prefetch-src?: list<scalar|Param|null>,
  *             report-to?: scalar|Param|null,
@@ -1966,7 +1967,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     },
  *     referrer_policy?: bool|array{
  *         enabled?: bool|Param, // Default: false
- *         policies?: list<scalar|Param|null>,
+ *         policies?: string|list<scalar|Param|null>,
  *     },
  *     permissions_policy?: bool|array{
  *         enabled?: bool|Param, // Default: false
@@ -2097,10 +2098,10 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     secured_rp_ids?: array<string, scalar|Param|null>,
  *     counter_checker?: scalar|Param|null, // This service will check if the counter is valid. By default it throws an exception (recommended). // Default: "Webauthn\\Counter\\ThrowExceptionIfInvalid"
  *     top_origin_validator?: scalar|Param|null, // For cross origin (e.g. iframe), this service will be in charge of verifying the top origin. // Default: null
- *     creation_profiles?: array<string, array{ // Default: []
+ *     creation_profiles?: bool|array<string, array{ // Default: []
  *         rp?: array{
  *             id?: scalar|Param|null, // Default: null
- *             name?: scalar|Param|null,
+ *             name?: scalar|Param|null, // Deprecated: The child node "name" at path "webauthn.creation_profiles..rp.name" is deprecated and will be removed in the next major release. // Default: ""
  *             icon?: scalar|Param|null, // Deprecated: The child node "icon" at path "webauthn.creation_profiles..rp.icon" is deprecated and has no effect. // Default: null
  *         },
  *         challenge_length?: int|Param, // Default: 32
@@ -2114,14 +2115,40 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         extensions?: array<string, scalar|Param|null>,
  *         public_key_credential_parameters?: list<int|Param>,
  *         attestation_conveyance?: scalar|Param|null, // Default: "none"
+ *         conditional_create?: bool|Param, // Enable Conditional Create (auto-register) for this profile. When true, user presence can be false after password authentication. See https://github.com/w3c/webauthn/wiki/Explainer:-Conditional-Create // Default: false
  *     }>,
- *     request_profiles?: array<string, array{ // Default: []
+ *     request_profiles?: bool|array<string, array{ // Default: []
  *         rp_id?: scalar|Param|null, // Default: null
  *         challenge_length?: int|Param, // Default: 32
  *         timeout?: int|Param, // Default: null
  *         user_verification?: scalar|Param|null, // Default: "preferred"
  *         extensions?: array<string, scalar|Param|null>,
  *     }>,
+ *     client_override_policy?: array{ // Configuration for allowing client request values to override profile configuration
+ *         user_verification?: array{
+ *             enabled?: bool|Param, // Whether to allow client requests to override the user verification requirement // Default: false
+ *             allowed_values?: list<scalar|Param|null>,
+ *         },
+ *         authenticator_attachment?: array{
+ *             enabled?: bool|Param, // Whether to allow client requests to override the authenticator attachment // Default: true
+ *             allowed_values?: list<scalar|Param|null>,
+ *         },
+ *         resident_key?: array{
+ *             enabled?: bool|Param, // Whether to allow client requests to override the resident key requirement // Default: true
+ *             allowed_values?: list<scalar|Param|null>,
+ *         },
+ *         attestation_conveyance?: array{
+ *             enabled?: bool|Param, // Whether to allow client requests to override the attestation conveyance preference // Default: true
+ *             allowed_values?: list<scalar|Param|null>,
+ *         },
+ *         extensions?: array{
+ *             enabled?: bool|Param, // Whether to allow client requests to override extensions // Default: true
+ *         },
+ *         mediation?: array{
+ *             enabled?: bool|Param, // Whether to allow client requests to request the conditional mediation flow (auto-register). // Default: false
+ *             allowed_values?: list<scalar|Param|null>,
+ *         },
+ *     },
  *     metadata?: bool|array{ // Enable the support of the Metadata Statements. Please read the documentation for this feature.
  *         enabled?: bool|Param, // Default: false
  *         mds_repository?: scalar|Param|null, // The Metadata Statement repository.
@@ -2164,6 +2191,21 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *             allow_subdomains?: bool|Param, // Default: false
  *             secured_rp_ids?: array<string, scalar|Param|null>,
  *         }>,
+ *     },
+ *     passkey_endpoints?: bool|array{ // Enable the .well-known/passkey-endpoints discovery endpoint as defined in the W3C Passkey Endpoints specification.
+ *         enabled?: bool|Param, // Default: false
+ *         enroll?: string|array{ // URL to the passkey enrollment/creation interface.
+ *             path?: scalar|Param|null, // The absolute HTTPS URL or Symfony route name.
+ *             params?: list<mixed>,
+ *         },
+ *         manage?: string|array{ // URL to the passkey management interface.
+ *             path?: scalar|Param|null, // The absolute HTTPS URL or Symfony route name.
+ *             params?: list<mixed>,
+ *         },
+ *         prf_usage_details?: string|array{ // URL to informational page about PRF (Pseudo-Random Function) extension usage.
+ *             path?: scalar|Param|null, // The absolute HTTPS URL or Symfony route name.
+ *             params?: list<mixed>,
+ *         },
  *     },
  * }
  * @psalm-type NbgrpOneloginSamlConfig = array{ // nb:group OneLogin PHP Symfony Bundle configuration
@@ -2293,7 +2335,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         type?: scalar|Param|null,
  *         elements?: list<scalar|Param|null>,
  *     },
- *     keys_patterns?: list<scalar|Param|null>,
+ *     keys_patterns?: string|list<scalar|Param|null>,
  * }
  * @psalm-type DompdfFontLoaderConfig = array{
  *     autodiscovery?: bool|array{
@@ -2353,6 +2395,8 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     proxy_namespace?: scalar|Param|null, // Default: "Jbtronics\\SettingsBundle\\Proxies"
  *     default_storage_adapter?: scalar|Param|null, // Default: null
  *     save_after_migration?: bool|Param, // Default: true
+ *     yaml_mapping_paths?: list<scalar|Param|null>,
+ *     metadata_compiler_providers?: list<scalar|Param|null>,
  *     file_storage?: array{
  *         storage_directory?: scalar|Param|null, // Default: "%kernel.project_dir%/var/jbtronics_settings/"
  *         default_filename?: scalar|Param|null, // Default: "settings"
@@ -2649,7 +2693,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *             cast_fn?: mixed,
  *             default?: mixed,
  *             filter_class?: mixed,
- *             ...<mixed>
+ *             ...<string, mixed>
  *         }>,
  *         strict_query_parameter_validation?: mixed,
  *         hide_hydra_operation?: mixed,
@@ -2669,8 +2713,467 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         name?: mixed,
  *         allow_create?: mixed,
  *         item_uri_template?: mixed,
- *         ...<mixed>
+ *         ...<string, mixed>
  *     },
+ * }
+ * @psalm-type AiConfig = array{
+ *     platform?: array{
+ *         albert?: array{
+ *             api_key?: string|Param,
+ *             base_url?: string|Param,
+ *             http_client?: string|Param, // Service ID of the HTTP client to use // Default: "http_client"
+ *         },
+ *         amazeeai?: array{
+ *             base_url?: string|Param,
+ *             api_key?: string|Param,
+ *             http_client?: string|Param, // Service ID of the HTTP client to use // Default: "http_client"
+ *         },
+ *         anthropic?: array{
+ *             api_key?: string|Param,
+ *             version?: string|Param, // Default: null
+ *             http_client?: string|Param, // Service ID of the HTTP client to use // Default: "http_client"
+ *             cache_retention?: "none"|"short"|"long"|Param, // Prompt cache retention policy for Anthropic models // Default: "short"
+ *         },
+ *         azure?: array<string, array{ // Default: []
+ *             api_key?: string|Param,
+ *             base_url?: string|Param,
+ *             deployment?: string|Param,
+ *             api_version?: string|Param, // The used API version
+ *             http_client?: string|Param, // Service ID of the HTTP client to use // Default: "http_client"
+ *         }>,
+ *         bedrock?: array<string, array{ // Default: []
+ *             bedrock_runtime_client?: string|Param, // Service ID of the Bedrock runtime client to use // Default: null
+ *             model_catalog?: string|Param, // Default: null
+ *         }>,
+ *         cache?: array<string, array{ // Default: []
+ *             platform?: string|Param,
+ *             service?: string|Param, // The cache service id as defined under the "cache" configuration key // Default: "cache.app"
+ *             cache_key?: string|Param, // Key used to store platform results, if not set, the current platform name will be used, the "prompt_cache_key" can be set during platform call to override this value
+ *             ttl?: int|Param,
+ *         }>,
+ *         cartesia?: array{
+ *             api_key?: string|Param,
+ *             version?: string|Param,
+ *             http_client?: string|Param, // Service ID of the HTTP client to use // Default: "http_client"
+ *         },
+ *         cerebras?: array{
+ *             api_key?: string|Param,
+ *             http_client?: string|Param, // Service ID of the HTTP client to use // Default: "http_client"
+ *         },
+ *         cohere?: array{
+ *             api_key?: string|Param,
+ *             http_client?: string|Param, // Service ID of the HTTP client to use // Default: "http_client"
+ *         },
+ *         decart?: array{
+ *             api_key?: string|Param,
+ *             host?: string|Param, // Default: "https://api.decart.ai/v1"
+ *             http_client?: string|Param, // Service ID of the HTTP client to use // Default: "http_client"
+ *         },
+ *         deepseek?: array{
+ *             api_key?: string|Param,
+ *             http_client?: string|Param, // Service ID of the HTTP client to use // Default: "http_client"
+ *         },
+ *         dockermodelrunner?: array{
+ *             host_url?: string|Param, // Default: "http://127.0.0.1:12434"
+ *             http_client?: string|Param, // Service ID of the HTTP client to use // Default: "http_client"
+ *         },
+ *         elevenlabs?: array{
+ *             api_key?: string|Param,
+ *             endpoint?: string|Param, // Default: "https://api.elevenlabs.io/v1/"
+ *             http_client?: string|Param, // Service ID of the HTTP client to use // Default: "http_client"
+ *         },
+ *         failover?: array<string, array{ // Default: []
+ *             platforms?: list<scalar|Param|null>,
+ *             rate_limiter?: string|Param,
+ *         }>,
+ *         gemini?: array{
+ *             api_key?: string|Param,
+ *             http_client?: string|Param, // Service ID of the HTTP client to use // Default: "http_client"
+ *         },
+ *         generic?: array<string, array{ // Default: []
+ *             base_url?: string|Param,
+ *             api_key?: string|Param,
+ *             http_client?: string|Param, // Service ID of the HTTP client to use // Default: "http_client"
+ *             model_catalog?: string|Param, // Service ID of the model catalog to use
+ *             supports_completions?: bool|Param, // Default: true
+ *             supports_embeddings?: bool|Param, // Default: true
+ *             completions_path?: string|Param, // Default: "/v1/chat/completions"
+ *             embeddings_path?: string|Param, // Default: "/v1/embeddings"
+ *         }>,
+ *         huggingface?: array{
+ *             api_key?: string|Param,
+ *             provider?: string|Param, // Default: "hf-inference"
+ *             http_client?: string|Param, // Service ID of the HTTP client to use // Default: "http_client"
+ *         },
+ *         lmstudio?: array{
+ *             host_url?: string|Param, // Default: "http://127.0.0.1:1234"
+ *             http_client?: string|Param, // Service ID of the HTTP client to use // Default: "http_client"
+ *         },
+ *         mistral?: array{
+ *             api_key?: string|Param,
+ *             http_client?: string|Param, // Service ID of the HTTP client to use // Default: "http_client"
+ *         },
+ *         ollama?: array{
+ *             endpoint?: string|Param, // Endpoint for Ollama (e.g. "http://127.0.0.1:11434" for local, or a cloud endpoint). If null, the http_client is used as-is and must already be configured with a base URI.
+ *             api_key?: string|Param, // API key for Ollama Cloud authentication (optional for local usage)
+ *             http_client?: string|Param, // Service ID of the HTTP client to use. When "endpoint" is null, this client must be pre-configured (e.g. with a base_uri). // Default: "http_client"
+ *         },
+ *         openai?: array{
+ *             api_key?: string|Param,
+ *             region?: scalar|Param|null, // The region for OpenAI API (EU, US, or null for default) // Default: null
+ *             http_client?: string|Param, // Service ID of the HTTP client to use // Default: "http_client"
+ *         },
+ *         openrouter?: array{
+ *             api_key?: string|Param,
+ *             http_client?: string|Param, // Service ID of the HTTP client to use // Default: "http_client"
+ *         },
+ *         ovh?: array{
+ *             api_key?: scalar|Param|null,
+ *             http_client?: string|Param, // Service ID of the HTTP client to use // Default: "http_client"
+ *         },
+ *         perplexity?: array{
+ *             api_key?: string|Param,
+ *             http_client?: string|Param, // Service ID of the HTTP client to use // Default: "http_client"
+ *         },
+ *         scaleway?: array{
+ *             api_key?: scalar|Param|null,
+ *             http_client?: string|Param, // Service ID of the HTTP client to use // Default: "http_client"
+ *         },
+ *         transformersphp?: array<mixed>,
+ *         vertexai?: array{
+ *             location?: string|Param, // Required for the project-scoped endpoint. Must be set together with "project_id". // Default: null
+ *             project_id?: string|Param, // Required for the project-scoped endpoint. Must be set together with "location". // Default: null
+ *             api_key?: string|Param, // When set without "location" and "project_id", uses the global endpoint. Note: API keys only identify the project for billing and do not provide identity-based access control. For production use with IAM, audit logging, or data residency, prefer the project-scoped endpoint with service account authentication. // Default: null
+ *             http_client?: string|Param, // Service ID of the HTTP client to use // Default: "http_client"
+ *         },
+ *         voyage?: array{
+ *             api_key?: string|Param,
+ *             http_client?: string|Param, // Service ID of the HTTP client to use // Default: "http_client"
+ *         },
+ *     },
+ *     model?: array<string, array<string, array{ // Default: []
+ *         class?: string|Param, // The fully qualified class name of the model (must extend Symfony\AI\Platform\Model) // Default: "Symfony\\AI\\Platform\\Model"
+ *         capabilities?: list<value-of<\Symfony\AI\Platform\Capability>|\Symfony\AI\Platform\Capability|Param>,
+ *     }>>,
+ *     agent?: array<string, array{ // Default: []
+ *         platform?: string|Param, // Service name of platform // Default: "Symfony\\AI\\Platform\\PlatformInterface"
+ *         model?: mixed,
+ *         memory?: mixed, // Memory configuration: string for static memory, or array with "service" key for service reference // Default: null
+ *         prompt?: string|array{ // The system prompt configuration
+ *             text?: string|Param, // The system prompt text
+ *             file?: string|Param, // Path to file containing the system prompt
+ *             include_tools?: bool|Param, // Include tool definitions at the end of the system prompt // Default: false
+ *             enable_translation?: bool|Param, // Enable translation for the system prompt // Default: false
+ *             translation_domain?: string|Param, // The translation domain for the system prompt // Default: null
+ *         },
+ *         tools?: bool|array{
+ *             enabled?: bool|Param, // Default: true
+ *             services?: list<string|array{ // Default: []
+ *                 service?: string|Param,
+ *                 agent?: string|Param,
+ *                 name?: string|Param,
+ *                 description?: string|Param,
+ *                 method?: string|Param,
+ *             }>,
+ *         },
+ *         keep_tool_messages?: bool|Param, // Keep tool messages in the conversation history // Default: false
+ *         include_sources?: bool|Param, // Include sources exposed by tools as part of the tool result metadata // Default: false
+ *         fault_tolerant_toolbox?: bool|Param, // Continue the agent run even if a tool call fails // Default: true
+ *         speech?: bool|array{ // Speech (TTS/STT) decorator configuration
+ *             enabled?: bool|Param, // Default: true
+ *             text_to_speech_platform?: string|Param, // Service name of the TTS platform (e.g. ai.platform.elevenlabs). // Default: null
+ *             speech_to_text_platform?: string|Param, // Service name of the STT platform (e.g. ai.platform.openai). // Default: null
+ *             tts_model?: string|Param, // Text-to-speech model name // Default: null
+ *             tts_options?: mixed, // Provider-specific TTS options // Default: []
+ *             stt_model?: string|Param, // Speech-to-text model name // Default: null
+ *             stt_options?: mixed, // Provider-specific STT options // Default: []
+ *         },
+ *     }>,
+ *     multi_agent?: array<string, array{ // Default: []
+ *         orchestrator?: string|Param, // Service ID of the orchestrator agent
+ *         handoffs?: array<string, list<scalar|Param|null>>,
+ *         fallback?: string|Param, // Service ID of the fallback agent for unmatched requests
+ *     }>,
+ *     store?: array{
+ *         azuresearch?: array<string, array{ // Default: []
+ *             endpoint?: string|Param,
+ *             api_key?: string|Param,
+ *             api_version?: string|Param,
+ *             index_name?: string|Param, // The name of the store will be used if the "index_name" option is not set
+ *             http_client?: string|Param, // Default: "http_client"
+ *             vector_field?: string|Param, // Default: "vector"
+ *         }>,
+ *         cache?: array<string, array{ // Default: []
+ *             service?: string|Param, // Default: "cache.app"
+ *             cache_key?: string|Param, // The name of the store will be used if the key is not set.
+ *             strategy?: string|Param, // Default: "cosine"
+ *         }>,
+ *         chromadb?: array<string, array{ // Default: []
+ *             client?: string|Param, // Default: "Codewithkyrian\\ChromaDB\\Client"
+ *             collection?: string|Param,
+ *         }>,
+ *         clickhouse?: array<string, array{ // Default: []
+ *             dsn?: string|Param,
+ *             http_client?: string|Param,
+ *             database?: string|Param,
+ *             table?: string|Param,
+ *         }>,
+ *         cloudflare?: array<string, array{ // Default: []
+ *             account_id?: string|Param,
+ *             api_key?: string|Param,
+ *             index_name?: string|Param,
+ *             dimensions?: int|Param, // Default: 1536
+ *             metric?: string|Param, // Default: "cosine"
+ *             endpoint?: string|Param,
+ *         }>,
+ *         elasticsearch?: array<string, array{ // Default: []
+ *             endpoint?: string|Param,
+ *             index_name?: string|Param,
+ *             vectors_field?: string|Param, // Default: "_vectors"
+ *             dimensions?: int|Param, // Default: 1536
+ *             similarity?: string|Param, // Default: "cosine"
+ *             http_client?: string|Param, // Default: "http_client"
+ *         }>,
+ *         manticoresearch?: array<string, array{ // Default: []
+ *             endpoint?: string|Param,
+ *             table?: string|Param,
+ *             field?: string|Param, // Default: "_vectors"
+ *             type?: string|Param, // Default: "hnsw"
+ *             similarity?: string|Param, // Default: "cosine"
+ *             dimensions?: int|Param, // Default: 1536
+ *             quantization?: string|Param,
+ *         }>,
+ *         mariadb?: array<string, array{ // Default: []
+ *             connection?: string|Param,
+ *             table_name?: string|Param,
+ *             index_name?: string|Param,
+ *             vector_field_name?: string|Param,
+ *             setup_options?: array{
+ *                 dimensions?: int|Param,
+ *             },
+ *             distance?: "cosine"|"euclidean"|"distance"|Param, // Distance metric to use for vector similarity search // Default: "euclidean"
+ *         }>,
+ *         meilisearch?: array<string, array{ // Default: []
+ *             endpoint?: string|Param,
+ *             api_key?: string|Param,
+ *             index_name?: string|Param,
+ *             embedder?: string|Param, // Default: "default"
+ *             vector_field?: string|Param, // Default: "_vectors"
+ *             dimensions?: int|Param, // Default: 1536
+ *             semantic_ratio?: float|Param, // The ratio between semantic (vector) and full-text search (0.0 to 1.0). Default: 1.0 (100% semantic) // Default: 1.0
+ *         }>,
+ *         memory?: array<string, array{ // Default: []
+ *             strategy?: string|Param,
+ *         }>,
+ *         milvus?: array<string, array{ // Default: []
+ *             endpoint?: string|Param,
+ *             api_key?: string|Param,
+ *             database?: string|Param,
+ *             collection?: string|Param,
+ *             vector_field?: string|Param, // Default: "_vectors"
+ *             dimensions?: int|Param, // Default: 1536
+ *             metric_type?: string|Param, // Default: "COSINE"
+ *         }>,
+ *         mongodb?: array<string, array{ // Default: []
+ *             client?: string|Param, // Default: "MongoDB\\Client"
+ *             database?: string|Param,
+ *             collection?: string|Param,
+ *             index_name?: string|Param,
+ *             vector_field?: string|Param, // Default: "vector"
+ *             bulk_write?: bool|Param, // Default: false
+ *             setup_options?: array{
+ *                 fields?: mixed, // Default: []
+ *             },
+ *         }>,
+ *         neo4j?: array<string, array{ // Default: []
+ *             endpoint?: string|Param,
+ *             username?: string|Param,
+ *             password?: string|Param,
+ *             database?: string|Param,
+ *             vector_index_name?: string|Param,
+ *             node_name?: string|Param,
+ *             vector_field?: string|Param, // Default: "embeddings"
+ *             dimensions?: int|Param, // Default: 1536
+ *             distance?: string|Param, // Default: "cosine"
+ *             quantization?: bool|Param,
+ *         }>,
+ *         opensearch?: array<string, array{ // Default: []
+ *             endpoint?: string|Param,
+ *             index_name?: string|Param,
+ *             vectors_field?: string|Param, // Default: "_vectors"
+ *             dimensions?: int|Param, // Default: 1536
+ *             space_type?: string|Param, // Default: "l2"
+ *             http_client?: string|Param, // Default: "http_client"
+ *         }>,
+ *         pinecone?: array<string, array{ // Default: []
+ *             client?: string|Param, // Default: "Probots\\Pinecone\\Client"
+ *             index_name?: string|Param,
+ *             namespace?: string|Param,
+ *             filter?: list<scalar|Param|null>,
+ *             top_k?: int|Param,
+ *         }>,
+ *         postgres?: array<string, array{ // Default: []
+ *             dsn?: string|Param,
+ *             username?: string|Param,
+ *             password?: string|Param,
+ *             table_name?: string|Param,
+ *             vector_field?: string|Param, // Default: "embedding"
+ *             distance?: "cosine"|"inner_product"|"l1"|"l2"|Param, // Distance metric to use for vector similarity search // Default: "l2"
+ *             dbal_connection?: string|Param,
+ *             setup_options?: array{
+ *                 vector_type?: string|Param, // Default: "vector"
+ *                 vector_size?: int|Param, // Default: 1536
+ *                 index_method?: string|Param, // Default: "ivfflat"
+ *                 index_opclass?: string|Param, // Default: "vector_cosine_ops"
+ *             },
+ *         }>,
+ *         qdrant?: array<string, array{ // Default: []
+ *             endpoint?: string|Param,
+ *             api_key?: string|Param,
+ *             collection_name?: string|Param, // The name of the store will be used if the "collection_name" is not set
+ *             http_client?: string|Param, // Default: "http_client"
+ *             dimensions?: int|Param, // Default: 1536
+ *             distance?: string|Param, // Default: "Cosine"
+ *             async?: bool|Param, // Default: false
+ *         }>,
+ *         redis?: array<string, array{ // Default: []
+ *             connection_parameters?: mixed, // see https://github.com/phpredis/phpredis?tab=readme-ov-file#example-1
+ *             client?: string|Param, // a service id of a Redis client
+ *             index_name?: string|Param,
+ *             key_prefix?: string|Param, // Default: "vector:"
+ *             distance?: "COSINE"|"L2"|"IP"|Param, // Distance metric to use for vector similarity search // Default: "COSINE"
+ *         }>,
+ *         s3vectors?: array<string, array{ // Default: []
+ *             client?: string|Param, // Service reference to an existing S3VectorsClient
+ *             configuration?: array<mixed>,
+ *             vector_bucket_name?: string|Param,
+ *             index_name?: string|Param,
+ *             filter?: array<mixed>,
+ *             top_k?: int|Param, // Default number of results to return // Default: 3
+ *         }>,
+ *         sqlite?: array<string, array{ // Default: []
+ *             dsn?: string|Param,
+ *             connection?: string|Param,
+ *             table_name?: string|Param,
+ *             strategy?: string|Param,
+ *             vec?: bool|Param, // Default: false
+ *             distance?: "cosine"|"L2"|Param, // Default: "cosine"
+ *             vector_dimension?: int|Param, // Default: 1536
+ *         }>,
+ *         supabase?: array<string, array{ // Default: []
+ *             http_client?: string|Param, // Service ID of the HTTP client to use // Default: "http_client"
+ *             url?: string|Param,
+ *             api_key?: string|Param,
+ *             table?: string|Param,
+ *             vector_field?: string|Param, // Default: "embedding"
+ *             vector_dimension?: int|Param, // Default: 1536
+ *             function_name?: string|Param, // Default: "match_documents"
+ *         }>,
+ *         surrealdb?: array<string, array{ // Default: []
+ *             endpoint?: string|Param,
+ *             username?: string|Param,
+ *             password?: string|Param,
+ *             namespace?: string|Param,
+ *             database?: string|Param,
+ *             table?: string|Param,
+ *             vector_field?: string|Param, // Default: "_vectors"
+ *             strategy?: string|Param, // Default: "cosine"
+ *             dimensions?: int|Param, // Default: 1536
+ *             namespaced_user?: bool|Param,
+ *         }>,
+ *         typesense?: array<string, array{ // Default: []
+ *             endpoint?: string|Param,
+ *             api_key?: string|Param,
+ *             collection?: string|Param,
+ *             vector_field?: string|Param, // Default: "_vectors"
+ *             dimensions?: int|Param, // Default: 1536
+ *         }>,
+ *         weaviate?: array<string, array{ // Default: []
+ *             endpoint?: string|Param,
+ *             api_key?: string|Param,
+ *             http_client?: string|Param, // Default: "http_client"
+ *             collection?: string|Param, // The name of the store will be used if the "collection" is not set
+ *         }>,
+ *         vektor?: array<string, array{ // Default: []
+ *             storage_path?: string|Param, // Default: "%kernel.project_dir%/var/share"
+ *             dimensions?: int|Param, // Default: 1536
+ *         }>,
+ *     },
+ *     message_store?: array{
+ *         cache?: array<string, array{ // Default: []
+ *             service?: string|Param, // Default: "cache.app"
+ *             key?: string|Param, // The name of the message store will be used if the key is not set
+ *             ttl?: int|Param,
+ *         }>,
+ *         cloudflare?: array<string, array{ // Default: []
+ *             account_id?: string|Param,
+ *             api_key?: string|Param,
+ *             namespace?: string|Param,
+ *             endpoint_url?: string|Param, // If the version of the Cloudflare API is updated, use this key to support it.
+ *         }>,
+ *         doctrine?: array{
+ *             dbal?: array<string, array{ // Default: []
+ *                 connection?: string|Param,
+ *                 table_name?: string|Param, // The name of the message store will be used if the table_name is not set
+ *             }>,
+ *         },
+ *         meilisearch?: array<string, array{ // Default: []
+ *             endpoint?: string|Param,
+ *             api_key?: string|Param,
+ *             index_name?: string|Param,
+ *         }>,
+ *         memory?: array<string, array{ // Default: []
+ *             identifier?: string|Param,
+ *         }>,
+ *         mongodb?: array<string, array{ // Default: []
+ *             client?: string|Param, // Default: "MongoDB\\Client"
+ *             database?: string|Param,
+ *             collection?: string|Param,
+ *         }>,
+ *         pogocache?: array<string, array{ // Default: []
+ *             endpoint?: string|Param,
+ *             password?: string|Param,
+ *             key?: string|Param,
+ *         }>,
+ *         redis?: array<string, array{ // Default: []
+ *             connection_parameters?: mixed, // see https://github.com/phpredis/phpredis?tab=readme-ov-file#example-1
+ *             client?: string|Param, // a service id of a Redis client
+ *             endpoint?: string|Param,
+ *             index_name?: string|Param,
+ *         }>,
+ *         session?: array<string, array{ // Default: []
+ *             identifier?: string|Param,
+ *         }>,
+ *         surrealdb?: array<string, array{ // Default: []
+ *             endpoint?: string|Param,
+ *             username?: string|Param,
+ *             password?: string|Param,
+ *             namespace?: string|Param,
+ *             database?: string|Param,
+ *             table?: string|Param,
+ *             namespaced_user?: bool|Param, // Using a namespaced user is a good practice to prevent any undesired access to a specific table, see https://surrealdb.com/docs/surrealdb/reference-guide/security-best-practices
+ *         }>,
+ *     },
+ *     chat?: array<string, array{ // Default: []
+ *         agent?: string|Param,
+ *         message_store?: string|Param,
+ *     }>,
+ *     vectorizer?: array<string, array{ // Default: []
+ *         platform?: string|Param, // Service name of platform // Default: "Symfony\\AI\\Platform\\PlatformInterface"
+ *         model?: mixed,
+ *     }>,
+ *     indexer?: array<string, array{ // Default: []
+ *         loader?: string|Param, // Service name of loader // Default: null
+ *         source?: mixed, // Source identifier (file path, URL, etc.) or array of sources // Default: null
+ *         transformers?: list<scalar|Param|null>,
+ *         filters?: list<scalar|Param|null>,
+ *         vectorizer?: scalar|Param|null, // Service name of vectorizer // Default: "Symfony\\AI\\Store\\Document\\VectorizerInterface"
+ *         store?: string|Param, // Service name of store // Default: "Symfony\\AI\\Store\\StoreInterface"
+ *     }>,
+ *     retriever?: array<string, array{ // Default: []
+ *         vectorizer?: scalar|Param|null, // Service name of vectorizer // Default: "Symfony\\AI\\Store\\Document\\VectorizerInterface"
+ *         store?: string|Param, // Service name of store // Default: "Symfony\\AI\\Store\\StoreInterface"
+ *     }>,
  * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
@@ -2701,6 +3204,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     nelmio_cors?: NelmioCorsConfig,
  *     jbtronics_settings?: JbtronicsSettingsConfig,
  *     api_platform?: ApiPlatformConfig,
+ *     ai?: AiConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -2734,6 +3238,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         jbtronics_settings?: JbtronicsSettingsConfig,
  *         jbtronics_translation_editor?: JbtronicsTranslationEditorConfig,
  *         api_platform?: ApiPlatformConfig,
+ *         ai?: AiConfig,
  *     },
  *     "when@docker"?: array{
  *         imports?: ImportsConfig,
@@ -2764,6 +3269,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         nelmio_cors?: NelmioCorsConfig,
  *         jbtronics_settings?: JbtronicsSettingsConfig,
  *         api_platform?: ApiPlatformConfig,
+ *         ai?: AiConfig,
  *     },
  *     "when@prod"?: array{
  *         imports?: ImportsConfig,
@@ -2794,6 +3300,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         nelmio_cors?: NelmioCorsConfig,
  *         jbtronics_settings?: JbtronicsSettingsConfig,
  *         api_platform?: ApiPlatformConfig,
+ *         ai?: AiConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -2827,6 +3334,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         nelmio_cors?: NelmioCorsConfig,
  *         jbtronics_settings?: JbtronicsSettingsConfig,
  *         api_platform?: ApiPlatformConfig,
+ *         ai?: AiConfig,
  *     },
  *     ...<string, ExtensionType|array{ // extra keys must follow the when@%env% pattern or match an extension alias
  *         imports?: ImportsConfig,

@@ -69,7 +69,7 @@ class TMEProvider implements InfoProviderInterface, URLHandlerInfoProviderInterf
         return $this->tmeClient->isUsable();
     }
 
-    public function searchByKeyword(string $keyword): array
+    public function searchByKeyword(string $keyword, array $options = []): array
     {
         $response = $this->tmeClient->makeRequest('Products/Search', [
             'Country' => $this->settings->country,
@@ -99,7 +99,7 @@ class TMEProvider implements InfoProviderInterface, URLHandlerInfoProviderInterf
         return $result;
     }
 
-    public function getDetails(string $id): PartDetailDTO
+    public function getDetails(string $id, array $options = []): PartDetailDTO
     {
         $response = $this->tmeClient->makeRequest('Products/GetProducts', [
             'Country' => $this->settings->country,
@@ -280,8 +280,12 @@ class TMEProvider implements InfoProviderInterface, URLHandlerInfoProviderInterf
     {
         //If a URL starts with // we assume that it is a relative URL and we add the protocol
         if (str_starts_with($url, '//')) {
-            return 'https:' . $url;
+            $url = 'https:' . $url;
         }
+
+        //Encode bare % signs that are not already part of a valid percent-encoded sequence
+        //Fixes part numbers with % in them e.g. SMD0603-5K1-1%
+        $url = preg_replace('/%(?![0-9A-Fa-f]{2})/', '%25', $url);
 
         return $url;
     }

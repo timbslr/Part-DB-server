@@ -171,6 +171,31 @@ final class AttachmentTest extends TestCase
         $this->assertSame($expected, $attachment->isPicture());
     }
 
+    public static function pictureFiletypeFilterDataProvider(): \Iterator
+    {
+        //An URL without a file extension is only assumed to be a picture, if the attachment type allows pictures
+        yield ['https://invalid.com/redirect?id=1234', '',                  true];
+        yield ['https://invalid.com/redirect?id=1234', 'image/*',           true];
+        yield ['https://invalid.com/redirect?id=1234', '.jpg,.png',         true];
+        yield ['https://invalid.com/redirect?id=1234', 'application/pdf',   false];
+        yield ['https://invalid.com/redirect?id=1234', '.pdf,.txt',         false];
+        //An URL with a picture extension is always a picture, no matter what the attachment type says
+        yield ['https://invalid.com/picture.jpeg',     'application/pdf',   true];
+    }
+
+    #[DataProvider('pictureFiletypeFilterDataProvider')]
+    public function testIsPictureRespectsFiletypeFilter(string $external_path, string $filter, bool $expected): void
+    {
+        $attachment_type = new AttachmentType();
+        $attachment_type->setFiletypeFilter($filter);
+
+        $attachment = new PartAttachment();
+        $attachment->setAttachmentType($attachment_type);
+        $this->setProtectedProperty($attachment, 'external_path', $external_path);
+
+        $this->assertSame($expected, $attachment->isPicture());
+    }
+
     public static function builtinDataProvider(): \Iterator
     {
         yield ['', false];
@@ -276,7 +301,6 @@ final class AttachmentTest extends TestCase
     {
         $reflection = new ReflectionClass($object);
         $reflection_property = $reflection->getProperty($property);
-        $reflection_property->setAccessible(true);
         $reflection_property->setValue($object, $value);
     }
 

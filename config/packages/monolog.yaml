@@ -1,5 +1,5 @@
 monolog:
-    channels:
+    channels: # To see all channels, run bin/console debug:autowiring logger
         - deprecation # Deprecations are logged in the dedicated "deprecation" channel when it exists
 
 when@dev:
@@ -51,6 +51,7 @@ when@prod:
                 type: stream
                 channels: [deprecation]
                 path: "%kernel.logs_dir%/%kernel.environment%_deprecations.log"
+                level: "%env(DEPRECATION_LOG_LEVEL)%"
 
 when@docker:
     monolog:
@@ -75,3 +76,4 @@ when@docker:
                 type: stream
                 channels: [deprecation]
                 path: "%kernel.logs_dir%/%kernel.environment%_deprecations.log"
+                level: "%env(DEPRECATION_LOG_LEVEL)%"

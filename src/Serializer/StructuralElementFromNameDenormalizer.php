@@ -25,14 +25,17 @@ namespace App\Serializer;
 use App\Entity\Base\AbstractStructuralDBElement;
 use App\Repository\StructuralDBElementRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\DependencyInjection\Attribute\AutoconfigureTag;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 
 /**
  * @see \App\Tests\Serializer\StructuralElementFromNameDenormalizerTest
  */
-class StructuralElementFromNameDenormalizer implements DenormalizerInterface
+// '*' makes this available to every named serializer (default, import_export, ...), not just the default one.
+#[AutoconfigureTag('serializer.normalizer', ['serializer' => ['*']])]
+readonly class StructuralElementFromNameDenormalizer implements DenormalizerInterface
 {
-    public function __construct(private readonly EntityManagerInterface $em)
+    public function __construct(private EntityManagerInterface $em)
     {
     }
 

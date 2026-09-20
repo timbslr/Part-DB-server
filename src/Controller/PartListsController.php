@@ -46,7 +46,6 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-use Symfony\Component\Translation\TranslatableMessage;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 use function Symfony\Component\Translation\t;
@@ -121,11 +120,7 @@ class PartListsController extends AbstractController
         }
 
         //If the action handler returned a response, we use it, otherwise we redirect back to the previous page.
-        if ($redirectResponse !== null) {
-            return $redirectResponse;
-        }
-
-        return $this->redirect($redirect);
+        return $redirectResponse ?? $this->redirect($redirect);
     }
 
     /**
@@ -347,6 +342,8 @@ class PartListsController extends AbstractController
 
 
         $filter->setRegex($request->query->getBoolean('regex'));
+        $filter->setExtensive($request->query->getBoolean('extensive'));
+        $filter->setWildcard($request->query->getBoolean('wildcard'));
 
         return $filter;
     }

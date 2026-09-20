@@ -30,9 +30,7 @@ use Jbtronics\SettingsBundle\Settings\Settings;
 use Jbtronics\SettingsBundle\Settings\SettingsParameter;
 use Jbtronics\SettingsBundle\Settings\SettingsTrait;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Translation\TranslatableMessage as TM;
-use Symfony\Component\Validator\Constraints as Assert;
 
 #[Settings(label: new TM("settings.ips.canopy"))]
 #[SettingsIcon("fa-plug")]
@@ -72,7 +70,7 @@ class CanopySettings
     /**
      * @var string The domain used internally for the API requests. This is not necessarily the same as the domain shown to the user, which is determined by the keys of the ALLOWED_DOMAINS constant
      */
-    #[SettingsParameter(label: new TM("settings.ips.tme.country"), formType: ChoiceType::class, formOptions: ["choices" => self::ALLOWED_DOMAINS, 'translation_domain' => false])]
+    #[SettingsParameter(label: new TM("settings.ips.tme.country"), formType: ChoiceType::class, formOptions: ["choices" => self::ALLOWED_DOMAINS, 'choice_translation_domain' => false])]
     public string $domain = "DE";
 
     /**

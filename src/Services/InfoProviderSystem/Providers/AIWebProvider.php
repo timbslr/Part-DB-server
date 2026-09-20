@@ -27,22 +27,24 @@ namespace App\Services\InfoProviderSystem\Providers;
 use App\Exceptions\ProviderIDNotSupportedException;
 use App\Helpers\RandomizeUseragentHttpClient;
 use App\Services\AI\AIPlatformRegistry;
+use App\Services\InfoProviderSystem\SubmittedPageStorage;
 use App\Services\InfoProviderSystem\CreateFromUrlHelper;
 use App\Services\InfoProviderSystem\DTOJsonSchemaConverter;
 use App\Services\InfoProviderSystem\DTOs\PartDetailDTO;
+use App\Services\InfoProviderSystem\DTOs\ProviderInfoDTO;
 use App\Settings\InfoProviderSystem\AIExtractorSettings;
-use Brick\Schema\SchemaReader;
-use Imagine\Image\Format;
 use Jkphl\Micrometa;
 use League\HTMLToMarkdown\HtmlConverter;
 use Psr\Cache\CacheItemPoolInterface;
 use Symfony\AI\Platform\Message\Message;
+use Symfony\AI\Platform\Result\DeferredResult;
 use Symfony\AI\Platform\Message\MessageBag;
 use Symfony\Component\DomCrawler\Crawler;
 use Symfony\Component\DomCrawler\UriResolver;
 use Symfony\Component\HttpClient\NoPrivateNetworkHttpClient;
 use Symfony\Component\Intl\Languages;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
+use Symfony\Contracts\HttpClient\ResponseInterface;
 
 use function Symfony\Component\String\u;
 
@@ -51,7 +53,12 @@ final class AIWebProvider implements InfoProviderInterface
 {
     use FixAndValidateUrlTrait;
 
+    public const PROVIDER_KEY = 'ai_web';
+
     private const DISTRIBUTOR_NAME = 'Website';
+
+    /** @var int How much of a failed provider response is quoted in the error message */
+    private const MAX_REPORTED_RESPONSE_LENGTH = 500;
 
     private readonly HttpClientInterface $httpClient;
 
@@ -62,6 +69,7 @@ final class AIWebProvider implements InfoProviderInterface
         private readonly DTOJsonSchemaConverter $jsonSchemaConverter,
         private readonly CacheItemPoolInterface $partInfoCache,
         private readonly CreateFromUrlHelper $createFromUrlHelper,
+        private readonly SubmittedPageStorage $browserHtmlStorage,
     ) {
         //Use NoPrivateNetworkHttpClient to prevent SSRF vulnerabilities, and RandomizeUseragentHttpClient to make it harder for servers to block us
         $this->httpClient = (new RandomizeUseragentHttpClient(new NoPrivateNetworkHttpClient($httpClient)))->withOptions(
@@ -71,20 +79,23 @@ final class AIWebProvider implements InfoProviderInterface
         );
     }
 
-    public function getProviderInfo(): array
+    public function getProviderInfo(): ProviderInfoDTO
     {
-        return [
-            'name' => 'AI Web Extractor',
-            'description' => 'Extract part info from any URL using LLM',
-            //'url' => 'https://openrouter.ai',
-            'disabled_help' => 'Configure AI settings',
-            'settings_class' => AIExtractorSettings::class,
-        ];
-    }
-
-    public function getProviderKey(): string
-    {
-        return 'ai_web';
+        return new ProviderInfoDTO(
+            key: self::PROVIDER_KEY,
+            name: 'AI Web Extractor',
+            description: 'Extract part info from any URL using LLM',
+            disabledHelp: 'Configure AI settings',
+            settingsClass: AIExtractorSettings::class,
+            capabilities: [
+                ProviderCapabilities::BASIC,
+                ProviderCapabilities::PICTURE,
+                ProviderCapabilities::DATASHEET,
+                ProviderCapabilities::PRICE,
+                ProviderCapabilities::PARAMETERS,
+            ],
+            expensive: true,
+        );
     }
 
     public function isActive(): bool
@@ -142,9 +153,17 @@ final class AIWebProvider implements InfoProviderInterface
             return $cacheItem->get();
         }
 
-        // Fetch HTML content
-        $response = $this->httpClient->request('GET', $url);
-        $html = $response->getContent();
+        // Use pre-fetched browser HTML if the option is set and a stored page is available for this URL
+        $html = null;
+        if (($token = ($options[self::OPTION_SUBMITTED_PAGE_TOKEN] ?? '')) !== '') {
+            $html = $this->browserHtmlStorage->retrieve($token)?->html;
+        }
+
+        //Otherwise fetch it ourselves.
+        if ($html === null) {
+            $response = $this->httpClient->request('GET', $url);
+            $html = $response->getContent();
+        }
 
         //Convert html to markdown, to provide a cleaner input to the LLM.
         $markdown = $this->htmlToMarkdown($html, $url);
@@ -158,7 +177,7 @@ final class AIWebProvider implements InfoProviderInterface
         $llmResponse = $this->callLLM($markdown, $url, $structuredData);
 
         // Build and return PartDetailDTO
-        $result = $this->jsonSchemaConverter->jsonToDTO($llmResponse, $this->getProviderKey(), $url, $url, self::DISTRIBUTOR_NAME);
+        $result = $this->jsonSchemaConverter->jsonToDTO($llmResponse, self::PROVIDER_KEY, $url, $url, self::DISTRIBUTOR_NAME);
 
         // Cache the result for future use, to improve performance and reduce costs.
         $cacheItem->set($result);
@@ -176,9 +195,20 @@ final class AIWebProvider implements InfoProviderInterface
      */
     private function extractStructuredData(string $html, string $url): string
     {
-        //Only parse microdata, json-ld and rdfa, as they are the most common formats for structured data on product pages. Links and microformat only create clutter for the LLM
-        $micrometa = new Micrometa\Ports\Parser(Micrometa\Ports\Format::JSON_LD | Micrometa\Ports\Format::MICRODATA | Micrometa\Ports\Format::RDFA_LITE);
-        $items = $micrometa($url, $html);
+        try {
+            //Only parse microdata, json-ld and rdfa, as they are the most common formats for structured data on product pages. Links and microformat only create clutter for the LLM
+            $micrometa = new Micrometa\Ports\Parser(Micrometa\Ports\Format::JSON_LD | Micrometa\Ports\Format::MICRODATA | Micrometa\Ports\Format::RDFA_LITE);
+            $items = $micrometa($url, $html);
+        } catch (\RuntimeException $exception) {
+            //If parsing fails, try again without rdfa, as it seems to cause problems on pages like ebay
+            try {
+                $micrometa = new Micrometa\Ports\Parser(Micrometa\Ports\Format::JSON_LD | Micrometa\Ports\Format::MICRODATA);
+                $items = $micrometa($url, $html);
+            } catch (\RuntimeException $exception) {
+                //If it still fails, return empty structured data
+                return '{}';
+            }
+        }
 
         return json_encode($items->toObject(), JSON_THROW_ON_ERROR);
     }
@@ -237,17 +267,6 @@ final class AIWebProvider implements InfoProviderInterface
         return $converter->convert($htmlToConvert);
     }
 
-    public function getCapabilities(): array
-    {
-        return [
-            ProviderCapabilities::BASIC,
-            ProviderCapabilities::PICTURE,
-            ProviderCapabilities::DATASHEET,
-            ProviderCapabilities::PRICE,
-            ProviderCapabilities::PARAMETERS,
-        ];
-    }
-
     private function callLLM(string $htmlContent, string $url, ?string $structuredData = null): array
     {
         $input = new MessageBag(
@@ -263,6 +282,10 @@ final class AIWebProvider implements InfoProviderInterface
         try {
             $aiPlatform = $this->AIPlatformRegistry->getPlatform($this->settings->platform ?? throw new \RuntimeException('No AI platform selected') );
 
+            // AI inference can take much longer than PHP's default max_execution_time (typically 30s).
+            // The HTTP client timeout already enforces the configured limit; disable PHP's constraint here.
+            set_time_limit(0);
+
             //'openai/gpt-5-mini'
             $result = $aiPlatform->invoke($this->settings->model ?? throw new \RuntimeException('No model selected'), $input, [
                 'response_format' => [
@@ -270,11 +293,54 @@ final class AIWebProvider implements InfoProviderInterface
                     'json_schema' => $this->jsonSchemaConverter->getJSONSchema(),
                 ]
             ]);
+            //The platform returns a deferred result: the request is only really carried out (and the answer
+            //converted) when the result is read. Reading it outside this try would let a provider error - a
+            //rejected model, an exhausted quota, an invalid key - escape as an unhandled exception, which ends
+            //the whole request with a 500 instead of the error message this catch was written for.
+            return $result->getResult()->getContent();
         } catch (\Throwable $e) {
-            throw new \RuntimeException('LLM invocation failed: '.$e->getMessage(), previous: $e);
+            throw new \RuntimeException(
+                'LLM invocation failed: '.$e->getMessage().$this->describeProviderResponse($result ?? null),
+                previous: $e
+            );
+        }
+    }
+
+    /**
+     * Describes what the provider actually answered, for the message of a failed invocation.
+     *
+     * The exceptions of the platform only carry what its converter made of the answer, and that can be as
+     * unhelpful as "Provider returned error" - the wording a gateway like OpenRouter uses when the model
+     * provider behind it refused, with the reason in a field the converter drops. The raw response is still
+     * around at this point, so the status code and the beginning of the body are taken from there: without
+     * them, an administrator has nothing to act on.
+     *
+     * @return string The description, or an empty string if the response is not available
+     */
+    private function describeProviderResponse(?DeferredResult $result): string
+    {
+        if (!$result instanceof DeferredResult) {
+            return '';
         }
 
-        return $result->getResult()->getContent();
+        try {
+            $response = $result->getRawResult()->getObject();
+
+            if (!$response instanceof ResponseInterface) {
+                return '';
+            }
+
+            //false: the body of an error response is wanted here, not another exception
+            $body = trim($response->getContent(false));
+
+            return sprintf(' (provider answered HTTP %d: %s)', $response->getStatusCode(),
+                mb_strlen($body) > self::MAX_REPORTED_RESPONSE_LENGTH
+                    ? mb_substr($body, 0, self::MAX_REPORTED_RESPONSE_LENGTH).'...'
+                    : $body);
+        } catch (\Throwable) {
+            //Whatever went wrong while describing the failure must not replace the failure itself
+            return '';
+        }
     }
 
     private function buildSystemPrompt(): string

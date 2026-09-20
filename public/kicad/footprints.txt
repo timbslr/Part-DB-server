@@ -1,4 +1,4 @@
-# Generated on Mon May  4 05:40:05 UTC 2026
+# Generated on Mon Sep 14 07:46:57 UTC 2026
 # This file contains all footprints available in the offical KiCAD library
 Audio_Module:Reverb_BTDR-1H
 Audio_Module:Reverb_BTDR-1V
@@ -7732,6 +7732,15 @@ Connector_TE-Connectivity:TE_Micro-MaTch_2-215079-0_2x10_P1.27mm_Vertical
 Connector_TE-Connectivity:TE_Micro-MaTch_215079-4_2x02_P1.27mm_Vertical
 Connector_TE-Connectivity:TE_Micro-MaTch_215079-6_2x03_P1.27mm_Vertical
 Connector_TE-Connectivity:TE_Micro-MaTch_215079-8_2x04_P1.27mm_Vertical
+Connector_TE-Connectivity:TE_Micro-MaTch_7-188275-4_2x02_P1.27mm_Vertical
+Connector_TE-Connectivity:TE_Micro-MaTch_7-188275-6_2x03_P1.27mm_Vertical
+Connector_TE-Connectivity:TE_Micro-MaTch_7-188275-8_2x04_P1.27mm_Vertical
+Connector_TE-Connectivity:TE_Micro-MaTch_8-188275-0_2x05_P1.27mm_Vertical
+Connector_TE-Connectivity:TE_Micro-MaTch_8-188275-2_2x06_P1.27mm_Vertical
+Connector_TE-Connectivity:TE_Micro-MaTch_8-188275-4_2x07_P1.27mm_Vertical
+Connector_TE-Connectivity:TE_Micro-MaTch_8-188275-6_2x08_P1.27mm_Vertical
+Connector_TE-Connectivity:TE_Micro-MaTch_8-188275-8_2x09_P1.27mm_Vertical
+Connector_TE-Connectivity:TE_Micro-MaTch_9-188275-0_2x10_P1.27mm_Vertical
 Connector_TE-Connectivity:TE_T4041037031-000_M8_03_Socket_Straight
 Connector_TE-Connectivity:TE_T4041037041-000_M8_04_Socket_Straight
 Connector_USB:USB3_A_Molex_48393-001
@@ -8271,6 +8280,7 @@ Converter_ACDC:Converter_ACDC_TRACO_TMG_151xx_THT
 Converter_ACDC:Converter_ACDC_TRACO_TMLM-04_THT
 Converter_ACDC:Converter_ACDC_TRACO_TMLM-05_THT
 Converter_ACDC:Converter_ACDC_TRACO_TMLM-10-20_THT
+Converter_ACDC:Converter_ACDC_TRACO_TMPS03-1xx_THT
 Converter_ACDC:Converter_ACDC_TRACO_TMPW10_1xx_THT
 Converter_ACDC:Converter_ACDC_TRACO_TMPW25_1xx_THT
 Converter_ACDC:Converter_ACDC_TRACO_TMPW5-1xx_THT
@@ -8293,6 +8303,7 @@ Converter_DCDC:Converter_DCDC_Hamamatsu_C11204-1_THT
 Converter_DCDC:Converter_DCDC_MeanWell_NID30_THT
 Converter_DCDC:Converter_DCDC_MeanWell_NID60_THT
 Converter_DCDC:Converter_DCDC_MeanWell_NSD10_THT
+Converter_DCDC:Converter_DCDC_MeanWell_SMU02x-xxN_THT
 Converter_DCDC:Converter_DCDC_Murata_CRE1xxxxxx3C_THT
 Converter_DCDC:Converter_DCDC_Murata_CRE1xxxxxxDC_THT
 Converter_DCDC:Converter_DCDC_Murata_CRE1xxxxxxSC_THT
@@ -8352,6 +8363,7 @@ Converter_DCDC:Converter_DCDC_TRACO_THD_15-xxxxWIN_THT
 Converter_DCDC:Converter_DCDC_TRACO_THL30-xxxxWI_THT
 Converter_DCDC:Converter_DCDC_TRACO_THL40-xxxxWI_THT
 Converter_DCDC:Converter_DCDC_TRACO_THN10-xxxxUIR_THT
+Converter_DCDC:Converter_DCDC_TRACO_THN20-xxxxUIR_THT
 Converter_DCDC:Converter_DCDC_TRACO_THN30-xxxx_THT
 Converter_DCDC:Converter_DCDC_TRACO_THR40-72xxWI_THT
 Converter_DCDC:Converter_DCDC_TRACO_TMA-05xxD_12xxD_Dual_THT
@@ -8373,6 +8385,8 @@ Converter_DCDC:Converter_DCDC_TRACO_TMV-051xD_121xD_Dual_THT
 Converter_DCDC:Converter_DCDC_TRACO_TMV-051xS_121xS_Single_THT
 Converter_DCDC:Converter_DCDC_TRACO_TMV-241xD_Dual_THT
 Converter_DCDC:Converter_DCDC_TRACO_TMV-241xS_Single_THT
+Converter_DCDC:Converter_DCDC_TRACO_TMV-xxxxDEN_Dual_THT
+Converter_DCDC:Converter_DCDC_TRACO_TMV-xxxxEN_Single_THT
 Converter_DCDC:Converter_DCDC_TRACO_TOS06-05SIL_THT
 Converter_DCDC:Converter_DCDC_TRACO_TOS06-12SIL_THT
 Converter_DCDC:Converter_DCDC_TRACO_TRA3-xxxx_THT
@@ -9149,6 +9163,7 @@ Inductor_SMD:L_APV_APH1770
 Inductor_SMD:L_APV_APH2213
 Inductor_SMD:L_AVX_LMLP07A7
 Inductor_SMD:L_Abracon_ASPI-0425
+Inductor_SMD:L_Abracon_ASPI-0628
 Inductor_SMD:L_Abracon_ASPI-0630LR
 Inductor_SMD:L_Abracon_ASPI-3012S
 Inductor_SMD:L_Abracon_ASPI-4030S
@@ -10945,6 +10960,7 @@ Package_BGA:MAPBGA-289_14x14mm_Layout17x17_P0.8mm
 Package_BGA:Maxim_WLP-12
 Package_BGA:Maxim_WLP-12_2.008x1.608mm_Layout4x3_P0.4mm
 Package_BGA:Maxim_WLP-9_1.595x1.415_Layout3x3_P0.4mm_Ball0.27mm_Pad0.25mm_NSMD
+Package_BGA:Microchip_4HB_TFBGA-343_14x14mm_Layout21x21_P0.65mm
 Package_BGA:Microchip_FCG1152_BGA-1152_35x35mm_Layout34x34_P1.0mm
 Package_BGA:Microchip_FCSG325_BGA-325_11x11mm_Layout21x21_P0.5mm
 Package_BGA:Microchip_FCSG536_BGA-536_16x16mm_Layout30x30_P0.5mm
@@ -11417,6 +11433,7 @@ Package_DFN_QFN:MLF-8-1EP_3x3mm_P0.65mm_EP1.55x2.3mm_ThermalVias
 Package_DFN_QFN:MLPQ-16-1EP_4x4mm_P0.65mm_EP2.8x2.8mm
 Package_DFN_QFN:MPS_QFN-12_2x2mm_P0.4mm
 Package_DFN_QFN:MPS_QFN-16_3x3mm_P0.5mm
+Package_DFN_QFN:MPS_QFN-18_2x3mm_P0.4mm
 Package_DFN_QFN:Maxim_FC2QFN-14_2.5x2.5mm_P0.5mm
 Package_DFN_QFN:Maxim_TDFN-10-1EP_3x3mm_P0.5mm_EP1.58x2.35mm
 Package_DFN_QFN:Maxim_TDFN-12-1EP_3x3mm_P0.5mm_EP1.7x2.5mm
@@ -11436,7 +11453,9 @@ Package_DFN_QFN:Mini-Circuits_DL805
 Package_DFN_QFN:Mini-Circuits_FG873-4_3x3mm
 Package_DFN_QFN:NXP_LQFN-48-1EP_7x7mm_P0.5mm_EP3.5x3.5mm_16xMask0.45x0.45
 Package_DFN_QFN:NXP_LQFN-48-1EP_7x7mm_P0.5mm_EP3.5x3.5mm_16xMask0.45x0.45_ThermalVias
+Package_DFN_QFN:NXP_SOT1832-1_UQFN-16-1EP_1.6x2.4mm_P0.4mm_EP0.6x1.4mm
 Package_DFN_QFN:NXP_VQFN-16-1EP_4x4mm_P0.65mm_EP2.1x2.1mm
+Package_DFN_QFN:Nisshinbo_DFN-6_1EP_1x1mm_P0.35mm
 Package_DFN_QFN:Nordic_AQFN-73-1EP_7x7mm_P0.5mm
 Package_DFN_QFN:Nordic_AQFN-94-1EP_7x7mm_P0.4mm
 Package_DFN_QFN:OnSemi_DFN-14-1EP_4x4mm_P0.5mm_EP2.7x3.4mm
@@ -11883,6 +11902,8 @@ Package_DFN_QFN:Texas_VQFN-HR-20_3x2.5mm_P0.5mm_RQQ0011A
 Package_DFN_QFN:Texas_VQFN-RHL-20
 Package_DFN_QFN:Texas_VQFN-RHL-20_ThermalVias
 Package_DFN_QFN:Texas_VQFN-RNR0011A-11
+Package_DFN_QFN:Texas_WQFN-40-1EP_3x6mm_P0.4mm_EP1.7x4.5mm
+Package_DFN_QFN:Texas_WQFN-40-1EP_3x6mm_P0.4mm_EP1.7x4.5mm_ThermalVias
 Package_DFN_QFN:Texas_WQFN-MR-100_3x3-DapStencil
 Package_DFN_QFN:Texas_WQFN-MR-100_ThermalVias_3x3-DapStencil
 Package_DFN_QFN:Texas_X2QFN-12_1.6x1.6mm_P0.4mm
@@ -12010,7 +12031,6 @@ Package_DFN_QFN:WDFN-8-1EP_4x3mm_P0.65mm_EP2.4x1.8mm_ThermalVias
 Package_DFN_QFN:WDFN-8-1EP_6x5mm_P1.27mm_EP3.4x4mm
 Package_DFN_QFN:WDFN-8-1EP_8x6mm_P1.27mm_EP6x4.8mm
 Package_DFN_QFN:WDFN-8-1EP_8x6mm_P1.27mm_EP6x4.8mm_ThermalVias
-Package_DFN_QFN:WDFN-8_2x2mm_P0.5mm
 Package_DFN_QFN:WFDFPN-8-1EP_3x2mm_P0.5mm_EP1.25x1.35mm
 Package_DFN_QFN:WQFN-14-1EP_2.5x2.5mm_P0.5mm_EP1.45x1.45mm
 Package_DFN_QFN:WQFN-14-1EP_2.5x2.5mm_P0.5mm_EP1.45x1.45mm_ThermalVias
@@ -12356,7 +12376,6 @@ Package_DirectFET:DirectFET_SQ
 Package_DirectFET:DirectFET_ST
 Package_LCC:Analog_LCC-8_5x5mm_P1.27mm
 Package_LCC:MO047AD_PLCC-52_19.1x19.1mm_P1.27mm
-Package_LCC:PLCC-20
 Package_LCC:PLCC-20_9.0x9.0mm_P1.27mm
 Package_LCC:PLCC-20_SMD-Socket
 Package_LCC:PLCC-20_THT-Socket
@@ -12564,6 +12583,8 @@ Package_SO:HTSSOP-16-1EP_4.4x5mm_P0.65mm_EP3.4x5mm_Mask2.46x2.31mm
 Package_SO:HTSSOP-16-1EP_4.4x5mm_P0.65mm_EP3.4x5mm_Mask2.46x2.31mm_ThermalVias
 Package_SO:HTSSOP-16-1EP_4.4x5mm_P0.65mm_EP3.4x5mm_Mask2.66x2.46mm
 Package_SO:HTSSOP-16-1EP_4.4x5mm_P0.65mm_EP3.4x5mm_Mask2.66x2.46mm_ThermalVias
+Package_SO:HTSSOP-16-1EP_4.4x5mm_P0.65mm_EP3.4x5mm_Mask2.78x3.37mm
+Package_SO:HTSSOP-16-1EP_4.4x5mm_P0.65mm_EP3.4x5mm_Mask2.78x3.37mm_ThermalVias
 Package_SO:HTSSOP-16-1EP_4.4x5mm_P0.65mm_EP3.4x5mm_Mask3x3mm_ThermalVias
 Package_SO:HTSSOP-16-1EP_4.4x5mm_P0.65mm_EP3x3mm
 Package_SO:HTSSOP-20-1EP_4.4x6.5mm_P0.65mm_EP2.74x3.86mm
@@ -12918,6 +12939,8 @@ Package_SO:Texas_DYY0016A_TSOT-23-16_2x4.2mm_P0.5mm
 Package_SO:Texas_HSOP-8-1EP_3.9x4.9mm_P1.27mm
 Package_SO:Texas_HSOP-8-1EP_3.9x4.9mm_P1.27mm_ThermalVias
 Package_SO:Texas_HTSOP-8-1EP_3.9x4.9mm_P1.27mm_EP2.95x4.9mm_Mask2.4x3.1mm_ThermalVias
+Package_SO:Texas_HTSSOP-14-1EP_4.4x5mm_P0.65mm_EP3.4x5mm_Mask2.94x3.34mm
+Package_SO:Texas_HTSSOP-14-1EP_4.4x5mm_P0.65mm_EP3.4x5mm_Mask2.94x3.34mm_ThermalVias
 Package_SO:Texas_HTSSOP-14-1EP_4.4x5mm_P0.65mm_EP3.4x5mm_Mask3.155x3.255mm
 Package_SO:Texas_HTSSOP-14-1EP_4.4x5mm_P0.65mm_EP3.4x5mm_Mask3.155x3.255mm_ThermalVias
 Package_SO:Texas_PW0020A_TSSOP-20_4.4x6.5mm_P0.65mm
@@ -12956,6 +12979,7 @@ Package_SON:MPS_VSON-6_1x1.5mm_P0.5mm
 Package_SON:MicroCrystal_C7_SON-8_1.5x3.2mm_P0.9mm
 Package_SON:Microchip_USON-10-1EP_3x3mm_P0.5mm_EP1.8x2.5mm
 Package_SON:Microchip_USON-10-1EP_3x3mm_P0.5mm_EP1.8x2.5mm_ThermalVias
+Package_SON:NXP_LSON-16-1EP_3.5x4.5mm_P0.5mm_EP2x3.8mm
 Package_SON:NXP_XSON-16
 Package_SON:Nexperia_HUSON-12_USON-12-1EP_1.35x2.5mm_P0.4mm_EP0.4x2mm
 Package_SON:Nexperia_HUSON-16_USON-16-1EP_1.35x3.3mm_P0.4mm_EP0.4x2.8mm
@@ -13029,8 +13053,6 @@ Package_SON:WSON-6-1EP_2x2mm_P0.65mm_EP1x1.6mm
 Package_SON:WSON-6-1EP_2x2mm_P0.65mm_EP1x1.6mm_ThermalVias
 Package_SON:WSON-6-1EP_3x3mm_P0.95mm
 Package_SON:WSON-6_1.5x1.5mm_P0.5mm
-Package_SON:WSON-8-1EP_2x2mm_P0.5mm_EP0.9x1.6mm
-Package_SON:WSON-8-1EP_2x2mm_P0.5mm_EP0.9x1.6mm_ThermalVias
 Package_SON:WSON-8-1EP_3x2.5mm_P0.5mm_EP1.2x1.5mm_PullBack
 Package_SON:WSON-8-1EP_3x2.5mm_P0.5mm_EP1.2x1.5mm_PullBack_ThermalVias
 Package_SON:WSON-8-1EP_3x3mm_P0.5mm_EP1.2x2mm
@@ -13879,6 +13901,7 @@ Relay_THT:Relay_SPST_Hongfa_HF3F-L-xx-1HL1T
 Relay_THT:Relay_SPST_Hongfa_HF3F-L-xx-1HL2T
 Relay_THT:Relay_SPST_Hongfa_HF3F-L-xx-1HL2T-R
 Relay_THT:Relay_SPST_Hongfa_JQC-3FF_0XX-1H
+Relay_THT:Relay_SPST_MiRelay_SIP-HV1Axx
 Relay_THT:Relay_SPST_Omron-G5Q-1A
 Relay_THT:Relay_SPST_Omron_G2RL-1A
 Relay_THT:Relay_SPST_Omron_G2RL-1A-E
@@ -14400,7 +14423,9 @@ Symbol:Symbol_HighVoltage_NoTriangle_2x5mm_Copper
 Symbol:Symbol_HighVoltage_NoTriangle_6x15mm_Copper
 Symbol:Symbol_HighVoltage_Triangle_17x15mm_Copper
 Symbol:Symbol_HighVoltage_Triangle_6x6mm_Copper
+Symbol:Symbol_HighVoltage_Triangle_6x6mm_SilkScreen
 Symbol:Symbol_HighVoltage_Triangle_8x7mm_Copper
+Symbol:Symbol_HighVoltage_Triangle_8x7mm_SilkScreen
 Symbol:UKCA-Logo_12x12mm_SilkScreen
 Symbol:UKCA-Logo_20x20mm_SilkScreen
 Symbol:UKCA-Logo_30x30mm_SilkScreen

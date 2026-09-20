@@ -23,7 +23,6 @@ declare(strict_types=1);
 
 namespace App\Services\InfoProviderSystem;
 
-use App\Entity\UserSystem\User;
 use App\Exceptions\ProviderIDNotSupportedException;
 use App\Services\InfoProviderSystem\DTOs\PartDetailDTO;
 use App\Services\InfoProviderSystem\DTOs\SearchResultDTO;
@@ -72,7 +71,7 @@ final readonly class CreateFromUrlHelper
 
         $provider = $this->providerRegistry->getProviderHandlingDomain($host);
 
-        if ($provider !== null && $provider->isActive() && $provider->getProviderKey() !== $callingInfoProvider->getProviderKey()) {
+        if ($provider !== null && $provider->isActive() && $provider->getProviderInfo()->key !== $callingInfoProvider->getProviderInfo()->key) {
             try {
                 $id = $provider->getIDFromURL($url);
                 if ($id !== null) {

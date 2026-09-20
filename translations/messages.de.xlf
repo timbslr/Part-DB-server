@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="en" trgLang="de">
-  <file id="messages.en">
+  <file id="messages.de">
     <unit id="x_wTSQS" name="attachment_type.caption">
       <segment state="translated">
         <source>attachment_type.caption</source>
@@ -64,7 +64,7 @@
     <unit id="KSFhj_3" name="currency.iso_code.caption">
       <segment state="translated">
         <source>currency.iso_code.caption</source>
-        <target>ISO Code</target>
+        <target>ISO-Code</target>
       </segment>
     </unit>
     <unit id="UqMuNZQ" name="currency.symbol.caption">
@@ -410,8 +410,8 @@
       <segment state="translated">
         <source>user.edit.tfa.disable_tfa_message</source>
         <target>Dies wird &lt;b&gt;alle aktiven Zwei-Faktor-Authentifizierungsmethoden des Nutzers deaktivieren&lt;/b&gt; und die &lt;b&gt;Backupcodes löschen&lt;/b&gt;! &lt;br&gt;
-Der Benutzer wird alle Zwei-Faktor-Authentifizierungmethoden neu einrichten müssen und neue Backupcodes ausdrucken müssen! &lt;br&gt;&lt;br&gt;
-&lt;b&gt;Führen sie dies nur durch, wenn Sie über die Identität des (um Hilfe suchenden) Benutzers absolut sicher sind, da ansonsten eine Kompromittierung des Accounts durch einen Angreifer erfolgen könnte!&lt;/b&gt;</target>
+Der Benutzer wird alle Zwei-Faktor-Authentifizierungsmethoden neu einrichten müssen und neue Backupcodes ausdrucken müssen! &lt;br&gt;&lt;br&gt;
+&lt;b&gt;Führen Sie dies nur durch, wenn Sie über die Identität des (um Hilfe suchenden) Benutzers absolut sicher sind, da ansonsten eine Kompromittierung des Accounts durch einen Angreifer erfolgen könnte!&lt;/b&gt;</target>
       </segment>
     </unit>
     <unit id="APsHYu0" name="user.edit.tfa.disable_tfa.btn">
@@ -489,7 +489,7 @@ Der Benutzer wird alle Zwei-Faktor-Authentifizierungmethoden neu einrichten müs
     <unit id="BtSvnI0" name="entity.delete.confirm_title">
       <segment state="translated">
         <source>entity.delete.confirm_title</source>
-        <target>Wollen sie das Element %name% wirklich löschen?</target>
+        <target>Wollen Sie das Element %name% wirklich löschen?</target>
       </segment>
     </unit>
     <unit id="WR9DNyZ" name="entity.delete.message">
@@ -647,6 +647,12 @@ Subelemente werden beim Löschen nach oben verschoben.</target>
         <target>Diesen Parameter als EDA Feld exportieren</target>
       </segment>
     </unit>
+    <unit id="Nx6h9XW" name="specifications.eda_symbol_visibility.help">
+      <segment state="translated">
+        <source>specifications.eda_symbol_visibility.help</source>
+        <target>Diesen Parameter im Schaltplansymbol sichtbar machen</target>
+      </segment>
+    </unit>
     <unit id="XclPxI9" name="specification.create">
       <segment state="translated">
         <source>specification.create</source>
@@ -674,7 +680,7 @@ Subelemente werden beim Löschen nach oben verschoben.</target>
     <unit id="maYlJO8" name="part_list.loading.message">
       <segment state="translated">
         <source>part_list.loading.message</source>
-        <target>Dies kann einen Moment dauern. Wenn diese Nachricht längere Zeit bestehen bleibt, versuchen sie die Seite erneut zu laden.</target>
+        <target>Dies kann einen Moment dauern. Wenn diese Nachricht längere Zeit bestehen bleibt, versuchen Sie die Seite erneut zu laden.</target>
       </segment>
     </unit>
     <unit id="wKzcAZd" name="vendor.base.javascript_hint">
@@ -698,7 +704,7 @@ Subelemente werden beim Löschen nach oben verschoben.</target>
     <unit id="LN0dVIE" name="loading.message">
       <segment state="translated">
         <source>loading.message</source>
-        <target>Dies kann einen Moment dauern. Sollte diese Nachricht bestehen bleiben, dann laden sie die Seite erneut.</target>
+        <target>Dies kann einen Moment dauern. Sollte diese Nachricht bestehen bleiben, dann laden Sie die Seite erneut.</target>
       </segment>
     </unit>
     <unit id="8I0Kqhw" name="loading.bar">
@@ -812,7 +818,7 @@ Subelemente werden beim Löschen nach oben verschoben.</target>
     <unit id="bVL1K4d" name="homepage.help.text">
       <segment state="translated">
         <source>homepage.help.text</source>
-        <target>Hilfe und Tipps finden sie im &lt;a class="link-external" rel="noopener" target="_blank" href="%href%"&gt;Wiki&lt;/a&gt; der GitHub Seite.</target>
+        <target>Hilfe und Tipps finden Sie im &lt;a class="link-external" rel="noopener" target="_blank" href="%href%"&gt;Wiki&lt;/a&gt; der GitHub Seite.</target>
       </segment>
     </unit>
     <unit id="dnirx4v" name="homepage.forum.caption">
@@ -1034,6 +1040,18 @@ Subelemente werden beim Löschen nach oben verschoben.</target>
         <target>Bearbeite Bauteileinformationen von</target>
       </segment>
     </unit>
+    <unit id="aznOqRU" name="form.dirty_form.unsaved_changes.title">
+      <segment state="translated">
+        <source>form.dirty_form.unsaved_changes.title</source>
+        <target>Ungespeicherte Änderungen</target>
+      </segment>
+    </unit>
+    <unit id="dfzAYsv" name="form.dirty_form.unsaved_changes.message">
+      <segment state="translated">
+        <source>form.dirty_form.unsaved_changes.message</source>
+        <target>Sie haben ungespeicherte Änderungen vorgenommen, die verloren gehen, wenn Sie diese Seite verlassen. Möchten Sie wirklich fortfahren?</target>
+      </segment>
+    </unit>
     <unit id="EwY218_" name="part.edit.tab.common">
       <segment state="translated">
         <source>part.edit.tab.common</source>
@@ -1061,7 +1079,7 @@ Subelemente werden beim Löschen nach oben verschoben.</target>
     <unit id="7.yHB9w" name="part.edit.tab.advanced.ipn.partIncrementHeader">
       <segment state="translated">
         <source>part.edit.tab.advanced.ipn.partIncrementHeader</source>
-        <target>Vorschläge mit numerischen Teil-Inkrement</target>
+        <target>Vorschläge mit numerischem Teil-Inkrement</target>
       </segment>
     </unit>
     <unit id="H1o.JFb" name="part.edit.tab.advanced.ipn.prefix.description.current-increment">
@@ -1103,13 +1121,13 @@ Subelemente werden beim Löschen nach oben verschoben.</target>
     <unit id="a6_204L" name="part.edit.tab.advanced.ipn.prefix.hierarchical.increment">
       <segment state="translated">
         <source>part.edit.tab.advanced.ipn.prefix.hierarchical.increment</source>
-        <target>IPN-Präfixe mit hierarchischer Kategorienreihenfolge der Elternpräfixe und ein teilsspezifisches Inkrement</target>
+        <target>IPN-Präfixe mit hierarchischer Kategorienreihenfolge der Elternpräfixe und ein teilspezifisches Inkrement</target>
       </segment>
     </unit>
     <unit id="VS8w2qp" name="part.edit.tab.advanced.ipn.prefix.not_saved">
       <segment state="translated">
         <source>part.edit.tab.advanced.ipn.prefix.not_saved</source>
-        <target>Bitte erstellen Sie zuerst ein Bauteil und weisen Sie dieses einer Kategorie zu: mit vorhandenen Kategorien und derene eigenen IPN-Präfix kann die IPN-Angabe für das jeweilige Teil automatisch vorgeschlagen werden</target>
+        <target>Bitte erstellen Sie zuerst ein Bauteil und weisen Sie dieses einer Kategorie zu: mit vorhandenen Kategorien und deren eigenem IPN-Präfix kann die IPN-Angabe für das jeweilige Teil automatisch vorgeschlagen werden</target>
       </segment>
     </unit>
     <unit id="c3S4jwK" name="part.edit.tab.part_lots">
@@ -1661,7 +1679,7 @@ Subelemente werden beim Löschen nach oben verschoben.</target>
     <unit id="2LvyOme" name="tfa.check.code.help">
       <segment state="translated">
         <source>tfa.check.code.help</source>
-        <target>Geben Sie hier den 6-stelligen Code aus ihrer Authenticator App ein oder einen ihrer Backupcodes, wenn der Authenticator nicht verfügbar ist.</target>
+        <target>Geben Sie hier den 6-stelligen Code aus Ihrer Authenticator App ein oder einen Ihrer Backupcodes, wenn der Authenticator nicht verfügbar ist.</target>
       </segment>
     </unit>
     <unit id="cynL4Ju" name="login.title">
@@ -1985,7 +2003,7 @@ Subelemente werden beim Löschen nach oben verschoben.</target>
     <unit id="MhULnmd" name="tfa_backup.codes.help">
       <segment state="translated">
         <source>tfa_backup.codes.help</source>
-        <target>Wenn Sie keinen Zugriff auf ihr Gerät mit der Authenticator App mehr haben sollten (Smartphone verloren, Datenverlust, etc.) können Sie einen dieser Codes benutzen, um Zugriff auf ihren Account zu erhalten und evtl. eine neue Authenticator App einzurichten. Jeder dieser Codes lässt sich einmal einsetzen, es empfiehlt sich benutzte Codes zu streichen. Jeder mit Zugriff auf diese Codes kann potentiell auf ihren Account zugreifen, daher bewahren Sie sie an einem sicheren Ort auf.</target>
+        <target>Wenn Sie keinen Zugriff auf Ihr Gerät mit der Authenticator App mehr haben sollten (Smartphone verloren, Datenverlust, etc.) können Sie einen dieser Codes benutzen, um Zugriff auf Ihren Account zu erhalten und evtl. eine neue Authenticator App einzurichten. Jeder dieser Codes lässt sich einmal einsetzen, es empfiehlt sich benutzte Codes zu streichen. Jeder mit Zugriff auf diese Codes kann potentiell auf Ihren Account zugreifen, daher bewahren Sie sie an einem sicheren Ort auf.</target>
       </segment>
     </unit>
     <unit id="Bb1CfFr" name="tfa_backup.username">
@@ -2051,7 +2069,7 @@ Subelemente werden beim Löschen nach oben verschoben.</target>
     <unit id="YUvPIMf" name="group.label">
       <segment state="translated">
         <source>group.label</source>
-        <target>Group</target>
+        <target>Gruppe</target>
       </segment>
     </unit>
     <unit id="6KVtnw_" name="user.permissions">
@@ -2123,8 +2141,8 @@ Subelemente werden beim Löschen nach oben verschoben.</target>
     <unit id="d1qp0Zo" name="tfa_google.disable.confirm_message">
       <segment state="translated">
         <source>tfa_google.disable.confirm_message</source>
-        <target>Wenn Sie die Authenticator App deaktivieren, werden alle Backupcodes gelöscht, daher sie müssen sie evtl. neu ausdrucken.&lt;br&gt;
-Beachten Sie außerdem, dass ihr Account ohne Zwei-Faktor-Authentifizierung nicht mehr so gut gegen Angreifer geschützt ist!</target>
+        <target>Wenn Sie die Authenticator App deaktivieren, werden alle Backupcodes gelöscht, daher müssen Sie sie evtl. neu ausdrucken.&lt;br&gt;
+Beachten Sie außerdem, dass Ihr Account ohne Zwei-Faktor-Authentifizierung nicht mehr so gut gegen Angreifer geschützt ist!</target>
       </segment>
     </unit>
     <unit id="yu9MSt5" name="tfa_google.disabled_message">
@@ -2154,7 +2172,7 @@ Beachten Sie außerdem, dass ihr Account ohne Zwei-Faktor-Authentifizierung nich
     <unit id="3fS0adj" name="tfa_google.step.download_backup">
       <segment state="translated">
         <source>tfa_google.step.download_backup</source>
-        <target>Drucken Sie ihre Backupcodes aus und lagern sie an einem sicheren Ort</target>
+        <target>Drucken Sie Ihre Backupcodes aus und lagern Sie sie an einem sicheren Ort</target>
       </segment>
     </unit>
     <unit id="GwP5l.J" name="tfa_google.manual_setup">
@@ -2202,7 +2220,7 @@ Beachten Sie außerdem, dass ihr Account ohne Zwei-Faktor-Authentifizierung nich
     <unit id="JfAWdYn" name="tfa_backup.explanation">
       <segment state="translated">
         <source>tfa_backup.explanation</source>
-        <target>Mithilfe dieser Backupcodes können Sie auf ihren Account zugreifen, selbst wenn Sie das Gerät mit der Authenticator App verlieren sollten. Drucken Sie die Codes aus und bewahren Sie sie an einem sicheren Ort auf.</target>
+        <target>Mithilfe dieser Backupcodes können Sie auf Ihren Account zugreifen, selbst wenn Sie das Gerät mit der Authenticator App verlieren sollten. Drucken Sie die Codes aus und bewahren Sie sie an einem sicheren Ort auf.</target>
       </segment>
     </unit>
     <unit id="rL_dWDY" name="tfa_backup.reset_codes.confirm_title">
@@ -2293,7 +2311,7 @@ Wenn Sie dies fehlerhafterweise gemacht haben oder ein Computer nicht mehr vertr
     <unit id="YJL675Z" name="tfa_trustedDevices.invalidate.confirm_message">
       <segment state="translated">
         <source>tfa_trustedDevices.invalidate.confirm_message</source>
-        <target>Sie werden auf allen Rechnern erneut eine Zwei-Faktor-Authentifizierung durchführen müssen. Achten Sie darauf, dass Sie ihr Zwei-Faktor-Gerät zur Hand haben.</target>
+        <target>Sie werden auf allen Rechnern erneut eine Zwei-Faktor-Authentifizierung durchführen müssen. Achten Sie darauf, dass Sie Ihr Zwei-Faktor-Gerät zur Hand haben.</target>
       </segment>
     </unit>
     <unit id="pXHUh_h" name="tfa_trustedDevices.invalidate.btn">
@@ -2419,7 +2437,7 @@ Wenn Sie dies fehlerhafterweise gemacht haben oder ein Computer nicht mehr vertr
     <unit id="_cDBy1s" name="entity.edit_flash.invalid">
       <segment state="translated">
         <source>entity.edit_flash.invalid</source>
-        <target>Änderungen konnten nicht gespeichert werden! Prüfen Sie ihre Eingaben!</target>
+        <target>Änderungen konnten nicht gespeichert werden! Prüfen Sie Ihre Eingaben!</target>
       </segment>
     </unit>
     <unit id="vJr16w7" name="entity.created_flash">
@@ -2431,7 +2449,7 @@ Wenn Sie dies fehlerhafterweise gemacht haben oder ein Computer nicht mehr vertr
     <unit id="_H9ego6" name="entity.created_flash.invalid">
       <segment state="translated">
         <source>entity.created_flash.invalid</source>
-        <target>Element konnte nicht angelegt werden! Prüfen Sie ihre Eingaben!</target>
+        <target>Element konnte nicht angelegt werden! Prüfen Sie Ihre Eingaben!</target>
       </segment>
     </unit>
     <unit id="pzsUrS4" name="attachment_type.deleted">
@@ -2521,7 +2539,7 @@ Wenn Sie dies fehlerhafterweise gemacht haben oder ein Computer nicht mehr vertr
       </notes>
       <segment state="translated">
         <source>log.undo.do_undelete_before</source>
-        <target>Sie müssen das Element zuerst wiederherstellen bevor sie diese Änderung rückgängig machen können!</target>
+        <target>Sie müssen das Element zuerst wiederherstellen bevor Sie diese Änderung rückgängig machen können!</target>
       </segment>
     </unit>
     <unit id="joq2rah" name="log.undo.log_type_invalid">
@@ -2554,7 +2572,7 @@ Wenn Sie dies fehlerhafterweise gemacht haben oder ein Computer nicht mehr vertr
     <unit id="YhbpKMM" name="part.created_flash.invalid">
       <segment state="translated">
         <source>part.created_flash.invalid</source>
-        <target>Fehler beim Anlegen: Überprüfen Sie ihre Eingaben!</target>
+        <target>Fehler beim Anlegen: Überprüfen Sie Ihre Eingaben!</target>
       </segment>
     </unit>
     <unit id="b4W9LjP" name="scan.qr_not_found">
@@ -2602,7 +2620,7 @@ Wenn Sie dies fehlerhafterweise gemacht haben oder ein Computer nicht mehr vertr
     <unit id="dT3xOQw" name="pw_reset.new_pw.error">
       <segment state="translated">
         <source>pw_reset.new_pw.error</source>
-        <target>Benutzername oder Token ungültig! Überprüfen Sie ihre Eingaben.</target>
+        <target>Benutzername oder Token ungültig! Überprüfen Sie Ihre Eingaben.</target>
       </segment>
     </unit>
     <unit id="oXWCfpb" name="pw_reset.new_pw.success">
@@ -2632,7 +2650,7 @@ Wenn Sie dies fehlerhafterweise gemacht haben oder ein Computer nicht mehr vertr
     <unit id="JXsEzjd" name="tfa_u2f.u2f_delete.access_denied">
       <segment state="translated">
         <source>tfa_u2f.u2f_delete.access_denied</source>
-        <target>Sie können nur ihre eigenen Sicherheitsschlüssel löschen!</target>
+        <target>Sie können nur Ihre eigenen Sicherheitsschlüssel löschen!</target>
       </segment>
     </unit>
     <unit id="IHQWMw5" name="tfa.u2f.u2f_delete.success">
@@ -2777,6 +2795,69 @@ Wenn Sie dies fehlerhafterweise gemacht haben oder ein Computer nicht mehr vertr
       <segment state="translated">
         <source>log.extra</source>
         <target>Extra</target>
+      </segment>
+    </unit>
+    <unit id="A.jmuYn" name="log.access_method">
+      <notes>
+        <note priority="1">new</note>
+      </notes>
+      <segment state="translated">
+        <source>log.access_method</source>
+        <target>Zugriffsmethode</target>
+      </segment>
+    </unit>
+    <unit id="1HJ94q3" name="log.access_method.web">
+      <notes>
+        <note priority="1">new</note>
+      </notes>
+      <segment state="translated">
+        <source>log.access_method.web</source>
+        <target>Web-Oberfläche</target>
+      </segment>
+    </unit>
+    <unit id="Nkv7mDF" name="log.access_method.cli">
+      <notes>
+        <note priority="1">new</note>
+      </notes>
+      <segment state="translated">
+        <source>log.access_method.cli</source>
+        <target>CLI</target>
+      </segment>
+    </unit>
+    <unit id="RrNwi2T" name="log.access_method.api">
+      <notes>
+        <note priority="1">new</note>
+      </notes>
+      <segment state="translated">
+        <source>log.access_method.api</source>
+        <target>REST-API</target>
+      </segment>
+    </unit>
+    <unit id="3xmQSNB" name="log.access_method.mcp">
+      <notes>
+        <note priority="1">new</note>
+      </notes>
+      <segment state="translated">
+        <source>log.access_method.mcp</source>
+        <target>MCP</target>
+      </segment>
+    </unit>
+    <unit id="Ne1j4YH" name="log.request_id">
+      <notes>
+        <note priority="1">new</note>
+      </notes>
+      <segment state="translated">
+        <source>log.request_id</source>
+        <target>Anfrage-ID</target>
+      </segment>
+    </unit>
+    <unit id="DvJdiEx" name="log.request_id.filter_by">
+      <notes>
+        <note priority="1">new</note>
+      </notes>
+      <segment state="translated">
+        <source>log.request_id.filter_by</source>
+        <target>Alle Log-Einträge mit dieser Anfrage-ID anzeigen</target>
       </segment>
     </unit>
     <unit id="EU6XNV5" name="part.table.name">
@@ -2950,13 +3031,13 @@ Wenn Sie dies fehlerhafterweise gemacht haben oder ein Computer nicht mehr vertr
     <unit id="Q_myBuD" name="eda.status.symbol_set">
       <segment state="translated">
         <source>eda.status.symbol_set</source>
-        <target>KiCad Symbol gesetzt</target>
+        <target>KiCad-Symbol gesetzt</target>
       </segment>
     </unit>
     <unit id="QGLfvit" name="eda.status.footprint_set">
       <segment state="translated">
         <source>eda.status.footprint_set</source>
-        <target>KiCad Footprint gesetzt</target>
+        <target>KiCad-Footprint gesetzt</target>
       </segment>
     </unit>
     <unit id="hkze9M." name="eda.status.reference_set">
@@ -2968,13 +3049,13 @@ Wenn Sie dies fehlerhafterweise gemacht haben oder ein Computer nicht mehr vertr
     <unit id="OTXbAfL" name="eda.status.complete">
       <segment state="translated">
         <source>eda.status.complete</source>
-        <target>EDA Felder vollständig (Symbol, Footprint, Referenz)</target>
+        <target>EDA-Felder vollständig (Symbol, Footprint, Referenz)</target>
       </segment>
     </unit>
     <unit id="z9E5RB." name="eda.status.partial">
       <segment state="translated">
         <source>eda.status.partial</source>
-        <target>EDA Felder teilweise gesetzt</target>
+        <target>EDA-Felder teilweise gesetzt</target>
       </segment>
     </unit>
     <unit id="bMkafCp" name="flash.login_successful">
@@ -3166,7 +3247,7 @@ Wenn Sie dies fehlerhafterweise gemacht haben oder ein Computer nicht mehr vertr
     <unit id="JxoUNuJ" name="label_options.lines_mode.help">
       <segment state="translated">
         <source>label_options.lines_mode.help</source>
-        <target>Wenn Sie hier Twig auswählen, wird das Contentfeld als Twig-Template interpretiert. Weitere Hilfe gibt es in der &lt;a href="https://twig.symfony.com/doc/3.x/templates.html"&gt;Twig Dokumentation&lt;/a&gt; und dem &lt;a href="https://docs.part-db.de/usage/labels.html#twig-mode"&gt;Wiki&lt;/a&gt;.</target>
+        <target>Wenn Sie hier Twig auswählen, wird das Contentfeld als Twig-Template interpretiert. Weitere Hilfe gibt es in der &lt;a href="https://twig.symfony.com/doc/3.x/templates.html"&gt;Twig-Dokumentation&lt;/a&gt; und dem &lt;a href="https://docs.part-db.de/usage/labels.html#twig-mode"&gt;Wiki&lt;/a&gt;.</target>
       </segment>
     </unit>
     <unit id="isvxbiX" name="label_options.page_size.label">
@@ -3643,7 +3724,7 @@ Wenn Sie dies fehlerhafterweise gemacht haben oder ein Computer nicht mehr vertr
     <unit id="jcKsYZ0" name="markdown.loading">
       <segment state="translated">
         <source>markdown.loading</source>
-        <target>Lade Markdown. Wenn diese längere Zeit bestehen bleibt, versuchen sie die Website erneut zu laden!</target>
+        <target>Lade Markdown. Wenn diese längere Zeit bestehen bleibt, versuchen Sie die Website erneut zu laden!</target>
       </segment>
     </unit>
     <unit id="GU0AvHP" name="pw_reset.email.subject">
@@ -4311,7 +4392,7 @@ Wenn Sie dies fehlerhafterweise gemacht haben oder ein Computer nicht mehr vertr
       </notes>
       <segment state="translated">
         <source>category.edit.disable_footprints.help</source>
-        <target>Wenn diese Option aktiviert ist, ist die Footprint-Eigenschaft für alle Bauteile in dieser Kategorie, deaktiviert.</target>
+        <target>Wenn diese Option aktiviert ist, ist die Footprint-Eigenschaft für alle Bauteile in dieser Kategorie deaktiviert.</target>
       </segment>
     </unit>
     <unit id="JWHe4Hi" name="category.edit.disable_manufacturers">
@@ -4331,7 +4412,7 @@ Wenn Sie dies fehlerhafterweise gemacht haben oder ein Computer nicht mehr vertr
       </notes>
       <segment state="translated">
         <source>category.edit.disable_manufacturers.help</source>
-        <target>Wenn diese Option aktiviert ist, ist die Hersteller Eigenschaft für alle Bauteile in dieser Kategorie, deaktiviert.</target>
+        <target>Wenn diese Option aktiviert ist, ist die Hersteller-Eigenschaft für alle Bauteile in dieser Kategorie deaktiviert.</target>
       </segment>
     </unit>
     <unit id="g_gRbhu" name="category.edit.disable_autodatasheets">
@@ -4538,7 +4619,7 @@ Wenn Sie dies fehlerhafterweise gemacht haben oder ein Computer nicht mehr vertr
       </notes>
       <segment state="translated">
         <source>company.edit.auto_product_url</source>
-        <target>Produkt URL</target>
+        <target>Produkt-URL</target>
       </segment>
     </unit>
     <unit id="GgV7KA6" name="company.edit.auto_product_url.help">
@@ -4568,7 +4649,7 @@ Wenn Sie dies fehlerhafterweise gemacht haben oder ein Computer nicht mehr vertr
       </notes>
       <segment state="translated">
         <source>currency.edit.iso_code</source>
-        <target>ISO Code</target>
+        <target>ISO-Code</target>
       </segment>
     </unit>
     <unit id="riG2jA5" name="currency.edit.exchange_rate">
@@ -4656,7 +4737,7 @@ Element 1 -&gt; Element 1.2</target>
       </notes>
       <segment state="translated">
         <source>measurement_unit.edit.use_si_prefix</source>
-        <target>Benutze SI Prefixe</target>
+        <target>Benutze SI-Prefixe</target>
       </segment>
     </unit>
     <unit id="vvnrMJA" name="measurement_unit.edit.use_si_prefix.help">
@@ -4666,7 +4747,7 @@ Element 1 -&gt; Element 1.2</target>
       </notes>
       <segment state="translated">
         <source>measurement_unit.edit.use_si_prefix.help</source>
-        <target>Wenn diese Option aktiviert ist, werden bei Ausgabe der Zahlen SI Prefixe benutzt (z.B. 1,2kg anstatt 1200g)</target>
+        <target>Wenn diese Option aktiviert ist, werden bei Ausgabe der Zahlen SI-Prefixe benutzt (z.B. 1,2kg anstatt 1200g)</target>
       </segment>
     </unit>
     <unit id="gPCdcst" name="measurement_unit.edit.unit_symbol">
@@ -6590,7 +6671,7 @@ Element 1 -&gt; Element 1.2</target>
     <unit id="lv4PVt2" name="filter.bulk_import_job.status.stopped">
       <segment state="translated">
         <source>filter.bulk_import_job.status.stopped</source>
-        <target>Stopped</target>
+        <target>Gestoppt</target>
       </segment>
     </unit>
     <unit id="0qKD5hC" name="filter.bulk_import_job.status.failed">
@@ -6722,7 +6803,7 @@ Element 1 -&gt; Element 1.2</target>
     <unit id="FCRoT6l" name="filter.parameter_value_constraint.operator.GREATER_EQUAL_RANGE">
       <segment state="translated">
         <source>filter.parameter_value_constraint.operator.GREATER_EQUAL_RANGE</source>
-        <target>Größer gleich der Wertebereich</target>
+        <target>Größer gleich dem Wertebereich</target>
       </segment>
     </unit>
     <unit id="6T0tThe" name="filter.parameter_value_constraint.operator.LESS_THAN_RANGE">
@@ -6734,7 +6815,7 @@ Element 1 -&gt; Element 1.2</target>
     <unit id="4ZMf_IM" name="filter.parameter_value_constraint.operator.LESS_EQUAL_RANGE">
       <segment state="translated">
         <source>filter.parameter_value_constraint.operator.LESS_EQUAL_RANGE</source>
-        <target>Kleiner gleich der Wertebereich</target>
+        <target>Kleiner gleich dem Wertebereich</target>
       </segment>
     </unit>
     <unit id="Xo4sRNx" name="filter.parameter_value_constraint.operator.RANGE_IN_RANGE">
@@ -6956,7 +7037,7 @@ Element 1 -&gt; Element 1.2</target>
     <unit id="y43.78W" name="permission.preset.editor.desc">
       <segment state="translated">
         <source>permission.preset.editor.desc</source>
-        <target>Erlauben Bauteile und Datenstrukturen zu bearbeiten</target>
+        <target>Bearbeiten von Bauteilen und Datenstrukturen erlauben</target>
       </segment>
     </unit>
     <unit id="4b.u_RZ" name="permission.preset.admin">
@@ -6992,7 +7073,7 @@ Element 1 -&gt; Element 1.2</target>
     <unit id="jnDXhpi" name="user.edit.permission_success">
       <segment state="translated">
         <source>user.edit.permission_success</source>
-        <target>Berechtigungsvorlage erfolgreich angewendet. Prüfen Sie, dass die neuen Berechtigungen ihrer Erwartung entsprechen.</target>
+        <target>Berechtigungsvorlage erfolgreich angewendet. Prüfen Sie, dass die neuen Berechtigungen Ihrer Erwartung entsprechen.</target>
       </segment>
     </unit>
     <unit id="Yia.nsG" name="perm.group.data">
@@ -7112,7 +7193,7 @@ Element 1 -&gt; Element 1.2</target>
     <unit id="uok31Te" name="project.bom.delete.confirm">
       <segment state="translated">
         <source>project.bom.delete.confirm</source>
-        <target>Wollen sie diesen BOM-Eintrag wirklich löschen?</target>
+        <target>Wollen Sie diesen BOM-Eintrag wirklich löschen?</target>
       </segment>
     </unit>
     <unit id="hpPkHYF" name="project.add_parts_to_project">
@@ -7239,6 +7320,12 @@ Element 1 -&gt; Element 1.2</target>
       <segment state="translated">
         <source>project.info.bom_add_parts</source>
         <target>BOM-Einträge hinzufügen</target>
+      </segment>
+    </unit>
+    <unit id=".kp4e.H" name="project.bom.export_csv">
+      <segment state="translated">
+        <source>project.bom.export_csv</source>
+        <target>Als CSV exportieren</target>
       </segment>
     </unit>
     <unit id="mo8KjGV" name="project.info.info.label">
@@ -7484,7 +7571,7 @@ Element 1 -&gt; Element 1.2</target>
     <unit id="iuSpPbg" name="project.builds.check_project_status">
       <segment state="translated">
         <source>project.builds.check_project_status</source>
-        <target>Der aktuelle Projektstatus ist &lt;b&gt;"%project_status%"&lt;/b&gt;. Sie sollten überprüfen, ob sie das Projekt mit diesem Status wirklich bauen wollen!</target>
+        <target>Der aktuelle Projektstatus ist &lt;b&gt;"%project_status%"&lt;/b&gt;. Sie sollten überprüfen, ob Sie das Projekt mit diesem Status wirklich bauen wollen!</target>
       </segment>
     </unit>
     <unit id="Y7vSSxi" name="project.builds.following_bom_entries_miss_instock_n">
@@ -7796,7 +7883,7 @@ Element 1 -&gt; Element 1.2</target>
     <unit id="lLXp.Sn" name="log.element_edited.changed_fields.disable_autodatasheets">
       <segment state="translated">
         <source>log.element_edited.changed_fields.disable_autodatasheets</source>
-        <target>Deaktiviere Automatische Datenblatt-Links</target>
+        <target>Deaktiviere automatische Datenblatt-Links</target>
       </segment>
     </unit>
     <unit id="fCDSKXJ" name="log.element_edited.changed_fields.disable_properties">
@@ -7928,7 +8015,7 @@ Element 1 -&gt; Element 1.2</target>
     <unit id="YcyvkgJ" name="log.element_edited.changed_fields.iso_code">
       <segment state="translated">
         <source>log.element_edited.changed_fields.iso_code</source>
-        <target>ISO Code</target>
+        <target>ISO-Code</target>
       </segment>
     </unit>
     <unit id="wFzQD92" name="log.element_edited.changed_fields.unit">
@@ -8246,7 +8333,7 @@ Element 1 -&gt; Element 1.2</target>
     <unit id="J0_jYnW" name="parts.import.flash.error">
       <segment state="translated">
         <source>parts.import.flash.error</source>
-        <target>Es sind Fehler während des Exports aufgetreten. Dies ist vermutlich durch fehlerhafte Daten verursacht.</target>
+        <target>Es sind Fehler während des Imports aufgetreten. Dies ist vermutlich durch fehlerhafte Daten verursacht.</target>
       </segment>
     </unit>
     <unit id="07X4Us1" name="parts.import.format.auto">
@@ -8264,7 +8351,7 @@ Element 1 -&gt; Element 1.2</target>
     <unit id="Wp1kHtK" name="parts.import.flash.error.invalid_file">
       <segment state="translated">
         <source>parts.import.flash.error.invalid_file</source>
-        <target>Datei fehlerhaft / falsch formatiert. Überprüfen Sie, dass sie das richtige Format gewählt haben.</target>
+        <target>Datei fehlerhaft / falsch formatiert. Überprüfen Sie, dass Sie das richtige Format gewählt haben.</target>
       </segment>
     </unit>
     <unit id="5qhQXjJ" name="parts.import.part_category.label">
@@ -9811,6 +9898,72 @@ Bitte beachten Sie, dass Sie sich nicht als deaktivierter Benutzer ausgeben kön
         <target>Währung</target>
       </segment>
     </unit>
+    <unit id="KyC_YsX" name="settings.ips.trustedparts">
+      <segment state="translated">
+        <source>settings.ips.trustedparts</source>
+        <target>TrustedParts</target>
+      </segment>
+    </unit>
+    <unit id="iB2.9sg" name="settings.ips.trustedparts.help">
+      <segment state="translated">
+        <source>settings.ips.trustedparts.help</source>
+        <target>TrustedParts.com ist eine von der ECIA betriebene Suchmaschine für Bauteile, die die Angebote autorisierter Distributoren zusammenfasst. Sie müssen Zugriff auf deren API beantragen, um diesen Anbieter nutzen zu können.</target>
+      </segment>
+    </unit>
+    <unit id="Mhe.lWu" name="settings.ips.trustedparts.companyId">
+      <segment state="translated">
+        <source>settings.ips.trustedparts.companyId</source>
+        <target>Firmen-ID</target>
+      </segment>
+    </unit>
+    <unit id="DvzhYe1" name="settings.ips.trustedparts.companyId.help">
+      <segment state="translated">
+        <source>settings.ips.trustedparts.companyId.help</source>
+        <target>Die Firmenkennung, die Ihrem TrustedParts.com-Konto zugewiesen wurde. Sie finden diese auf der API-Schlüssel-Seite Ihres Kontos.</target>
+      </segment>
+    </unit>
+    <unit id="AqF7ns9" name="settings.ips.trustedparts.apiKey.help">
+      <segment state="translated">
+        <source>settings.ips.trustedparts.apiKey.help</source>
+        <target>Der API-Schlüssel, der Ihrem TrustedParts.com-Konto zugewiesen wurde. Sie finden diesen auf der API-Schlüssel-Seite Ihres Kontos.</target>
+      </segment>
+    </unit>
+    <unit id="Gh676P6" name="settings.ips.trustedparts.searchLimit">
+      <segment state="translated">
+        <source>settings.ips.trustedparts.searchLimit</source>
+        <target>Suchlimit</target>
+      </segment>
+    </unit>
+    <unit id="R7oiMLD" name="settings.ips.trustedparts.searchLimit.help">
+      <segment state="translated">
+        <source>settings.ips.trustedparts.searchLimit.help</source>
+        <target>Die maximale Anzahl an Ergebnissen, die für eine Stichwortsuche angezeigt werden.</target>
+      </segment>
+    </unit>
+    <unit id="DFkCu4n" name="settings.ips.trustedparts.inStockOnly">
+      <segment state="translated">
+        <source>settings.ips.trustedparts.inStockOnly</source>
+        <target>Nur verfügbare Angebote</target>
+      </segment>
+    </unit>
+    <unit id="EF2mFRR" name="settings.ips.trustedparts.inStockOnly.help">
+      <segment state="translated">
+        <source>settings.ips.trustedparts.inStockOnly.help</source>
+        <target>Wenn aktiviert, werden nur Angebote von Distributoren zurückgegeben, die das Bauteil derzeit auf Lager haben.</target>
+      </segment>
+    </unit>
+    <unit id="r4gkOcR" name="settings.ips.trustedparts.useCachedData">
+      <segment state="translated">
+        <source>settings.ips.trustedparts.useCachedData</source>
+        <target>Zwischengespeicherte Daten verwenden</target>
+      </segment>
+    </unit>
+    <unit id="JNIu4bu" name="settings.ips.trustedparts.useCachedData.help">
+      <segment state="translated">
+        <source>settings.ips.trustedparts.useCachedData.help</source>
+        <target>Wenn aktiviert, antwortet TrustedParts.com mit zwischengespeicherten Lager- und Preisdaten, anstatt die Distributoren in Echtzeit abzufragen. Dies ist schneller und zählt nicht gegen die Ratenlimits, allerdings können die Daten veraltet sein.</target>
+      </segment>
+    </unit>
     <unit id="kKv0J3." name="settings.system.attachments">
       <segment state="translated">
         <source>settings.system.attachments</source>
@@ -10028,6 +10181,36 @@ Bitte beachten Sie, dass Sie sich nicht als deaktivierter Benutzer ausgeben kön
         <target>Servereinstellungen</target>
       </segment>
     </unit>
+    <unit id="ZDiR5ya" name="settings.misc.mcp">
+      <segment state="translated">
+        <source>settings.misc.mcp</source>
+        <target>MCP (Model Context Protocol) Server</target>
+      </segment>
+    </unit>
+    <unit id="CdFWDgN" name="settings.misc.mcp.enabled">
+      <segment state="translated">
+        <source>settings.misc.mcp.enabled</source>
+        <target>MCP-Endpunkt aktivieren</target>
+      </segment>
+    </unit>
+    <unit id="Gyos.5e" name="settings.misc.mcp.enabled.help">
+      <segment state="translated">
+        <source>settings.misc.mcp.enabled.help</source>
+        <target>Aktiviert den MCP-Endpunkt (Model Context Protocol) unter /mcp, der es KI-Assistenten ermöglicht, mit Part-DB zu interagieren.</target>
+      </segment>
+    </unit>
+    <unit id="Q7J0OKP" name="settings.misc.mcp.editing_enabled">
+      <segment state="translated">
+        <source>settings.misc.mcp.editing_enabled</source>
+        <target>MCP-Werkzeuge zur Bauteilbearbeitung aktivieren</target>
+      </segment>
+    </unit>
+    <unit id="wolnNE7" name="settings.misc.mcp.editing_enabled.help">
+      <segment state="translated">
+        <source>settings.misc.mcp.editing_enabled.help</source>
+        <target>Erlaubt KI-Assistenten, Bauteile über MCP-Werkzeuge zu erstellen, zu bearbeiten, zu löschen und Lagerbestände anzupassen. Wenn deaktiviert, bleiben alle MCP-Werkzeuge schreibgeschützt, unabhängig vom Berechtigungsumfang des verbundenen Tokens oder den eigenen Berechtigungen des Benutzers.</target>
+      </segment>
+    </unit>
     <unit id="xtw_ol7" name="settings.misc.kicad_eda">
       <segment state="translated">
         <source>settings.misc.kicad_eda</source>
@@ -10049,7 +10232,7 @@ Bitte beachten Sie, dass Sie sich nicht als deaktivierter Benutzer ausgeben kön
     <unit id="X5.rQdO" name="settings.misc.kicad_eda.datasheet_link">
       <segment state="translated">
         <source>settings.misc.kicad_eda.datasheet_link</source>
-        <target>Datasheet Feld verlinkt auf PDF</target>
+        <target>Datenblatt-Feld verlinkt auf PDF</target>
       </segment>
     </unit>
     <unit id="Fm1QTCs" name="settings.misc.kicad_eda.datasheet_link.help">
@@ -10127,13 +10310,13 @@ Bitte beachten Sie, dass Sie sich nicht als deaktivierter Benutzer ausgeben kön
     <unit id="bABze6_" name="settings.misc.kicad_eda.editor.default_footprints">
       <segment state="translated">
         <source>settings.misc.kicad_eda.editor.default_footprints</source>
-        <target>Standard Footprint-Liste</target>
+        <target>Standard-Footprint-Liste</target>
       </segment>
     </unit>
     <unit id="3Ycxg5M" name="settings.misc.kicad_eda.editor.default_symbols">
       <segment state="translated">
         <source>settings.misc.kicad_eda.editor.default_symbols</source>
-        <target>Standardsymboliste</target>
+        <target>Standardsymbolliste</target>
       </segment>
     </unit>
     <unit id="ADK3.8x" name="settings.misc.kicad_eda.editor.default_files_help">
@@ -11627,7 +11810,7 @@ Bitte beachten Sie, dass Sie sich nicht als deaktivierter Benutzer ausgeben kön
     <unit id="SNkUbfh" name="info_providers.bulk_import.confirm_stop_job">
       <segment state="translated">
         <source>info_providers.bulk_import.confirm_stop_job</source>
-        <target>Sind sie sicher, dass sie diesen Auftrag anhalten wollen?</target>
+        <target>Sind Sie sicher, dass Sie diesen Auftrag anhalten wollen?</target>
       </segment>
     </unit>
     <unit id="dlO_h_K" name="part.filter.in_bulk_import_job">
@@ -11831,7 +12014,7 @@ Bitte beachten Sie, dass Sie sich nicht als deaktivierter Benutzer ausgeben kön
     <unit id="xIZ_mEX" name="project.builds.no_bom_entries">
       <segment state="translated">
         <source>project.builds.no_bom_entries</source>
-        <target>Das Projekt hat keine BOM Einträge</target>
+        <target>Das Projekt hat keine BOM-Einträge</target>
       </segment>
     </unit>
     <unit id="pCKgjIr" name="settings.behavior.sidebar.data_structure_nodes_table_include_children">
@@ -11849,8 +12032,8 @@ Bitte beachten Sie, dass Sie sich nicht als deaktivierter Benutzer ausgeben kön
     <unit id="Gdlnmav" name="info_providers.search.error.oauth_reconnect">
       <segment state="translated">
         <source>info_providers.search.error.oauth_reconnect</source>
-        <target>Folgende Informationsquelle benötigt eine OAuth Neu-Verbindung: %provider%
-Dies ist auf der Informationsquellen Übersichtsseite möglich.</target>
+        <target>Folgende Informationsquelle benötigt eine erneute OAuth-Verbindung: %provider%
+Dies ist auf der Informationsquellen-Übersichtsseite möglich.</target>
       </segment>
     </unit>
     <unit id="L4nq52R" name="settings.misc.ipn_suggest.useDuplicateDescription.help">
@@ -12125,7 +12308,7 @@ Bitte beachten Sie, dass dieses System derzeit experimentell ist und die hier de
       <segment state="translated">
         <source>settings.ips.buerklin.help</source>
         <target>Buerklin-API-Zugriffsbeschränkungen: 100 Requests/Minute pro IP-Adresse
-Buerklin-API-Authentication-Server: 
+Buerklin-API-Authentication-Server:
 10 Requests/Minute pro IP-Adresse</target>
       </segment>
     </unit>
@@ -12144,7 +12327,7 @@ Buerklin-API-Authentication-Server:
     <unit id="RFhwYWd" name="info_providers.search.error.transport_exception">
       <segment state="translated">
         <source>info_providers.search.error.transport_exception</source>
-        <target>Transportfehler beim Abrufen von Informationen von den Anbietern. Überprüfen Sie, ob Ihr Server über einen Internetzugang verfügt. Weitere Informationen finden Sie in den Serverprotokollen. Transportfehler beim Abrufen von Informationen von den Anbietern. Überprüfen Sie, ob Ihr Server über einen Internetzugang verfügt. Weitere Informationen finden Sie in den Serverprotokollen.</target>
+        <target>Transportfehler beim Abrufen von Informationen von den Anbietern. Überprüfen Sie, ob Ihr Server über einen Internetzugang verfügt. Weitere Informationen finden Sie in den Serverprotokollen.</target>
       </segment>
     </unit>
     <unit id="PExOL_J" name="update_manager.title">
@@ -12282,7 +12465,7 @@ Buerklin-API-Authentication-Server:
     <unit id="jQSkEnc" name="update_manager.update_to_latest">
       <segment state="translated">
         <source>update_manager.update_to_latest</source>
-        <target>Update to latest version</target>
+        <target>Auf neueste Version aktualisieren</target>
       </segment>
     </unit>
     <unit id="BLqqNYf" name="update_manager.update_to_specific">
@@ -12300,7 +12483,7 @@ Buerklin-API-Authentication-Server:
     <unit id="cTzUzRc" name="update_manager.up_to_date">
       <segment state="translated">
         <source>update_manager.up_to_date</source>
-        <target>Up to date</target>
+        <target>Aktuell</target>
       </segment>
     </unit>
     <unit id="4twG2aT" name="update_manager.newer">
@@ -12486,7 +12669,7 @@ Buerklin-API-Authentication-Server:
     <unit id="Gt.91s_" name="perm.system.manage_updates">
       <segment state="translated">
         <source>perm.system.manage_updates</source>
-        <target>Part-DB Updated verwalten</target>
+        <target>Part-DB Updates verwalten</target>
       </segment>
     </unit>
     <unit id="Mw2sya4" name="update_manager.create_backup">
@@ -12594,7 +12777,7 @@ Buerklin-API-Authentication-Server:
     <unit id="b.ubGIM" name="update_manager.progress.do_not_close">
       <segment state="translated">
         <source>update_manager.progress.do_not_close</source>
-        <target>Bitte schließen Sie die Seite nicht, während das Update läuft. Das Update wird fortgeführt sogar wenn Sie diese Seite schließen, aber Sie werden nicht inn der Lage sein, den Fortschritt zu beobachten.</target>
+        <target>Bitte schließen Sie die Seite nicht, während das Update läuft. Das Update wird fortgeführt sogar wenn Sie diese Seite schließen, aber Sie werden nicht in der Lage sein, den Fortschritt zu beobachten.</target>
       </segment>
     </unit>
     <unit id="SQxsQbQ" name="update_manager.progress.auto_refresh">
@@ -12636,13 +12819,13 @@ Buerklin-API-Authentication-Server:
     <unit id="quoDXGW" name="update_manager.progress.downgrade_do_not_close">
       <segment state="translated">
         <source>update_manager.progress.downgrade_do_not_close</source>
-        <target>Bitte schließen Sie die Seite nicht, während das Downgrade läuft. Das Update wird fortgeführt sogar wenn Sie diese Seite schließen, aber Sie werden nicht inn der Lage sein, den Fortschritt zu beobachten.</target>
+        <target>Bitte schließen Sie die Seite nicht, während das Downgrade läuft. Das Update wird fortgeführt sogar wenn Sie diese Seite schließen, aber Sie werden nicht in der Lage sein, den Fortschritt zu beobachten.</target>
       </segment>
     </unit>
     <unit id="k056kqg" name="update_manager.confirm_downgrade">
       <segment state="translated">
         <source>update_manager.confirm_downgrade</source>
-        <target>Sind Sie sicher, dass sie Part-DB downgraden wollen? Dies wird auf eine ältere Version zurück gesetzt. Es wird ein Backup vor dem Downgrade erstellt.</target>
+        <target>Sind Sie sicher, dass Sie Part-DB downgraden wollen? Dies wird auf eine ältere Version zurück gesetzt. Es wird ein Backup vor dem Downgrade erstellt.</target>
       </segment>
     </unit>
     <unit id="FqMFu60" name="update_manager.downgrade_removes_update_manager">
@@ -12666,13 +12849,13 @@ Buerklin-API-Authentication-Server:
     <unit id="sKf8kah" name="update_manager.restore_confirm_message">
       <segment state="translated">
         <source>update_manager.restore_confirm_message</source>
-        <target>Sind Sie sicher dass die ihre Datenbank von diesem Backup wiederherstellen möchten?</target>
+        <target>Sind Sie sicher, dass Sie Ihre Datenbank von diesem Backup wiederherstellen möchten?</target>
       </segment>
     </unit>
     <unit id="iCc3vNw" name="update_manager.restore_confirm_warning">
       <segment state="translated">
         <source>update_manager.restore_confirm_warning</source>
-        <target>WARNUNG: Dies wird ihre aktuelle Datenbank überschreiben. Diese Aktion kann nicht rückgängig gemacht werden! Stellen Sie sicher dass sie ein aktuelles Backup haben, bevor Sie fortfahren.</target>
+        <target>WARNUNG: Dies wird Ihre aktuelle Datenbank überschreiben. Diese Aktion kann nicht rückgängig gemacht werden! Stellen Sie sicher, dass Sie ein aktuelles Backup haben, bevor Sie fortfahren.</target>
       </segment>
     </unit>
     <unit id="Tsaqpw6" name="update_manager.web_updates_disabled">
@@ -12987,6 +13170,690 @@ Buerklin-API-Authentication-Server:
         <target>Letzte Inventur</target>
       </segment>
     </unit>
+    <unit id="_cV3WJ." name="perm.tools.component_image_generator">
+      <segment state="translated">
+        <source>perm.tools.component_image_generator</source>
+        <target>Bauteilbild-Generator</target>
+      </segment>
+    </unit>
+    <unit id="w4Qd7_v" name="tools.value_calc.title">
+      <segment state="translated">
+        <source>tools.value_calc.title</source>
+        <target>Bauteilbild-Generator</target>
+      </segment>
+    </unit>
+    <unit id="UVNkQz9" name="tools.bulk_gen.title">
+      <segment state="translated">
+        <source>tools.bulk_gen.title</source>
+        <target>Bauteilbilder im Stapel generieren</target>
+      </segment>
+    </unit>
+    <unit id="2kWHU2t" name="tools.bulk_gen.intro">
+      <segment state="translated">
+        <source>tools.bulk_gen.intro</source>
+        <target>Ausgewählte Bauteile, die noch kein Bild haben und wie ein Widerstand, SMD-Widerstand oder Kondensator aussehen, werden unten aufgelistet. Überprüfen Sie den automatisch erkannten Typ und Wert und generieren und hängen Sie dann die Bilder in einem Schritt an.</target>
+      </segment>
+    </unit>
+    <unit id="o7Hhf0y" name="tools.bulk_gen.pick_location">
+      <segment state="translated">
+        <source>tools.bulk_gen.pick_location</source>
+        <target>— Lagerort auswählen —</target>
+      </segment>
+    </unit>
+    <unit id="4.7quoQ" name="tools.bulk_gen.load">
+      <segment state="translated">
+        <source>tools.bulk_gen.load</source>
+        <target>Bauteile laden</target>
+      </segment>
+    </unit>
+    <unit id="O.MYXkR" name="tools.bulk_gen.none">
+      <segment state="translated">
+        <source>tools.bulk_gen.none</source>
+        <target>Keines der %count% ausgewählten Bauteile konnte als Widerstand, SMD-Widerstand oder Kondensator ohne vorhandenes Bild erkannt werden.</target>
+      </segment>
+    </unit>
+    <unit id="x7s9G8d" name="tools.bulk_gen.found">
+      <segment state="translated">
+        <source>tools.bulk_gen.found</source>
+        <target>Bauteil(e) bereit zur Bildgenerierung.</target>
+      </segment>
+    </unit>
+    <unit id="zZ5O3AO" name="tools.bulk_gen.part">
+      <segment state="translated">
+        <source>tools.bulk_gen.part</source>
+        <target>Bauteil</target>
+      </segment>
+    </unit>
+    <unit id="lIH6iys" name="tools.bulk_gen.type">
+      <segment state="translated">
+        <source>tools.bulk_gen.type</source>
+        <target>Erkannter Typ</target>
+      </segment>
+    </unit>
+    <unit id="QIHaCTI" name="tools.bulk_gen.value">
+      <segment state="translated">
+        <source>tools.bulk_gen.value</source>
+        <target>Wert</target>
+      </segment>
+    </unit>
+    <unit id="DEZRBBp" name="tools.bulk_gen.wip">
+      <segment state="translated">
+        <source>tools.bulk_gen.wip</source>
+        <target>Überprüfen Sie hier die erkannten Typen und Werte — das Generieren und Anhängen der Bilder ist der nächste Schritt.</target>
+      </segment>
+    </unit>
+    <unit id="drnXOiF" name="tools.bulk_gen.no_selection">
+      <segment state="translated">
+        <source>tools.bulk_gen.no_selection</source>
+        <target>Es wurden keine Bauteile ausgewählt. Wählen Sie Bauteile in einer Liste aus und wählen Sie die Aktion "Bauteilbilder generieren".</target>
+      </segment>
+    </unit>
+    <unit id="1PrfW.0" name="tools.bulk_gen.skipped">
+      <segment state="translated">
+        <source>tools.bulk_gen.skipped</source>
+        <target>übersprungen: haben bereits ein Bild oder sind nicht klassifizierbar</target>
+      </segment>
+    </unit>
+    <unit id="p41pCTH" name="tools.bulk_gen.preview">
+      <segment state="translated">
+        <source>tools.bulk_gen.preview</source>
+        <target>Vorschau</target>
+      </segment>
+    </unit>
+    <unit id="NRuvA_w" name="tools.bulk_gen.appearance">
+      <segment state="translated">
+        <source>tools.bulk_gen.appearance</source>
+        <target>Bild-Einstellungen</target>
+      </segment>
+    </unit>
+    <unit id="P5fnLRL" name="tools.bulk_gen.apply_all">
+      <segment state="translated">
+        <source>tools.bulk_gen.apply_all</source>
+        <target>Auf alle Zeilen anwenden</target>
+      </segment>
+    </unit>
+    <unit id="pldOZDv" name="tools.bulk_gen.back">
+      <segment state="translated">
+        <source>tools.bulk_gen.back</source>
+        <target>Zurück zu den Bauteilen</target>
+      </segment>
+    </unit>
+    <unit id="85.3bGE" name="tools.bulk_gen.with_picture">
+      <segment state="translated">
+        <source>tools.bulk_gen.with_picture</source>
+        <target>%count% ausgewählte(s) Bauteil(e) haben bereits ein Bild und wurden nicht aufgelistet.</target>
+      </segment>
+    </unit>
+    <unit id="8Hv3Fih" name="tools.bulk_gen.regenerate">
+      <segment state="translated">
+        <source>tools.bulk_gen.regenerate</source>
+        <target>Diese %count% neu generieren / überschreiben</target>
+      </segment>
+    </unit>
+    <unit id="O6LlTDp" name="tools.bulk_gen.overwrite_mode">
+      <segment state="translated">
+        <source>tools.bulk_gen.overwrite_mode</source>
+        <target>Überschreibmodus: Bauteile, die bereits ein Bild haben, werden einbezogen (markiert mit "hat Bild"). Das Generieren ersetzt ein zuvor generiertes Bild und wird zur Vorschau — manuell hochgeladene Bilder bleiben erhalten.</target>
+      </segment>
+    </unit>
+    <unit id="CRmDeDn" name="tools.bulk_gen.has_picture_hint">
+      <segment state="translated">
+        <source>tools.bulk_gen.has_picture_hint</source>
+        <target>Dieses Bauteil hat bereits ein Bild. Das Generieren setzt das neue Bild als Vorschau und ersetzt ein zuvor generiertes Bild; hochgeladene Fotos bleiben erhalten.</target>
+      </segment>
+    </unit>
+    <unit id="V.Z95Ya" name="tools.bulk_gen.overwrite_exit">
+      <segment state="translated">
+        <source>tools.bulk_gen.overwrite_exit</source>
+        <target>Nur Bauteile ohne Bild</target>
+      </segment>
+    </unit>
+    <unit id="hpMtwLE" name="tools.bulk_gen.has_picture">
+      <segment state="translated">
+        <source>tools.bulk_gen.has_picture</source>
+        <target>hat Bild</target>
+      </segment>
+    </unit>
+    <unit id="0QW7sAE" name="tools.bulk_gen.help.title">
+      <segment state="translated">
+        <source>tools.bulk_gen.help.title</source>
+        <target>So erhalten Sie die beste automatische Erkennung — was in die Details eines Bauteils gehört</target>
+      </segment>
+    </unit>
+    <unit id="TnVBe2o" name="tools.bulk_gen.help.intro">
+      <segment state="translated">
+        <source>tools.bulk_gen.help.intro</source>
+        <target>Jedes Feld wird zuerst aus den Parametern des Bauteils gelesen, dann aus seinem Namen und der Beschreibung. Fügen Sie eines der unten genannten hinzu, um die Erkennung zu verbessern. Ein Bauteil wird hier nur aufgelistet, wenn es noch kein Bild hat und sein Wert gelesen werden kann.</target>
+      </segment>
+    </unit>
+    <unit id="QQZe5y0" name="tools.bulk_gen.help.col_field">
+      <segment state="translated">
+        <source>tools.bulk_gen.help.col_field</source>
+        <target>Feld</target>
+      </segment>
+    </unit>
+    <unit id="1QowDug" name="tools.bulk_gen.help.col_param">
+      <segment state="translated">
+        <source>tools.bulk_gen.help.col_param</source>
+        <target>Parameter mit dem Namen hinzufügen…</target>
+      </segment>
+    </unit>
+    <unit id="CqB4_7l" name="tools.bulk_gen.help.col_text">
+      <segment state="translated">
+        <source>tools.bulk_gen.help.col_text</source>
+        <target>…oder im Namen / der Beschreibung angeben</target>
+      </segment>
+    </unit>
+    <unit id="TzOhtVs" name="tools.bulk_gen.help.value">
+      <segment state="translated">
+        <source>tools.bulk_gen.help.value</source>
+        <target>Wert (zur Klassifizierung erforderlich)</target>
+      </segment>
+    </unit>
+    <unit id="q1oFve4" name="tools.bulk_gen.help.voltage">
+      <segment state="translated">
+        <source>tools.bulk_gen.help.voltage</source>
+        <target>Nennspannung (Kondensatoren)</target>
+      </segment>
+    </unit>
+    <unit id="m.ukxwY" name="tools.bulk_gen.help.tolerance">
+      <segment state="translated">
+        <source>tools.bulk_gen.help.tolerance</source>
+        <target>Toleranz</target>
+      </segment>
+    </unit>
+    <unit id="9JuLf7_" name="tools.bulk_gen.help.pitch">
+      <segment state="translated">
+        <source>tools.bulk_gen.help.pitch</source>
+        <target>Anschlussabstand (Kondensatoren)</target>
+      </segment>
+    </unit>
+    <unit id="Mm5XjTE" name="tools.bulk_gen.help.diameter">
+      <segment state="translated">
+        <source>tools.bulk_gen.help.diameter</source>
+        <target>Gehäusedurchmesser (Kondensatoren)</target>
+      </segment>
+    </unit>
+    <unit id="_go1VH3" name="tools.bulk_gen.help.smd">
+      <segment state="translated">
+        <source>tools.bulk_gen.help.smd</source>
+        <target>SMD-Größe (Widerstände → Footprint)</target>
+      </segment>
+    </unit>
+    <unit id="F_rt.V0" name="tools.bulk_gen.help.footprint_col">
+      <segment state="translated">
+        <source>tools.bulk_gen.help.footprint_col</source>
+        <target>der zugewiesene Footprint</target>
+      </segment>
+    </unit>
+    <unit id="BzfGAkJ" name="tools.bulk_gen.kicad">
+      <segment state="translated">
+        <source>tools.bulk_gen.kicad</source>
+        <target>KiCad</target>
+      </segment>
+    </unit>
+    <unit id="6p_Fewa" name="tools.bulk_gen.write_eda">
+      <segment state="translated">
+        <source>tools.bulk_gen.write_eda</source>
+        <target>KiCad-Einstellungen für ausgewählte Bauteile schreiben</target>
+      </segment>
+    </unit>
+    <unit id="2fjEIWv" name="tools.bulk_gen.eda_written">
+      <segment state="translated">
+        <source>tools.bulk_gen.eda_written</source>
+        <target>EDA-Einstellungen geschrieben</target>
+      </segment>
+    </unit>
+    <unit id="ls7Uqra" name="tools.bulk_gen.footprint_ph">
+      <segment state="translated">
+        <source>tools.bulk_gen.footprint_ph</source>
+        <target>Footprint (optional)</target>
+      </segment>
+    </unit>
+    <unit id="oAIk8i7" name="tools.bulk_gen.reference">
+      <segment state="translated">
+        <source>tools.bulk_gen.reference</source>
+        <target>Referenzpräfix</target>
+      </segment>
+    </unit>
+    <unit id="muj74qD" name="tools.bulk_gen.kicad_hint">
+      <segment state="translated">
+        <source>tools.bulk_gen.kicad_hint</source>
+        <target>Vorgeschlagene Werte — bearbeiten Sie jedes Feld vor dem Schreiben.</target>
+      </segment>
+    </unit>
+    <unit id="Br89uCs" name="tools.bulk_gen.generate_attach">
+      <segment state="translated">
+        <source>tools.bulk_gen.generate_attach</source>
+        <target>Bilder an ausgewählte Bauteile anhängen</target>
+      </segment>
+    </unit>
+    <unit id="kSqlKsg" name="tools.bulk_gen.attached">
+      <segment state="translated">
+        <source>tools.bulk_gen.attached</source>
+        <target>angehängt</target>
+      </segment>
+    </unit>
+    <unit id="xelX1D." name="tools.bulk_gen.failed">
+      <segment state="translated">
+        <source>tools.bulk_gen.failed</source>
+        <target>fehlgeschlagen</target>
+      </segment>
+    </unit>
+    <unit id="khBAB32" name="part_list.action.group.images">
+      <segment state="translated">
+        <source>part_list.action.group.images</source>
+        <target>Bilder</target>
+      </segment>
+    </unit>
+    <unit id="DWEWX5m" name="part_list.action.generate_images">
+      <segment state="translated">
+        <source>part_list.action.generate_images</source>
+        <target>Bauteilbilder generieren</target>
+      </segment>
+    </unit>
+    <unit id="9rk9901" name="tools.value_calc.explanation">
+      <segment state="translated">
+        <source>tools.value_calc.explanation</source>
+        <target>Entschlüsseln und visualisieren Sie den Wert gängiger Bauteile — Farbringe (Widerstände, Induktivitäten), Kondensatorcodes und SMD-Chip-Beschriftungen. Lesen Sie ein Bauteil, indem Sie seine Ringe/seinen Code auswählen, oder geben Sie einen Wert ein, um die passenden Ringe/den Code sowie ein Bild zu erzeugen, das Sie an das Bauteil anhängen können.</target>
+      </segment>
+    </unit>
+    <unit id="Wutg3Q." name="tools.value_calc.body_color">
+      <segment state="translated">
+        <source>tools.value_calc.body_color</source>
+        <target>Gehäusefarbe</target>
+      </segment>
+    </unit>
+    <unit id="NjxMj8i" name="tools.value_calc.appearance">
+      <segment state="translated">
+        <source>tools.value_calc.appearance</source>
+        <target>Bild-Einstellungen (für das generierte Bild)</target>
+      </segment>
+    </unit>
+    <unit id="6QjyC_T" name="tools.value_calc.body.beige">
+      <segment state="translated">
+        <source>tools.value_calc.body.beige</source>
+        <target>Beige</target>
+      </segment>
+    </unit>
+    <unit id="6s2.Buz" name="tools.value_calc.body.blue">
+      <segment state="translated">
+        <source>tools.value_calc.body.blue</source>
+        <target>Blau</target>
+      </segment>
+    </unit>
+    <unit id="cyKVndH" name="tools.value_calc.body.green">
+      <segment state="translated">
+        <source>tools.value_calc.body.green</source>
+        <target>Grün</target>
+      </segment>
+    </unit>
+    <unit id="LYm1abo" name="tools.value_calc.body.lightblue">
+      <segment state="translated">
+        <source>tools.value_calc.body.lightblue</source>
+        <target>Hellblau</target>
+      </segment>
+    </unit>
+    <unit id="OdU12Px" name="tools.value_calc.body.tan">
+      <segment state="translated">
+        <source>tools.value_calc.body.tan</source>
+        <target>Hellbraun</target>
+      </segment>
+    </unit>
+    <unit id="QWAQSny" name="tools.value_calc.body.red">
+      <segment state="translated">
+        <source>tools.value_calc.body.red</source>
+        <target>Rot</target>
+      </segment>
+    </unit>
+    <unit id="lKLExIa" name="tools.value_calc.body.purple">
+      <segment state="translated">
+        <source>tools.value_calc.body.purple</source>
+        <target>Lila</target>
+      </segment>
+    </unit>
+    <unit id="MCCipeP" name="tools.value_calc.body.black">
+      <segment state="translated">
+        <source>tools.value_calc.body.black</source>
+        <target>Schwarz</target>
+      </segment>
+    </unit>
+    <unit id="_kEot4_" name="tools.value_calc.body.grey">
+      <segment state="translated">
+        <source>tools.value_calc.body.grey</source>
+        <target>Grau</target>
+      </segment>
+    </unit>
+    <unit id="SmT12PC" name="tools.value_calc.body.white">
+      <segment state="translated">
+        <source>tools.value_calc.body.white</source>
+        <target>Weiß</target>
+      </segment>
+    </unit>
+    <unit id="LwrLuvE" name="tools.value_calc.resistor.title">
+      <segment state="translated">
+        <source>tools.value_calc.resistor.title</source>
+        <target>Widerstand</target>
+      </segment>
+    </unit>
+    <unit id="MRvw3fS" name="tools.value_calc.inductor.title">
+      <segment state="translated">
+        <source>tools.value_calc.inductor.title</source>
+        <target>Induktivität</target>
+      </segment>
+    </unit>
+    <unit id="7tiQ2kD" name="tools.value_calc.inductor.result">
+      <segment state="translated">
+        <source>tools.value_calc.inductor.result</source>
+        <target>Induktivität</target>
+      </segment>
+    </unit>
+    <unit id="rdDekSe" name="tools.value_calc.inductor.intro">
+      <segment state="translated">
+        <source>tools.value_calc.inductor.intro</source>
+        <target>Bedrahtete axiale Induktivitäten verwenden denselben Farbring-Code wie Widerstände, aber der Wert wird in Mikrohenry (µH) angegeben. Wählen Sie die Ringfarben oder geben Sie einen Wert ein, um sie automatisch zu setzen.</target>
+      </segment>
+    </unit>
+    <unit id="01aeaTL" name="tools.value_calc.inductor.from_value">
+      <segment state="translated">
+        <source>tools.value_calc.inductor.from_value</source>
+        <target>Aus Wert setzen</target>
+      </segment>
+    </unit>
+    <unit id="plveEuM" name="tools.value_calc.inductor.from_value_help">
+      <segment state="translated">
+        <source>tools.value_calc.inductor.from_value_help</source>
+        <target>Geben Sie eine Induktivität ein, um die Ringe automatisch einzufärben. Eine reine Zahl wird als µH gelesen (z.B. 100 = 100µH); Sie können auch 100µH, 10mH oder 470nH schreiben.</target>
+      </segment>
+    </unit>
+    <unit id="I.9reWF" name="tools.value_calc.diode.title">
+      <segment state="translated">
+        <source>tools.value_calc.diode.title</source>
+        <target>Diode</target>
+      </segment>
+    </unit>
+    <unit id="zcMjEwC" name="tools.value_calc.smd_inductor.title">
+      <segment state="translated">
+        <source>tools.value_calc.smd_inductor.title</source>
+        <target>SMD-Induktivität</target>
+      </segment>
+    </unit>
+    <unit id="pnSYOlL" name="tools.value_calc.smd_inductor.intro">
+      <segment state="translated">
+        <source>tools.value_calc.smd_inductor.intro</source>
+        <target>Umspritzte/abgeschirmte SMD-Leistungsinduktivität — geben Sie die Induktivität ein (z.B. 100µH, 10mH), um ihren aufgedruckten µH-Code zu sehen.</target>
+      </segment>
+    </unit>
+    <unit id="T0eIUAR" name="tools.value_calc.smd_capacitor.title">
+      <segment state="translated">
+        <source>tools.value_calc.smd_capacitor.title</source>
+        <target>SMD-Kondensator</target>
+      </segment>
+    </unit>
+    <unit id="klrs9fw" name="tools.value_calc.smd_capacitor.intro">
+      <segment state="translated">
+        <source>tools.value_calc.smd_capacitor.intro</source>
+        <target>Oberflächenmontierte MLCC-Kondensatoren sind fast immer unbeschriftet, es gibt also nichts zu entschlüsseln — geben Sie einfach Wert und Gehäuse ein, um ein Bild zu erzeugen, das Sie an das Bauteil anhängen können.</target>
+      </segment>
+    </unit>
+    <unit id="sQ75HQp" name="tools.value_calc.body.brown">
+      <segment state="translated">
+        <source>tools.value_calc.body.brown</source>
+        <target>Braun</target>
+      </segment>
+    </unit>
+    <unit id="BIzIMMQ" name="tools.value_calc.capacitor.title">
+      <segment state="translated">
+        <source>tools.value_calc.capacitor.title</source>
+        <target>Kondensator</target>
+      </segment>
+    </unit>
+    <unit id="b03881." name="tools.value_calc.smd.title">
+      <segment state="translated">
+        <source>tools.value_calc.smd.title</source>
+        <target>SMD-Widerstand</target>
+      </segment>
+    </unit>
+    <unit id="_sL6o2y" name="tools.value_calc.resistor.bands">
+      <segment state="translated">
+        <source>tools.value_calc.resistor.bands</source>
+        <target>Anzahl der Ringe</target>
+      </segment>
+    </unit>
+    <unit id="xs6fVOi" name="tools.value_calc.resistor.bands_4">
+      <segment state="translated">
+        <source>tools.value_calc.resistor.bands_4</source>
+        <target>4 Ringe</target>
+      </segment>
+    </unit>
+    <unit id="30PFCzm" name="tools.value_calc.resistor.bands_5">
+      <segment state="translated">
+        <source>tools.value_calc.resistor.bands_5</source>
+        <target>5 Ringe</target>
+      </segment>
+    </unit>
+    <unit id="DX1HXAI" name="tools.value_calc.resistor.bands_6">
+      <segment state="translated">
+        <source>tools.value_calc.resistor.bands_6</source>
+        <target>6 Ringe</target>
+      </segment>
+    </unit>
+    <unit id="purYVqq" name="tools.value_calc.attach.context">
+      <segment state="translated">
+        <source>tools.value_calc.attach.context</source>
+        <target>Das generierte Bild kann an das Bauteil "%part%" angehängt werden. Wählen Sie unten ein Bauteil aus und klicken Sie auf "An Bauteil anhängen".</target>
+      </segment>
+    </unit>
+    <unit id="MJwP_g9" name="tools.value_calc.attach.as_preview">
+      <segment state="translated">
+        <source>tools.value_calc.attach.as_preview</source>
+        <target>Als Vorschaubild verwenden</target>
+      </segment>
+    </unit>
+    <unit id="oWqgBTd" name="tools.value_calc.attach.button">
+      <segment state="translated">
+        <source>tools.value_calc.attach.button</source>
+        <target>An Bauteil anhängen</target>
+      </segment>
+    </unit>
+    <unit id="xdeSZDX" name="tools.value_calc.download.button">
+      <segment state="translated">
+        <source>tools.value_calc.download.button</source>
+        <target>SVG herunterladen</target>
+      </segment>
+    </unit>
+    <unit id="28wuv9g" name="tools.value_calc.attach.generate_button">
+      <segment state="translated">
+        <source>tools.value_calc.attach.generate_button</source>
+        <target>Bauteilbild generieren</target>
+      </segment>
+    </unit>
+    <unit id="L3lHryR" name="tools.value_calc.attach.generate_hint">
+      <segment state="translated">
+        <source>tools.value_calc.attach.generate_hint</source>
+        <target>Generieren Sie ein Bild für Widerstand, Kondensator oder SMD und hängen Sie es an dieses Bauteil an.</target>
+      </segment>
+    </unit>
+    <unit id="X7XTymp" name="part.generate_image.flash.success">
+      <segment state="translated">
+        <source>part.generate_image.flash.success</source>
+        <target>Das generierte Bild wurde an das Bauteil angehängt.</target>
+      </segment>
+    </unit>
+    <unit id="M1lbZ9t" name="part.generate_image.flash.invalid">
+      <segment state="translated">
+        <source>part.generate_image.flash.invalid</source>
+        <target>Es wurde kein gültiges Bild generiert. Bitte versuchen Sie es erneut.</target>
+      </segment>
+    </unit>
+    <unit id="QffBG3D" name="tools.value_calc.size">
+      <segment state="translated">
+        <source>tools.value_calc.size</source>
+        <target>Größe</target>
+      </segment>
+    </unit>
+    <unit id="L13hRpG" name="tools.value_calc.resistor.power">
+      <segment state="translated">
+        <source>tools.value_calc.resistor.power</source>
+        <target>Leistung</target>
+      </segment>
+    </unit>
+    <unit id="MqEycmJ" name="tools.value_calc.smd.package">
+      <segment state="translated">
+        <source>tools.value_calc.smd.package</source>
+        <target>Gehäusegröße</target>
+      </segment>
+    </unit>
+    <unit id="olHJ0vl" name="tools.value_calc.cap.diameter">
+      <segment state="translated">
+        <source>tools.value_calc.cap.diameter</source>
+        <target>Durchmesser</target>
+      </segment>
+    </unit>
+    <unit id="E1cOfqy" name="tools.value_calc.cap.pitch">
+      <segment state="translated">
+        <source>tools.value_calc.cap.pitch</source>
+        <target>Anschlussabstand</target>
+      </segment>
+    </unit>
+    <unit id="FKWp7U5" name="tools.value_calc.cap.voltage">
+      <segment state="translated">
+        <source>tools.value_calc.cap.voltage</source>
+        <target>Spannung</target>
+      </segment>
+    </unit>
+    <unit id="raUtT.R" name="tools.value_calc.cap.shape">
+      <segment state="translated">
+        <source>tools.value_calc.cap.shape</source>
+        <target>Form</target>
+      </segment>
+    </unit>
+    <unit id="oN0_C8R" name="tools.value_calc.cap.shape.disc">
+      <segment state="translated">
+        <source>tools.value_calc.cap.shape.disc</source>
+        <target>Scheibe</target>
+      </segment>
+    </unit>
+    <unit id="MHhPBPX" name="tools.value_calc.cap.shape.blob">
+      <segment state="translated">
+        <source>tools.value_calc.cap.shape.blob</source>
+        <target>Tropfen (MLCC)</target>
+      </segment>
+    </unit>
+    <unit id="06VXi9x" name="tools.value_calc.cap.lead">
+      <segment state="translated">
+        <source>tools.value_calc.cap.lead</source>
+        <target>Anschlussdrähte</target>
+      </segment>
+    </unit>
+    <unit id="L.llZTh" name="tools.value_calc.cap.lead.short">
+      <segment state="translated">
+        <source>tools.value_calc.cap.lead.short</source>
+        <target>Kurz</target>
+      </segment>
+    </unit>
+    <unit id="_3P0Qam" name="tools.value_calc.cap.lead.medium">
+      <segment state="translated">
+        <source>tools.value_calc.cap.lead.medium</source>
+        <target>Mittel</target>
+      </segment>
+    </unit>
+    <unit id="ZQTcKZx" name="tools.value_calc.cap.lead.long">
+      <segment state="translated">
+        <source>tools.value_calc.cap.lead.long</source>
+        <target>Lang</target>
+      </segment>
+    </unit>
+    <unit id="FqXdnRc" name="tools.value_calc.resistor.result">
+      <segment state="translated">
+        <source>tools.value_calc.resistor.result</source>
+        <target>Widerstand</target>
+      </segment>
+    </unit>
+    <unit id="OTTkN3o" name="tools.value_calc.resistor.from_value_help">
+      <segment state="translated">
+        <source>tools.value_calc.resistor.from_value_help</source>
+        <target>Geben Sie einen Widerstandswert ein, um die Farbringe zu erzeugen. Sie können Suffixe wie k, M und die RKM-Notation verwenden (z.B. 4k7).</target>
+      </segment>
+    </unit>
+    <unit id="Xi31jNl" name="tools.value_calc.resistor.from_value">
+      <segment state="translated">
+        <source>tools.value_calc.resistor.from_value</source>
+        <target>Wert für Farbcode</target>
+      </segment>
+    </unit>
+    <unit id="KHum5f2" name="tools.value_calc.resistor.apply_value">
+      <segment state="translated">
+        <source>tools.value_calc.resistor.apply_value</source>
+        <target>Ringe generieren</target>
+      </segment>
+    </unit>
+    <unit id="WZBCUvc" name="tools.value_calc.capacitor.intro">
+      <segment state="translated">
+        <source>tools.value_calc.capacitor.intro</source>
+        <target>Funktioniert für die aufgedruckten Zahlencodes auf Keramik- (MLCC), Folien- und ähnlichen Kondensatoren. Kleine Kondensatoren unter 100 pF sind meist direkt aufgedruckt (z.B. 47 oder 4R7), größere verwenden den 3-stelligen Code (z.B. 104 = 100 nF).</target>
+      </segment>
+    </unit>
+    <unit id="qO0YTDd" name="tools.value_calc.smd.on_chip_help">
+      <segment state="translated">
+        <source>tools.value_calc.smd.on_chip_help</source>
+        <target>Bearbeiten Sie ein beliebiges Feld, um die anderen zu aktualisieren. Verwenden Sie die Radiobuttons, um auszuwählen, welcher Code auf dem Chip aufgedruckt ist.</target>
+      </segment>
+    </unit>
+    <unit id="CDm8Xm1" name="tools.value_calc.field.value">
+      <segment state="translated">
+        <source>tools.value_calc.field.value</source>
+        <target>Wert</target>
+      </segment>
+    </unit>
+    <unit id="DuH5wvO" name="tools.value_calc.field.code">
+      <segment state="translated">
+        <source>tools.value_calc.field.code</source>
+        <target>Code</target>
+      </segment>
+    </unit>
+    <unit id="SUNNhdN" name="tools.value_calc.field.tolerance">
+      <segment state="translated">
+        <source>tools.value_calc.field.tolerance</source>
+        <target>Toleranz</target>
+      </segment>
+    </unit>
+    <unit id="WlwMSHx" name="tools.value_calc.field.power">
+      <segment state="translated">
+        <source>tools.value_calc.field.power</source>
+        <target>Leistung</target>
+      </segment>
+    </unit>
+    <unit id="Ymg5mvK" name="tools.value_calc.field.ppm">
+      <segment state="translated">
+        <source>tools.value_calc.field.ppm</source>
+        <target>Temp.-Koeffizient (ppm/K)</target>
+      </segment>
+    </unit>
+    <unit id="evfc3t0" name="tools.value_calc.field.code3">
+      <segment state="translated">
+        <source>tools.value_calc.field.code3</source>
+        <target>3-stellig</target>
+      </segment>
+    </unit>
+    <unit id="LQJWL5p" name="tools.value_calc.field.code4">
+      <segment state="translated">
+        <source>tools.value_calc.field.code4</source>
+        <target>4-stellig</target>
+      </segment>
+    </unit>
+    <unit id="69hYjGC" name="tools.value_calc.field.eia96">
+      <segment state="translated">
+        <source>tools.value_calc.field.eia96</source>
+        <target>EIA-96</target>
+      </segment>
+    </unit>
+    <unit id="iCZnz4i" name="tools.value_calc.field.on_chip">
+      <segment state="translated">
+        <source>tools.value_calc.field.on_chip</source>
+        <target>Auf dem Chip aufgedruckt</target>
+      </segment>
+    </unit>
     <unit id="GNWhoTW" name="part.table.eda_reference">
       <segment state="translated">
         <source>part.table.eda_reference</source>
@@ -13009,6 +13876,18 @@ Buerklin-API-Authentication-Server:
       <segment state="translated">
         <source>settings.misc.kicad_eda.default_parameter_visibility.help</source>
         <target>EDA-Sichtbarkeit für alle [Part]-Parameter, die keine explizite Sichtbarkeit gesetzt haben. Wenn aktiviert, sind alle Parameter standardmäßig in der EDA-Software sichtbar.</target>
+      </segment>
+    </unit>
+    <unit id="XchzDpI" name="settings.misc.kicad_eda.default_parameter_symbol_visibility">
+      <segment state="translated">
+        <source>settings.misc.kicad_eda.default_parameter_symbol_visibility</source>
+        <target>Standard-Symbolsichtbarkeit für Parameter</target>
+      </segment>
+    </unit>
+    <unit id="zLHkPCx" name="settings.misc.kicad_eda.default_parameter_symbol_visibility.help">
+      <segment state="translated">
+        <source>settings.misc.kicad_eda.default_parameter_symbol_visibility.help</source>
+        <target>Legt fest, ob exportierte [Part]-Parameterfelder, für die keine explizite Symbol-Sichtbarkeit gesetzt wurde, im Schaltplansymbol angezeigt werden (das „visible“-Flag des KiCad-Feldes). Betrifft nur Parameter, die bereits als EDA-Felder exportiert werden.</target>
       </segment>
     </unit>
     <unit id="J6pYnaC" name="settings.misc.kicad_eda.default_orderdetails_visibility">
@@ -13087,6 +13966,72 @@ Buerklin-API-Authentication-Server:
       <segment state="translated">
         <source>settings.ips.canopy.alwaysGetDetails.help</source>
         <target>Wenn aktiviert, werden beim Erstellen eines Bauteils mehr Details von canopy abgerufen. Das verursacht eine zusätzliche API-Anfrage, liefert aber Produkt-Bulletpoints und Kategoriedaten.</target>
+      </segment>
+    </unit>
+    <unit id="KyC_YsX" name="settings.ips.trustedparts">
+      <segment state="translated">
+        <source>settings.ips.trustedparts</source>
+        <target>TrustedParts</target>
+      </segment>
+    </unit>
+    <unit id="iB2.9sg" name="settings.ips.trustedparts.help">
+      <segment state="translated">
+        <source>settings.ips.trustedparts.help</source>
+        <target>TrustedParts.com ist eine von der ECIA betriebene Suchmaschine für Bauteile, die die Angebote autorisierter Distributoren zusammenfasst. Sie müssen Zugriff auf deren API beantragen, um diesen Anbieter nutzen zu können.</target>
+      </segment>
+    </unit>
+    <unit id="Mhe.lWu" name="settings.ips.trustedparts.companyId">
+      <segment state="translated">
+        <source>settings.ips.trustedparts.companyId</source>
+        <target>Firmen-ID</target>
+      </segment>
+    </unit>
+    <unit id="DvzhYe1" name="settings.ips.trustedparts.companyId.help">
+      <segment state="translated">
+        <source>settings.ips.trustedparts.companyId.help</source>
+        <target>Die Firmenkennung, die Ihrem TrustedParts.com-Konto zugewiesen wurde. Sie finden diese auf der API-Schlüssel-Seite Ihres Kontos.</target>
+      </segment>
+    </unit>
+    <unit id="AqF7ns9" name="settings.ips.trustedparts.apiKey.help">
+      <segment state="translated">
+        <source>settings.ips.trustedparts.apiKey.help</source>
+        <target>Der API-Schlüssel, der Ihrem TrustedParts.com-Konto zugewiesen wurde. Sie finden diesen auf der API-Schlüssel-Seite Ihres Kontos.</target>
+      </segment>
+    </unit>
+    <unit id="Gh676P6" name="settings.ips.trustedparts.searchLimit">
+      <segment state="translated">
+        <source>settings.ips.trustedparts.searchLimit</source>
+        <target>Suchlimit</target>
+      </segment>
+    </unit>
+    <unit id="R7oiMLD" name="settings.ips.trustedparts.searchLimit.help">
+      <segment state="translated">
+        <source>settings.ips.trustedparts.searchLimit.help</source>
+        <target>Die maximale Anzahl an Ergebnissen, die für eine Stichwortsuche angezeigt werden.</target>
+      </segment>
+    </unit>
+    <unit id="DFkCu4n" name="settings.ips.trustedparts.inStockOnly">
+      <segment state="translated">
+        <source>settings.ips.trustedparts.inStockOnly</source>
+        <target>Nur verfügbare Angebote</target>
+      </segment>
+    </unit>
+    <unit id="EF2mFRR" name="settings.ips.trustedparts.inStockOnly.help">
+      <segment state="translated">
+        <source>settings.ips.trustedparts.inStockOnly.help</source>
+        <target>Wenn aktiviert, werden nur Angebote von Distributoren zurückgegeben, die das Bauteil derzeit auf Lager haben.</target>
+      </segment>
+    </unit>
+    <unit id="r4gkOcR" name="settings.ips.trustedparts.useCachedData">
+      <segment state="translated">
+        <source>settings.ips.trustedparts.useCachedData</source>
+        <target>Zwischengespeicherte Daten verwenden</target>
+      </segment>
+    </unit>
+    <unit id="JNIu4bu" name="settings.ips.trustedparts.useCachedData.help">
+      <segment state="translated">
+        <source>settings.ips.trustedparts.useCachedData.help</source>
+        <target>Wenn aktiviert, antwortet TrustedParts.com mit zwischengespeicherten Lager- und Preisdaten, anstatt die Distributoren in Echtzeit abzufragen. Dies ist schneller und zählt nicht gegen die Ratenlimits, allerdings können die Daten veraltet sein.</target>
       </segment>
     </unit>
     <unit id="D055xh8" name="attachment.sandbox.warning">
@@ -13485,6 +14430,12 @@ Buerklin-API-Authentication-Server:
         <target>LMStudio</target>
       </segment>
     </unit>
+    <unit id="tWV0mhi" name="settings.ai.generic">
+      <segment state="translated">
+        <source>settings.ai.generic</source>
+        <target>Generisch (OpenAI kompatibel)</target>
+      </segment>
+    </unit>
     <unit id="foBzBG2" name="settings.ips.ai_extractor.model">
       <segment state="translated">
         <source>settings.ips.ai_extractor.model</source>
@@ -13609,6 +14560,672 @@ Buerklin-API-Authentication-Server:
       <segment state="translated">
         <source>settings.ai.lmstudio.hosturl</source>
         <target>Host-URL</target>
+      </segment>
+    </unit>
+    <unit id="UeFbCNh" name="settings.ai.ollama">
+      <segment state="translated">
+        <source>settings.ai.ollama</source>
+        <target>Ollama</target>
+      </segment>
+    </unit>
+    <unit id="9nfJ_vr" name="settings.ai.ollama.endpoint">
+      <segment state="translated">
+        <source>settings.ai.ollama.endpoint</source>
+        <target>Endpoint URL</target>
+      </segment>
+    </unit>
+    <unit id="67dSwE5" name="settings.ai.ollama.apiKey">
+      <segment state="translated">
+        <source>settings.ai.ollama.apiKey</source>
+        <target>API Key</target>
+      </segment>
+    </unit>
+    <unit id="gY_fVAC" name="settings.ai.generic.help">
+      <segment state="translated">
+        <source>settings.ai.generic.help</source>
+        <target>Verbindung zu einem beliebigen OpenAI-API-kompatiblen Endpunkt, z.B. einem selbstgehosteten LLM-Gateway/Proxy (wie LiteLLM oder vLLM) oder einem anderen Anbieter mit einer OpenAI-kompatiblen API.</target>
+      </segment>
+    </unit>
+    <unit id="znTTXBF" name="settings.ai.generic.baseUrl">
+      <segment state="translated">
+        <source>settings.ai.generic.baseUrl</source>
+        <target>Basis-URL</target>
+      </segment>
+    </unit>
+    <unit id="0PBFceB" name="settings.ai.generic.apiKey">
+      <segment state="translated">
+        <source>settings.ai.generic.apiKey</source>
+        <target>API Key</target>
+      </segment>
+    </unit>
+    <unit id="dMXkfW2" name="settings.ai.generic.completionsPath">
+      <segment state="translated">
+        <source>settings.ai.generic.completionsPath</source>
+        <target>Completions-Pfad</target>
+      </segment>
+    </unit>
+    <unit id="ns3mY1a" name="settings.ai.generic.completionsPath.help">
+      <segment state="translated">
+        <source>settings.ai.generic.completionsPath.help</source>
+        <target>Der Pfad des Chat-Completions-Endpunkts, relativ zur Basis-URL. Leer lassen, um den Standard "/v1/chat/completions" zu verwenden.</target>
+      </segment>
+    </unit>
+    <unit id="0p9nJMr" name="settings.ai.generic.embeddingsPath">
+      <segment state="translated">
+        <source>settings.ai.generic.embeddingsPath</source>
+        <target>Embeddings-Pfad</target>
+      </segment>
+    </unit>
+    <unit id="cA6Hiu5" name="settings.ai.generic.embeddingsPath.help">
+      <segment state="translated">
+        <source>settings.ai.generic.embeddingsPath.help</source>
+        <target>Der Pfad des Embeddings-Endpunkts, relativ zur Basis-URL. Leer lassen, um den Standard "/v1/embeddings" zu verwenden.</target>
+      </segment>
+    </unit>
+    <unit id="VxXEQUD" name="settings.ai.timeout">
+      <segment state="translated">
+        <source>settings.ai.timeout</source>
+        <target>Timeout</target>
+      </segment>
+    </unit>
+    <unit id="vRgtpoJ" name="settings.ai.timeout.help">
+      <segment state="translated">
+        <source>settings.ai.timeout.help</source>
+        <target>Maximale Wartezeit in Sekunden auf eine Antwort. Die lokale KI-Inferenz kann mehrere Minuten dauern, die Inferenz in der Cloud ist in der Regel schneller.</target>
+      </segment>
+    </unit>
+    <unit id="kuDv.So" name="browser_plugin.recent_pages.title">
+      <segment state="translated">
+        <source>browser_plugin.recent_pages.title</source>
+        <target>Zuletzt besuchte Seiten</target>
+      </segment>
+    </unit>
+    <unit id="AjNj8wk" name="browser_plugin.recent_pages.help">
+      <segment state="translated">
+        <source>browser_plugin.recent_pages.help</source>
+        <target>Hier werden die zuletzt besuchten Seiten angezeigt.</target>
+      </segment>
+    </unit>
+    <unit id="lVUU9s7" name="settings.ips.browser_plugin">
+      <segment state="translated">
+        <source>settings.ips.browser_plugin</source>
+        <target>Browser-Plugin</target>
+      </segment>
+    </unit>
+    <unit id="IrJs3fI" name="settings.ips.browser_plugin.description">
+      <segment state="translated">
+        <source>settings.ips.browser_plugin.description</source>
+        <target>Einstellungen für das Browser-Plugin</target>
+      </segment>
+    </unit>
+    <unit id="_8UrMCB" name="settings.ips.browser_plugin.enabled.help">
+      <segment state="translated">
+        <source>settings.ips.browser_plugin.enabled.help</source>
+        <target>Aktiviert das Browser-Plugin für diese Instanz.</target>
+      </segment>
+    </unit>
+    <unit id="JqcvhX_" name="system.app_secret.insecure.title">
+      <segment state="translated">
+        <source>system.app_secret.insecure.title</source>
+        <target>Unsicheres APP_SECRET</target>
+      </segment>
+    </unit>
+    <unit id="XSSYWTJ" name="system.app_secret.insecure.message">
+      <segment state="translated">
+        <source>system.app_secret.insecure.message</source>
+        <target>Die Umgebungsvariable &lt;code&gt;APP_SECRET&lt;/code&gt; ist auf den Standardwert gesetzt, der mit Part-DB ausgeliefert wird. Dies stellt ein Sicherheitsrisiko dar! Setzen Sie sie in Ihrer Datei &lt;code&gt;.env.local&lt;/code&gt; oder &lt;code&gt;docker-compose.yaml&lt;/code&gt; auf einen neuen Zufallswert.</target>
+      </segment>
+    </unit>
+    <unit id="e7.f3m0" name="system.app_secret.insecure.suggestion">
+      <segment state="translated">
+        <source>system.app_secret.insecure.suggestion</source>
+        <target>Sie können diesen zufällig generierten Wert verwenden (geben Sie ihn niemandem weiter):</target>
+      </segment>
+    </unit>
+    <unit id="pJfdMQU" name="search.extensive_matching">
+      <segment state="translated">
+        <source>search.extensive_matching</source>
+        <target>Erweiterte Übereinstimmung</target>
+      </segment>
+    </unit>
+    <unit id="YO2ZB66" name="search.permit_wildcards">
+      <segment state="translated">
+        <source>search.permit_wildcards</source>
+        <target>&lt;code&gt;%&lt;/code&gt; und &lt;code&gt;_&lt;/code&gt; als Platzhalter behandeln</target>
+      </segment>
+    </unit>
+    <unit id="_nxvnMn" name="search.regexmatching.help">
+      <segment state="translated">
+        <source>search.regexmatching.help</source>
+        <target>Verwenden Sie reguläre Ausdrücke (ohne Mustertrennzeichen) wie %regex%, um nach Teilen zu suchen.</target>
+      </segment>
+    </unit>
+    <unit id="mry8ytG" name="search.extensive_matching.help">
+      <segment state="translated">
+        <source>search.extensive_matching.help</source>
+        <target>Der Suchbegriff wird in Teile zerlegt, und ein Treffer liegt vor, wenn jeder Teil in irgendeinem Feld enthalten ist. Ohne diesen Modus muss der vollständige Suchbegriff in einem einzigen Feld enthalten sein.</target>
+      </segment>
+    </unit>
+    <unit id="zLnKtwP" name="search.permit_wildcards.help">
+      <segment state="translated">
+        <source>search.permit_wildcards.help</source>
+        <target>Wenn aktiviert, wird _ als Platzhalter für ein Zeichen behandelt und % als Platzhalter für null oder mehr Zeichen.</target>
+      </segment>
+    </unit>
+    <unit id="OP7MacF" name="system.trusted_hosts.unconfigured.title">
+      <segment state="translated">
+        <source>system.trusted_hosts.unconfigured.title</source>
+        <target>TRUSTED_HOSTS nicht konfiguriert</target>
+      </segment>
+    </unit>
+    <unit id="88NkHLV" name="system.trusted_hosts.unconfigured.message">
+      <segment state="translated">
+        <source>system.trusted_hosts.unconfigured.message</source>
+        <target>Die Umgebungsvariable &lt;code&gt;TRUSTED_HOSTS&lt;/code&gt; ist nicht gesetzt. Das bedeutet, dass Part-DB Anfragen für jeden beliebigen Hostnamen akzeptiert, was ein Sicherheitsrisiko darstellen kann (z. B. HTTP-Host-Header-Injection). Es wird empfohlen, dies auf die Hostnamen zu beschränken, unter denen Part-DB tatsächlich erreichbar ist.</target>
+      </segment>
+    </unit>
+    <unit id="qZ_kgWT" name="system.trusted_hosts.unconfigured.suggestion">
+      <segment state="translated">
+        <source>system.trusted_hosts.unconfigured.suggestion</source>
+        <target>Legen Sie einen regulären Ausdruck fest, der alle Hostnamen abdeckt, unter denen Part-DB erreichbar sein soll, z. B. basierend auf dem Hostnamen, den Sie für den Zugriff auf diese Seite verwendet haben. Beachten Sie, dass die erforderliche Anführungszeichen-Schreibweise davon abhängt, wo Sie den Wert setzen:</target>
+      </segment>
+    </unit>
+    <unit id="ie4thSr" name="system.trusted_hosts.unconfigured.env_example">
+      <segment state="translated">
+        <source>system.trusted_hosts.unconfigured.env_example</source>
+        <target>In Ihrer Datei &lt;code&gt;.env.local&lt;/code&gt; muss der Wert in einfache Anführungszeichen eingeschlossen werden:</target>
+      </segment>
+    </unit>
+    <unit id="ni3hSTN" name="system.trusted_hosts.unconfigured.docker_example">
+      <segment state="translated">
+        <source>system.trusted_hosts.unconfigured.docker_example</source>
+        <target>In &lt;code&gt;docker-compose.yaml&lt;/code&gt; darf der Wert NICHT in Anführungszeichen stehen:</target>
+      </segment>
+    </unit>
+    <unit id="cEwxoSj" name="info_providers.provider_key">
+      <segment state="translated">
+        <source>info_providers.provider_key</source>
+        <target>Informationsquelle</target>
+      </segment>
+    </unit>
+    <unit id="0sjPRNV" name="info_providers.provider_id">
+      <segment state="translated">
+        <source>info_providers.provider_id</source>
+        <target>Provider ID</target>
+      </segment>
+    </unit>
+    <unit id="2DzzAxZ" name="info_providers.provider_url">
+      <segment state="translated">
+        <source>info_providers.provider_url</source>
+        <target>Provider URL</target>
+      </segment>
+    </unit>
+    <unit id="4v3QmF6" name="part.edit.provider_reference">
+      <segment state="translated">
+        <source>part.edit.provider_reference</source>
+        <target>Referenz auf Informationsquelle</target>
+      </segment>
+    </unit>
+    <unit id="9X2qEi7" name="log.element_edited.changed_fields.providerReference.provider_key">
+      <segment state="translated">
+        <source>log.element_edited.changed_fields.providerReference.provider_key</source>
+        <target>Informationsquelle</target>
+      </segment>
+    </unit>
+    <unit id="MWXgWDb" name="log.element_edited.changed_fields.providerReference.provider_id">
+      <segment state="translated">
+        <source>log.element_edited.changed_fields.providerReference.provider_id</source>
+        <target>Provider ID</target>
+      </segment>
+    </unit>
+    <unit id="83fSFvo" name="part.info_provider_reference.updated_never">
+      <segment state="translated">
+        <source>part.info_provider_reference.updated_never</source>
+        <target>Niemals aktualisiert</target>
+      </segment>
+    </unit>
+    <unit id="yIK_Wtj" name="part.edit.provider_reference.warning">
+      <segment state="translated">
+        <source>part.edit.provider_reference.warning</source>
+        <target>Warnung: Das Ändern der Werte an dieser Stelle kann den Mechanismus zum Abrufen von Informationen beeinträchtigen! Sie sollten nach Möglichkeit die Funktion „Von Informationsquelle aktualisieren“ verwenden.</target>
+      </segment>
+    </unit>
+    <unit id="bNrxe9i" name="perm.api.use_mcp">
+      <segment state="translated">
+        <source>perm.api.use_mcp</source>
+        <target>MCP-Tools verwenden (für KI-Agenten)</target>
+      </segment>
+    </unit>
+    <unit id="ced_8yl" name="api.api_endpoints.mcp_url">
+      <segment state="translated">
+        <source>api.api_endpoints.mcp_url</source>
+        <target>MCP-Endpunkt</target>
+      </segment>
+    </unit>
+    <unit id="a1wK4h_" name="info_providers.capabilities.parameters">
+      <segment state="translated">
+        <source>info_providers.capabilities.parameters</source>
+        <target>Parameter</target>
+      </segment>
+    </unit>
+    <unit id="QivC_me" name="info_providers.expensive">
+      <segment state="translated">
+        <source>info_providers.expensive</source>
+        <target>Kostenintensiv</target>
+      </segment>
+    </unit>
+    <unit id="Hiw406i" name="info_providers.expensive.tooltip">
+      <segment state="translated">
+        <source>info_providers.expensive.tooltip</source>
+        <target>Die Verwendung dieses Informationsanbieters kann zusätzliche Kosten verursachen oder unterliegt sehr strengen Ratenlimits.</target>
+      </segment>
+    </unit>
+    <unit id="XMqiyE0" name="settings.ips.tme.preferMetricFootprint">
+      <segment state="translated">
+        <source>settings.ips.tme.preferMetricFootprint</source>
+        <target>Bevorzuge metrisches Footprint, wenn metrische und zöllige Angaben existieren</target>
+      </segment>
+    </unit>
+    <unit id="APD.vym" name="oauth.authorize.title">
+      <segment state="translated">
+        <source>oauth.authorize.title</source>
+        <target>Anwendung autorisieren</target>
+      </segment>
+    </unit>
+    <unit id="n4Olw59" name="oauth.authorize.description">
+      <segment state="translated">
+        <source>oauth.authorize.description</source>
+        <target>Die Anwendung "%client%" möchte auf Ihr Part-DB-Konto zugreifen.</target>
+      </segment>
+    </unit>
+    <unit id="AkIKt6J" name="oauth.authorize.scopes_intro">
+      <segment state="translated">
+        <source>oauth.authorize.scopes_intro</source>
+        <target>Sie fordert die folgende Zugriffsebene an:</target>
+      </segment>
+    </unit>
+    <unit id="d0cDOn1" name="oauth.authorize.revoke_hint">
+      <segment state="translated">
+        <source>oauth.authorize.revoke_hint</source>
+        <target>Sie können diesen Zugriff jederzeit in Ihren Benutzereinstellungen widerrufen.</target>
+      </segment>
+    </unit>
+    <unit id="qfC3t6R" name="oauth.authorize.approve">
+      <segment state="translated">
+        <source>oauth.authorize.approve</source>
+        <target>Genehmigen</target>
+      </segment>
+    </unit>
+    <unit id="i6N1wqE" name="oauth.authorize.deny">
+      <segment state="translated">
+        <source>oauth.authorize.deny</source>
+        <target>Ablehnen</target>
+      </segment>
+    </unit>
+    <unit id="9fKg3GS" name="oauth.authorize.scope_level.label">
+      <segment state="translated">
+        <source>oauth.authorize.scope_level.label</source>
+        <target>Zu gewährende Zugriffsebene</target>
+      </segment>
+    </unit>
+    <unit id="whHHRxz" name="oauth.authorize.scope_level.help">
+      <segment state="translated">
+        <source>oauth.authorize.scope_level.help</source>
+        <target>Sie können eine restriktivere Zugriffsebene gewähren als von der Anwendung angefordert, dies könnte allerdings die Kompatibilität mit der Anwendung beeinträchtigen.</target>
+      </segment>
+    </unit>
+    <unit id="jQbm4mO" name="oauth.authorize.friendly_name.label">
+      <segment state="translated">
+        <source>oauth.authorize.friendly_name.label</source>
+        <target>Anzeigename (optional)</target>
+      </segment>
+    </unit>
+    <unit id="MPk5zZ9" name="oauth.authorize.friendly_name.help">
+      <segment state="translated">
+        <source>oauth.authorize.friendly_name.help</source>
+        <target>Geben Sie dieser Verbindung einen Namen, um sie von anderen Anwendung mit dem selben Namen unterscheiden zu können unterscheiden zu können.</target>
+      </segment>
+    </unit>
+    <unit id="rPyrHS2" name="oauth.authorize.ttl.label">
+      <segment state="translated">
+        <source>oauth.authorize.ttl.label</source>
+        <target>Angemeldet bleiben für</target>
+      </segment>
+    </unit>
+    <unit id="Z.S5.x2" name="oauth.authorize.ttl.default">
+      <segment state="translated">
+        <source>oauth.authorize.ttl.default</source>
+        <target>Standard (%days% Tage)</target>
+      </segment>
+    </unit>
+    <unit id="yJyRFXa" name="oauth.authorize.ttl.days">
+      <segment state="translated">
+        <source>oauth.authorize.ttl.days</source>
+        <target>%days% Tage</target>
+      </segment>
+    </unit>
+    <unit id="2wcqLve" name="oauth.authorize.ttl.help">
+      <segment state="translated">
+        <source>oauth.authorize.ttl.help</source>
+        <target>Nach Ablauf dieses Zeitraums muss sich die Anwendung erneut bei Ihnen anmelden.</target>
+      </segment>
+    </unit>
+    <unit id="8gH7qHS" name="oauth.authorize.elevated_warning">
+      <segment state="translated">
+        <source>oauth.authorize.elevated_warning</source>
+        <target>Diese Anwendung fordert administrativen oder vollständigen Kontozugriff an, der weit über den normalen Lese-/Bearbeitungszugriff hinausgeht. Genehmigen Sie dies nur, wenn Sie der Anwendung vollständig vertrauen.</target>
+      </segment>
+    </unit>
+    <unit id="DYZhxF6" name="oauth.authorize.elevated_badge">
+      <segment state="translated">
+        <source>oauth.authorize.elevated_badge</source>
+        <target>Erweiterter Zugriff</target>
+      </segment>
+    </unit>
+    <unit id="0SCwv63" name="user.settings.oauth_connected_apps">
+      <segment state="translated">
+        <source>user.settings.oauth_connected_apps</source>
+        <target>Verbundene Anwendungen</target>
+      </segment>
+    </unit>
+    <unit id="tb_dGmL" name="user.settings.oauth_connected_apps.description">
+      <segment state="translated">
+        <source>user.settings.oauth_connected_apps.description</source>
+        <target>Diese Anwendungen haben sich über die Part-DB-OAuth-Anmeldung angemeldet und wurden mit Zugriff auf Ihr Konto autorisiert. Der Widerruf einer Anwendung hier beendet ihren Zugriff sofort; sie muss den Anmelde-/Zustimmungsbildschirm erneut durchlaufen, um sich wieder zu verbinden.</target>
+      </segment>
+    </unit>
+    <unit id="uxc7X_D" name="user.settings.oauth_connected_apps.none_yet">
+      <segment state="translated">
+        <source>user.settings.oauth_connected_apps.none_yet</source>
+        <target>Noch keine verbundenen Anwendungen.</target>
+      </segment>
+    </unit>
+    <unit id="MDTWYod" name="user.settings.oauth_connected_apps.app_name">
+      <segment state="translated">
+        <source>user.settings.oauth_connected_apps.app_name</source>
+        <target>Anwendung</target>
+      </segment>
+    </unit>
+    <unit id="3.pFaZG" name="user.settings.oauth_connected_apps.access_until">
+      <segment state="translated">
+        <source>user.settings.oauth_connected_apps.access_until</source>
+        <target>Zugriff gültig bis</target>
+      </segment>
+    </unit>
+    <unit id="cOG4vDe" name="user.settings.oauth_connected_apps.revoke">
+      <segment state="translated">
+        <source>user.settings.oauth_connected_apps.revoke</source>
+        <target>Widerrufen</target>
+      </segment>
+    </unit>
+    <unit id="0ecnHaq" name="user.settings.oauth_connected_apps.revoke.title">
+      <segment state="translated">
+        <source>user.settings.oauth_connected_apps.revoke.title</source>
+        <target>Möchten Sie den Zugriff für diese Anwendung wirklich widerrufen?</target>
+      </segment>
+    </unit>
+    <unit id="WfLqvJ6" name="user.settings.oauth_connected_apps.revoke.message">
+      <segment state="translated">
+        <source>user.settings.oauth_connected_apps.revoke.message</source>
+        <target>Die Anwendung verliert sofort den Zugriff auf Part-DB und muss den Anmelde-/Zustimmungsbildschirm erneut durchlaufen, um sich wieder zu verbinden. Diese Aktion kann nicht rückgängig gemacht werden!</target>
+      </segment>
+    </unit>
+    <unit id="rSf25Vc" name="user.settings.oauth_connected_apps.revoked">
+      <segment state="translated">
+        <source>user.settings.oauth_connected_apps.revoked</source>
+        <target>Zugriff erfolgreich widerrufen!</target>
+      </segment>
+    </unit>
+    <unit id="mgk6ZSv" name="user.settings.oauth_connected_apps.scope_level">
+      <segment state="translated">
+        <source>user.settings.oauth_connected_apps.scope_level</source>
+        <target>Zugriffsebene</target>
+      </segment>
+    </unit>
+    <unit id="Irn2ps." name="user.settings.oauth_connected_apps.last_used">
+      <segment state="translated">
+        <source>user.settings.oauth_connected_apps.last_used</source>
+        <target>Zuletzt verwendet</target>
+      </segment>
+    </unit>
+    <unit id="1LsyrkP" name="user.settings.oauth_connected_apps.connected_since">
+      <segment state="translated">
+        <source>user.settings.oauth_connected_apps.connected_since</source>
+        <target>Verbunden seit</target>
+      </segment>
+    </unit>
+    <unit id="F3PROlR" name="perm.system.manage_oauth_clients">
+      <segment state="translated">
+        <source>perm.system.manage_oauth_clients</source>
+        <target>OAuth2-Clients verwalten</target>
+      </segment>
+    </unit>
+    <unit id="TCKm90l" name="oauth_clients.title">
+      <segment state="translated">
+        <source>oauth_clients.title</source>
+        <target>OAuth2-Clients</target>
+      </segment>
+    </unit>
+    <unit id="GbvDqBV" name="oauth_clients.description">
+      <segment state="translated">
+        <source>oauth_clients.description</source>
+        <target>Bei Part-DBs OAuth2-Server registrierte Anwendungen (üblicherweise über die offene Dynamic Client Registration, RFC 7591 - jede Anwendung kann sich selbst registrieren, daher ist der eigentliche Zugriffskontrollpunkt der Zustimmungsbildschirm, den ein Benutzer sieht, bevor er einer dieser Anwendungen Zugriff auf sein Konto gewährt). Das Löschen eines Clients hier widerruft sofort allen jemals gewährten Zugriff und verhindert seine weitere Verwendung.</target>
+      </segment>
+    </unit>
+    <unit id="6DTnzEE" name="oauth_clients.none_yet">
+      <segment state="translated">
+        <source>oauth_clients.none_yet</source>
+        <target>Noch keine OAuth2-Clients registriert.</target>
+      </segment>
+    </unit>
+    <unit id="x.F3MN4" name="oauth_clients.name">
+      <segment state="translated">
+        <source>oauth_clients.name</source>
+        <target>Name</target>
+      </segment>
+    </unit>
+    <unit id="ss2tun8" name="oauth_clients.client_id">
+      <segment state="translated">
+        <source>oauth_clients.client_id</source>
+        <target>Client-ID</target>
+      </segment>
+    </unit>
+    <unit id="azV0sIv" name="oauth_clients.scopes">
+      <segment state="translated">
+        <source>oauth_clients.scopes</source>
+        <target>Berechtigungen</target>
+      </segment>
+    </unit>
+    <unit id="1dbGJ7H" name="oauth_clients.redirect_uris">
+      <segment state="translated">
+        <source>oauth_clients.redirect_uris</source>
+        <target>Weiterleitungs-URIs</target>
+      </segment>
+    </unit>
+    <unit id=".axlZHX" name="oauth_clients.status">
+      <segment state="translated">
+        <source>oauth_clients.status</source>
+        <target>Status</target>
+      </segment>
+    </unit>
+    <unit id="U4vNBxV" name="oauth_clients.active">
+      <segment state="translated">
+        <source>oauth_clients.active</source>
+        <target>Aktiv</target>
+      </segment>
+    </unit>
+    <unit id="qte22mM" name="oauth_clients.inactive">
+      <segment state="translated">
+        <source>oauth_clients.inactive</source>
+        <target>Inaktiv</target>
+      </segment>
+    </unit>
+    <unit id="ux5P.d3" name="oauth_clients.dynamically_registered">
+      <segment state="translated">
+        <source>oauth_clients.dynamically_registered</source>
+        <target>Automatisch registriert</target>
+      </segment>
+    </unit>
+    <unit id="oo744Uz" name="oauth_clients.dynamically_registered.help">
+      <segment state="translated">
+        <source>oauth_clients.dynamically_registered.help</source>
+        <target>Dieser Client hat sich automatisch über Dynamic Client Registration (RFC 7591) selbst registriert, anstatt von einem Administrator angelegt worden zu sein.</target>
+      </segment>
+    </unit>
+    <unit id="Pa66ymI" name="oauth_clients.live_tokens">
+      <segment state="translated">
+        <source>oauth_clients.live_tokens</source>
+        <target>Aktive Zugriffstoken</target>
+      </segment>
+    </unit>
+    <unit id="FxxYm5n" name="oauth_clients.live_refresh_tokens">
+      <segment state="translated">
+        <source>oauth_clients.live_refresh_tokens</source>
+        <target>Aktive Refresh-Token</target>
+      </segment>
+    </unit>
+    <unit id="CjdVrcW" name="oauth_clients.delete">
+      <segment state="translated">
+        <source>oauth_clients.delete</source>
+        <target>Löschen</target>
+      </segment>
+    </unit>
+    <unit id="LOD0h3Q" name="oauth_clients.delete.title">
+      <segment state="translated">
+        <source>oauth_clients.delete.title</source>
+        <target>Möchten Sie diesen OAuth2-Client wirklich löschen?</target>
+      </segment>
+    </unit>
+    <unit id="XipnUiR" name="oauth_clients.delete.message">
+      <segment state="translated">
+        <source>oauth_clients.delete.message</source>
+        <target>Dies widerruft sofort allen jemals gewährten Zugriff dieser Anwendung, für alle Benutzer. Diese Aktion kann nicht rückgängig gemacht werden; die Anwendung müsste sich erneut registrieren, um sich wieder zu verbinden.</target>
+      </segment>
+    </unit>
+    <unit id="tbHDOBp" name="oauth_clients.deleted">
+      <segment state="translated">
+        <source>oauth_clients.deleted</source>
+        <target>OAuth2-Client erfolgreich gelöscht!</target>
+      </segment>
+    </unit>
+    <unit id="7vdBsoN" name="oauth_clients.create.title">
+      <segment state="translated">
+        <source>oauth_clients.create.title</source>
+        <target>Einen neuen Client manuell registrieren</target>
+      </segment>
+    </unit>
+    <unit id="NxxzyP." name="oauth_clients.new_button">
+      <segment state="translated">
+        <source>oauth_clients.new_button</source>
+        <target>Neuen Client registrieren</target>
+      </segment>
+    </unit>
+    <unit id="7XHDbAc" name="oauth_clients.create.name">
+      <segment state="translated">
+        <source>oauth_clients.create.name</source>
+        <target>Name</target>
+      </segment>
+    </unit>
+    <unit id="Id1.iuI" name="oauth_clients.create.redirect_uris">
+      <segment state="translated">
+        <source>oauth_clients.create.redirect_uris</source>
+        <target>Weiterleitungs-URIs</target>
+      </segment>
+    </unit>
+    <unit id="wyfhoYU" name="oauth_clients.create.redirect_uris.help">
+      <segment state="translated">
+        <source>oauth_clients.create.redirect_uris.help</source>
+        <target>Eine URI pro Zeile. Muss https://, eine Loopback-http://-Adresse (127.0.0.1/localhost) oder ein privates URI-Schema sein (z. B. com.example.app:/callback).</target>
+      </segment>
+    </unit>
+    <unit id="mF.lZGT" name="oauth_clients.create.scopes">
+      <segment state="translated">
+        <source>oauth_clients.create.scopes</source>
+        <target>Erlaubte Zugriffsebenen</target>
+      </segment>
+    </unit>
+    <unit id="FQP97Iy" name="oauth_clients.create.scopes.elevated_help">
+      <segment state="translated">
+        <source>oauth_clients.create.scopes.elevated_help</source>
+        <target>Erlauben Sie "Administrator" oder "Vollständig" nur für Clients, denen Sie vollständig vertrauen und die Sie kontrollieren - selbstregistrierte Clients (z. B. sich automatisch bereitstellende MCP-Anwendungen) können diese Ebenen niemals selbst anfordern.</target>
+      </segment>
+    </unit>
+    <unit id="PPgniXW" name="oauth_clients.create.submit">
+      <segment state="translated">
+        <source>oauth_clients.create.submit</source>
+        <target>Client registrieren</target>
+      </segment>
+    </unit>
+    <unit id="lUKK..z" name="oauth_clients.created">
+      <segment state="translated">
+        <source>oauth_clients.created</source>
+        <target>OAuth2-Client erfolgreich registriert! Client-ID: %client_id%</target>
+      </segment>
+    </unit>
+    <unit id="TPIdHxC" name="oauth_clients.edit">
+      <segment state="translated">
+        <source>oauth_clients.edit</source>
+        <target>Bearbeiten</target>
+      </segment>
+    </unit>
+    <unit id="tSop1t3" name="oauth_clients.edit.title">
+      <segment state="translated">
+        <source>oauth_clients.edit.title</source>
+        <target>OAuth2-Client bearbeiten</target>
+      </segment>
+    </unit>
+    <unit id="VaBQ9jX" name="oauth_clients.edit.active">
+      <segment state="translated">
+        <source>oauth_clients.edit.active</source>
+        <target>Aktiv</target>
+      </segment>
+    </unit>
+    <unit id="6CH6SAh" name="oauth_clients.edit.active.help">
+      <segment state="translated">
+        <source>oauth_clients.edit.active.help</source>
+        <target>Inaktive Clients können nicht mehr zum Anfordern oder Erneuern von Zugriffstoken verwendet werden, ihre bestehende Registrierung und aktive Token bleiben jedoch bis zur Löschung erhalten.</target>
+      </segment>
+    </unit>
+    <unit id="hbA0R.U" name="oauth_clients.edit.submit">
+      <segment state="translated">
+        <source>oauth_clients.edit.submit</source>
+        <target>Änderungen speichern</target>
+      </segment>
+    </unit>
+    <unit id="1WsHABD" name="oauth_clients.edit.back">
+      <segment state="translated">
+        <source>oauth_clients.edit.back</source>
+        <target>Zurück zur Übersicht</target>
+      </segment>
+    </unit>
+    <unit id="E5sueue" name="oauth_clients.updated">
+      <segment state="translated">
+        <source>oauth_clients.updated</source>
+        <target>OAuth2-Client erfolgreich aktualisiert!</target>
+      </segment>
+    </unit>
+    <unit id="QCg5KCx" name="project.edit.bom.performance_mode_warning">
+      <segment state="translated">
+        <source>project.edit.bom.performance_mode_warning</source>
+        <target>Dieses Projekt enthält %count% BOM-Einträge. Es ist zu groß, um hier bearbeitet zu werden.</target>
+      </segment>
+    </unit>
+    <unit id="LEreMQo" name="project.edit.bom.performance_mode_warning.link">
+      <segment state="translated">
+        <source>project.edit.bom.performance_mode_warning.link</source>
+        <target>Bearbeiten Sie die BOM-Einträge stattdessen über die BOM-Tabellenansicht.</target>
+      </segment>
+    </unit>
+    <unit id="OMOXH6o" name="project.bom_entry.edit.back_to_bom">
+      <segment state="translated">
+        <source>project.bom_entry.edit.back_to_bom</source>
+        <target>Zurück zur Projekt-BOM</target>
+      </segment>
+    </unit>
+    <unit id="M1leSpV" name="project.bom_entry.edit.title">
+      <segment state="translated">
+        <source>project.bom_entry.edit.title</source>
+        <target>BOM-Eintrag #%id% des Projekts bearbeiten</target>
       </segment>
     </unit>
   </file>

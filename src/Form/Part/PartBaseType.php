@@ -33,6 +33,7 @@ use App\Entity\Parts\Part;
 use App\Entity\Parts\PartCustomState;
 use App\Entity\PriceInformations\Orderdetail;
 use App\Form\AttachmentFormType;
+use App\Form\InfoProviderSystem\InfoProviderReferenceType;
 use App\Form\ParameterType;
 use App\Form\Part\EDA\EDAPartInfoType;
 use App\Form\Type\MasterPictureAttachmentType;
@@ -225,6 +226,10 @@ class PartBaseType extends AbstractType
                 'empty_data' => null,
                 'label' => 'part.gtin',
             ])
+            ->add('providerReference', InfoProviderReferenceType::class, [
+                'label' => false,
+                'required' => false,
+            ])
             ;
 
         //Comment section
@@ -353,6 +358,7 @@ class PartBaseType extends AbstractType
         $resolver->setDefaults([
             'data_class' => Part::class,
             'info_provider_dto' => null,
+            'warn_on_unsaved_changes' => true,
         ]);
 
         $resolver->setAllowedTypes('info_provider_dto', [PartDetailDTO::class, 'null']);

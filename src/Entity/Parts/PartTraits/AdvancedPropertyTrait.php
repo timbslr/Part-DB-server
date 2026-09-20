@@ -28,7 +28,7 @@ use App\Validator\Constraints\ValidGTIN;
 use Doctrine\DBAL\Types\Types;
 use App\Entity\Parts\Part;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Serializer\Attribute\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Constraints\Length;
 use App\Validator\Constraints\UniquePartIpnConstraint;
@@ -75,6 +75,7 @@ trait AdvancedPropertyTrait
      */
     #[ORM\Embedded(class: InfoProviderReference::class, columnPrefix: 'provider_reference_')]
     #[Groups(['full', 'part:read'])]
+    #[Assert\Valid()]
     protected InfoProviderReference $providerReference;
 
     /**

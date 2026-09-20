@@ -50,7 +50,9 @@ class SettingsController extends AbstractController
         $settings = $this->settingsManager->createTemporaryCopy(AppSettings::class);
 
         //Create a form builder for the settings object
-        $builder = $this->settingsFormFactory->createSettingsFormBuilder($settings);
+        $builder = $this->settingsFormFactory->createSettingsFormBuilder($settings, formOptions: [
+            'warn_on_unsaved_changes' => true,
+        ]);
 
         //Add a submit button to the form
         $builder->add('submit', SubmitType::class, ['label' => 'save']);

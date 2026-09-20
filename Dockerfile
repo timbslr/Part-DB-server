@@ -37,7 +37,7 @@ COPY src ./src
 COPY translations ./translations
 COPY public ./public
 COPY assets ./assets
-COPY webpack.config.js ./
+COPY webpack.config.mjs ./
 
 # Generate autoloader
 RUN composer dump-autoload
@@ -170,6 +170,7 @@ EOF
 COPY <<EOF /etc/php/${PHP_VERSION}/fpm/conf.d/partdb.ini
 upload_max_filesize=256M
 post_max_size=300M
+max_input_vars=8000
 ;opcache.preload_user=www-data
 ;opcache.preload=/var/www/html/config/preload.php
 log_limit=8096
@@ -193,7 +194,7 @@ RUN a2dissite 000-default.conf && \
     a2enmod proxy_fcgi setenvif && \
     a2enconf php${PHP_VERSION}-fpm && \
     a2enconf docker-php && \
-    a2enmod rewrite
+    a2enmod rewrite headers
 
 # Install composer and yarn dependencies for Part-DB
 USER www-data

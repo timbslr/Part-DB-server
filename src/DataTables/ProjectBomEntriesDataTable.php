@@ -25,6 +25,8 @@ namespace App\DataTables;
 use App\DataTables\Adapters\TwoStepORMAdapter;
 use App\DataTables\Column\EntityColumn;
 use App\DataTables\Column\EnumColumn;
+use App\DataTables\Column\HTMLColumn;
+use App\DataTables\Column\IconLinkColumn;
 use App\DataTables\Column\LocaleDateTimeColumn;
 use App\DataTables\Column\MarkdownColumn;
 use App\DataTables\Helpers\PartDataTableHelper;
@@ -32,11 +34,11 @@ use App\Doctrine\Helpers\FieldHelper;
 use App\Entity\Parts\ManufacturingStatus;
 use App\Entity\Parts\Part;
 use App\Entity\ProjectSystem\ProjectBOMEntry;
-use App\Services\ElementTypeNameGenerator;
 use App\Services\EntityURLGenerator;
 use App\Services\Formatters\AmountFormatter;
 use App\Services\Formatters\MoneyFormatter;
 use App\Services\ProjectSystem\ProjectBuildHelper;
+use Brick\Math\BigDecimal;
 use Brick\Math\RoundingMode;
 use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\Query;
@@ -45,9 +47,11 @@ use Omines\DataTablesBundle\Adapter\Doctrine\ORM\SearchCriteriaProvider;
 use Omines\DataTablesBundle\Column\TextColumn;
 use Omines\DataTablesBundle\DataTable;
 use Omines\DataTablesBundle\DataTableTypeInterface;
+use Symfony\Bundle\SecurityBundle\Security;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
-class ProjectBomEntriesDataTable implements DataTableTypeInterface
+final readonly class ProjectBomEntriesDataTable implements DataTableTypeInterface
 {
     public function __construct(
         protected EntityURLGenerator $entityURLGenerator,
@@ -56,55 +60,61 @@ class ProjectBomEntriesDataTable implements DataTableTypeInterface
         protected PartDataTableHelper $partDataTableHelper,
         protected ProjectBuildHelper $projectBuildHelper,
         protected MoneyFormatter $moneyFormatter,
+        protected Security $security,
+        protected UrlGeneratorInterface $urlGenerator,
     ) {
     }
 
 
     public function configure(DataTable $dataTable, array $options): void
     {
+        /*************************************************************************************************************
+         * Avoid using render, as it has no escaping, and is a potential security risk. Use data on TextColumn or the
+         * HTMLColumn, if necessary
+         ************************************************************************************************************/
+
         $dataTable
             //->add('select', SelectColumn::class)
-            ->add('picture', TextColumn::class, [
+            ->add('picture', HTMLColumn::class, [
                 'label' => '',
                 'className' => 'no-colvis',
-                'render' => function ($value, ProjectBOMEntry $context) {
+                'data' => function (ProjectBOMEntry $context) {
                     if(!$context->getPart() instanceof Part) {
                         return '';
                     }
                     return $this->partDataTableHelper->renderPicture($context->getPart());
-                }
+                },
             ])
 
             ->add('id', TextColumn::class, [
                 'label' => $this->translator->trans('part.table.id'),
                 'visible' => false,
             ])
-
             ->add('quantity', TextColumn::class, [
                 'label' => $this->translator->trans('project.bom.quantity'),
                 'className' => 'text-center',
                 'orderField' => 'bom_entry.quantity',
-                'render' => function ($value, ProjectBOMEntry $context): float|string {
+                'data' => function (ProjectBOMEntry $context): float|string {
                     //If we have a non-part entry, only show the rounded quantity
                     if (!$context->getPart() instanceof Part) {
                         return round($context->getQuantity());
                     }
                     //Otherwise use the unit of the part to format the quantity
-                    return htmlspecialchars($this->amountFormatter->format($context->getQuantity(), $context->getPart()->getPartUnit()));
+                    return $this->amountFormatter->format($context->getQuantity(), $context->getPart()->getPartUnit());
                 },
             ])
-			->add('partId', TextColumn::class, [
-				'label' => $this->translator->trans('project.bom.part_id'),
-				'visible' => true,
-				'orderField' => 'part.id',
-				'render' => function ($value, ProjectBOMEntry $context) {
-					return $context->getPart() instanceof Part ? (string) $context->getPart()->getId() : '';
-				},
-			])
-            ->add('name', TextColumn::class, [
+            ->add('partId', TextColumn::class, [
+                'label' => $this->translator->trans('project.bom.part_id'),
+                'visible' => true,
+                'orderField' => 'part.id',
+                'data' => function (ProjectBOMEntry $context) {
+                    return $context->getPart() instanceof Part ? (string) $context->getPart()->getId() : '';
+                },
+            ])
+            ->add('name', HTMLColumn::class, [
                 'label' => $this->translator->trans('part.table.name'),
                 'orderField' => 'NATSORT(part.name)',
-                'render' => function ($value, ProjectBOMEntry $context) {
+                'data' => function (ProjectBOMEntry $context) {
                     if(!$context->getPart() instanceof Part) {
                         return htmlspecialchars((string) $context->getName());
                     }
@@ -122,11 +132,7 @@ class ProjectBomEntriesDataTable implements DataTableTypeInterface
                 'label' => $this->translator->trans('part.table.ipn'),
                 'orderField' => 'NATSORT(part.ipn)',
                 'visible' => false,
-                'render' => function ($value, ProjectBOMEntry $context) {
-                    if($context->getPart() instanceof Part) {
-                        return $context->getPart()->getIpn();
-                    }
-                }
+                'data' => fn (ProjectBOMEntry $context) => $context->getPart()?->getIpn()
             ])
             ->add('description', MarkdownColumn::class, [
                 'label' => $this->translator->trans('part.table.description'),
@@ -161,7 +167,7 @@ class ProjectBomEntriesDataTable implements DataTableTypeInterface
                 'label' => $this->translator->trans('part.table.manufacturingStatus'),
                 'data' => static fn(ProjectBOMEntry $context): ?ManufacturingStatus => $context->getPart()?->getManufacturingStatus(),
                 'orderField' => 'part.manufacturing_status',
-               	'class' => ManufacturingStatus::class,
+                'class' => ManufacturingStatus::class,
                 'render' => function (?ManufacturingStatus $status, ProjectBOMEntry $context): string {
                     if ($status === null) {
                         return '';
@@ -171,9 +177,17 @@ class ProjectBomEntriesDataTable implements DataTableTypeInterface
                 },
             ])
 
-            ->add('mountnames', TextColumn::class, [
+            ->add('partCustomState', HTMLColumn::class, [
+                'label' => $this->translator->trans('part.table.partCustomState'),
+                'orderField' => 'NATSORT(partCustomState.name)',
+                'visible' => false,
+                'data' => fn (ProjectBOMEntry $context): string
+                    => $this->partDataTableHelper->renderPartCustomState($context->getPart()?->getPartCustomState()),
+            ])
+
+            ->add('mountnames', HTMLColumn::class, [
                 'label' => 'project.bom.mountnames',
-                'render' => function ($value, ProjectBOMEntry $context) {
+                'data' => function (ProjectBOMEntry $context) {
                     $html = '';
 
                     foreach (explode(',', $context->getMountnames()) as $mountname) {
@@ -183,45 +197,46 @@ class ProjectBomEntriesDataTable implements DataTableTypeInterface
                 },
             ])
 
-            ->add('instockAmount', TextColumn::class, [
+            ->add('instockAmount', HTMLColumn::class, [
                 'label' => 'project.bom.instockAmount',
                 'visible' => false,
-                'render' => function ($value, ProjectBOMEntry $context) {
+                'data' => function (ProjectBOMEntry $context) {
                     if ($context->getPart() !== null) {
                         return $this->partDataTableHelper->renderAmount($context->getPart());
                     }
 
                     return '';
-                }
+                },
             ])
-            ->add('storelocation', TextColumn::class, [
+            ->add('storelocation', HTMLColumn::class, [
                 'label' => $this->translator->trans('part.table.storeLocations'),
                 //We need to use a aggregate function to get the first store location, as we have a one-to-many relation
                 'orderField' => 'NATSORT(MIN(_storelocations.name))',
                 'visible' => false,
-                'render' => function ($value, ProjectBOMEntry $context) {
+                'data' => function (ProjectBOMEntry $context) {
                     if ($context->getPart() !== null) {
                         return $this->partDataTableHelper->renderStorageLocations($context->getPart());
                     }
 
                     return '';
-                }
+                },
             ])
             ->add('price', TextColumn::class, [
                 'label' => 'project.bom.price',
                 'visible' => false,
-                'render' => function ($value, ProjectBOMEntry $context) {
+                'data' => function (ProjectBOMEntry $context) {
                     $price = $this->projectBuildHelper->getEntryUnitPrice($context);
-                    return $this->moneyFormatter->format($price->toScale(2, RoundingMode::UP)->toFloat(), null, 2, true);
+                    return $this->moneyFormatter->format($price->toScale(2, RoundingMode::Up)->toFloat(), null, 2, true);
                 },
             ])
             ->add('ext_price', TextColumn::class, [
                 'label' => 'project.bom.ext_price',
                 'visible' => false,
-                'render' => function ($value, ProjectBOMEntry $context) {
+                'data' => function (ProjectBOMEntry $context) {
                     $price = $this->projectBuildHelper->getEntryUnitPrice($context);
                     return $this->moneyFormatter->format(
-                        $price->multipliedBy($context->getQuantity())->toScale(2, RoundingMode::UP)->toFloat(),
+                        $price->multipliedBy(BigDecimal::fromFloatShortest($context->getQuantity()))
+                            ->toScale(2, RoundingMode::Up)->toFloat(),
                         null,
                         2,
                         true
@@ -236,6 +251,16 @@ class ProjectBomEntriesDataTable implements DataTableTypeInterface
             ->add('lastModified', LocaleDateTimeColumn::class, [
                 'label' => $this->translator->trans('part.table.lastModified'),
                 'visible' => false,
+            ])
+            ->add('edit', IconLinkColumn::class, [
+                'label' => $this->translator->trans('part.table.edit'),
+                'className' => 'no-colvis no-export',
+                'href' => fn(mixed $value, ProjectBOMEntry $context): string => $this->urlGenerator->generate(
+                    'project_bom_entry_edit',
+                    ['id' => $options['project']->getId(), 'bomEntry' => $context->getId()]
+                ),
+                'disabled' => fn(mixed $value, ProjectBOMEntry $context): bool => !$this->security->isGranted('edit', $context),
+                'title' => $this->translator->trans('part.table.edit.title'),
             ])
         ;
 

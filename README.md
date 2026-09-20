@@ -13,8 +13,22 @@ php bin/console partdb:check-requirements
 - From your backup, copy `app.db` into the repository-folder `var`
 - From your backup, copy the content from folder `public_media` backup into the repository-folder `public/media`
 
+Running locally:
+
 ```console
 symfony server:start
+```
+
+Deploying to docker:
+
+```console
+.\localDockerDeploy.bat
+```
+
+Migrate Docker-DB:
+
+```console
+docker exec -it --user=www-data cft-partdb php bin/console doctrine:migrations:migrate
 ```
 
 # Added features
@@ -60,7 +74,7 @@ for everybody.
 If you want to test Part-DB without installing it, you can use [this](https://demo.part-db.de/) Heroku instance.
 (Or this link for the [German Version](https://demo.part-db.de/de/)).
 
-You can log in with username: _user_ and password: _user_.
+You can log in with username: _user_ and password: _partdb-demo_.
 
 Every change to the master branch gets automatically deployed, so it represents the current development progress and
 may not be completely stable. Please mind, that the free Heroku instance is used, so it can take some time when loading
@@ -95,9 +109,13 @@ for the first time.
 - Automatic thumbnail generation for pictures
 - Use cloud providers (like Octopart, Digikey, Farnell, LCSC or TME) to automatically get part information, datasheets, and
   prices for parts
-- API to access Part-DB from other applications/scripts
-- [Integration with KiCad](https://docs.part-db.de/usage/eda_integration.html): Use Part-DB as the central datasource for your
+
+* Retrieve part information from arbitrary shop websites, using either conventional data extraction from structured metadata, or AI based data extraction.
+  A browser plugin allows to quickly submit parts from any website to your Part-DB instance, and even allows to circumvent anti-bot measures on shop websites.
+* API to access Part-DB from other applications/scripts
+* [Integration with KiCad](https://docs.part-db.de/usage/eda_integration.html): Use Part-DB as the central datasource for your
   KiCad and see available parts from Part-DB directly inside KiCad.
+* MCP Server for letting AI agents and chats access your Part-DB instance to allow them to answer questions about your inventory
 
 With these features, Part-DB is useful to hobbyists, who want to keep track of their private electronic parts inventory,
 or maker spaces, where many users should have (controlled) access to the shared inventory.

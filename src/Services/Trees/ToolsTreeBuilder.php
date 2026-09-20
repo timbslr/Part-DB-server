@@ -39,9 +39,9 @@ use App\Entity\UserSystem\User;
 use App\Helpers\Trees\TreeViewNode;
 use App\Services\Cache\UserCacheKeyGenerator;
 use App\Services\ElementTypeNameGenerator;
-use App\Services\InfoProviderSystem\Providers\GenericWebProvider;
 use App\Settings\InfoProviderSystem\GenericWebProviderSettings;
 use Symfony\Bundle\SecurityBundle\Security;
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Contracts\Cache\ItemInterface;
 use Symfony\Contracts\Cache\TagAwareCacheInterface;
@@ -60,7 +60,9 @@ class ToolsTreeBuilder
         protected UserCacheKeyGenerator $keyGenerator,
         protected Security $security,
         private readonly ElementTypeNameGenerator $elementTypeNameGenerator,
-        private readonly GenericWebProviderSettings $genericWebProviderSettings
+        private readonly GenericWebProviderSettings $genericWebProviderSettings,
+        #[Autowire('%partdb.oauth_server.enabled%')]
+        private readonly bool $oauthServerEnabled,
     ) {
     }
 
@@ -136,6 +138,12 @@ class ToolsTreeBuilder
                 $this->translator->trans('perm.tools.ic_logos'),
                 $this->urlGenerator->generate('tools_ic_logos')
             ))->setIcon('fa-treeview fa-fw fa-solid fa-flag');
+        }
+        if ($this->security->isGranted('@tools.component_image_generator')) {
+            $nodes[] = (new TreeViewNode(
+                $this->translator->trans('tools.value_calc.title'),
+                $this->urlGenerator->generate('tools_component_image_generator')
+            ))->setIcon('fa-treeview fa-fw fa-solid fa-palette');
         }
         if ($this->security->isGranted('@parts.import')) {
             $nodes[] = (new TreeViewNode(
@@ -337,6 +345,13 @@ class ToolsTreeBuilder
                 $this->translator->trans('tree.tools.system.update_manager'),
                 $this->urlGenerator->generate('admin_update_manager')
             ))->setIcon('fa-fw fa-treeview fa-solid fa-arrow-circle-up');
+        }
+
+        if ($this->oauthServerEnabled && $this->security->isGranted('@system.manage_oauth_clients')) {
+            $nodes[] = (new TreeViewNode(
+                $this->translator->trans('oauth_clients.title'),
+                $this->urlGenerator->generate('oauth_clients_list')
+            ))->setIcon('fa-fw fa-treeview fa-solid fa-key');
         }
 
         return $nodes;

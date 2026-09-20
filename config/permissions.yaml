@@ -163,6 +163,8 @@ perms: # Here comes a list with all Permission names (they have a perm_[name] co
         label: "tools.builtin_footprints_viewer.title"
       ic_logos:
         label: "perm.tools.ic_logos"
+      component_image_generator:
+        label: "perm.tools.component_image_generator"
 
   info_providers:
     label: "perm.part.info_providers"
@@ -297,6 +299,9 @@ perms: # Here comes a list with all Permission names (they have a perm_[name] co
       manage_oauth_tokens:
         label: "Manage OAuth tokens"
         apiTokenRole: ROLE_API_ADMIN
+      manage_oauth_clients:
+        label: "perm.system.manage_oauth_clients"
+        apiTokenRole: ROLE_API_ADMIN
       show_updates:
         label: "perm.system.show_available_updates"
         apiTokenRole: ROLE_API_ADMIN
@@ -381,7 +386,12 @@ perms: # Here comes a list with all Permission names (they have a perm_[name] co
       access_api:
         label: "perm.api.access_api"
         apiTokenRole: ROLE_API_READ_ONLY
+      use_mcp:
+          label: "perm.api.use_mcp"
+          alsoSet: [ 'access_api' ]
+          apiTokenRole: ROLE_API_READ_ONLY
       manage_tokens:
         label: "perm.api.manage_tokens"
         alsoSet: ['access_api']
         apiTokenRole: ROLE_API_FULL
+

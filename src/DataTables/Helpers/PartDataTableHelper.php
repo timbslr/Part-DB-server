@@ -27,6 +27,7 @@ use App\Entity\Parts\StorageLocation;
 use App\Entity\ProjectSystem\Project;
 use App\Entity\Attachments\Attachment;
 use App\Entity\Parts\Part;
+use App\Entity\Parts\PartCustomState;
 use App\Services\Attachments\AttachmentURLGenerator;
 use App\Services\Attachments\PartPreviewGenerator;
 use App\Services\EntityURLGenerator;
@@ -36,14 +37,14 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 /**
  * A helper service which contains common code to render columns for part related tables
  */
-class PartDataTableHelper
+readonly class PartDataTableHelper
 {
     public function __construct(
-        private readonly PartPreviewGenerator $previewGenerator,
-        private readonly AttachmentURLGenerator $attachmentURLGenerator,
-        private readonly EntityURLGenerator $entityURLGenerator,
-        private readonly TranslatorInterface $translator,
-        private readonly AmountFormatter $amountFormatter,
+        private PartPreviewGenerator $previewGenerator,
+        private AttachmentURLGenerator $attachmentURLGenerator,
+        private EntityURLGenerator $entityURLGenerator,
+        private TranslatorInterface $translator,
+        private AmountFormatter $amountFormatter,
     ) {
     }
 
@@ -65,10 +66,8 @@ class PartDataTableHelper
             );
         }
         if ($context->getBuiltProject() instanceof Project) {
-            $icon = sprintf(
-                '<i class="fa-solid fa-box-archive fa-fw me-1" title="%s"></i>',
-                $this->translator->trans('part.info.projectBuildPart.hint') . ': ' . $context->getBuiltProject()->getName()
-            );
+            $icon = sprintf('<i class="fa-solid fa-box-archive fa-fw me-1" title="%s"></i>',
+                $this->translator->trans('part.info.projectBuildPart.hint').': '.htmlspecialchars($context->getBuiltProject()->getName()));
         }
 
 
@@ -179,6 +178,22 @@ class PartDataTableHelper
         // Wrap in link to EDA settings tab (data-turbo=false to ensure hash is read on page load)
         $editUrl = $this->entityURLGenerator->editURL($context) . '#eda';
         return sprintf('<a href="%s" data-turbo="false">%s</a>', $editUrl, $statusIcon);
+    }
+
+    /**
+     * Renders the custom state of a part as the colored badge it is configured with.
+     * Returns an empty string if the part has no custom state.
+     */
+    public function renderPartCustomState(?PartCustomState $state): string
+    {
+        if ($state === null) {
+            return '';
+        }
+
+        return sprintf('<span class="badge %s">%s</span>',
+            htmlspecialchars($state->getBadgeClass()),
+            htmlspecialchars($state->getName())
+        );
     }
 
     public function renderAmount(Part $context): string

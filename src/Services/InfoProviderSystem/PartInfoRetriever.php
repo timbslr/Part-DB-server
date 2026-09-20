@@ -29,7 +29,6 @@ use App\Exceptions\OAuthReconnectRequiredException;
 use App\Services\InfoProviderSystem\DTOs\PartDetailDTO;
 use App\Services\InfoProviderSystem\DTOs\SearchResultDTO;
 use App\Services\InfoProviderSystem\Providers\InfoProviderInterface;
-use Psr\Http\Client\ClientExceptionInterface;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\HttpClient\Exception\ClientException;
 use Symfony\Component\HttpClient\Exception\TransportException;
@@ -41,6 +40,14 @@ final class PartInfoRetriever
 
     private const CACHE_DETAIL_EXPIRATION = 60 * 60 * 24 * 4; // 4 days
     private const CACHE_RESULT_EXPIRATION = 60 * 60 * 24 * 4; // 7 days
+
+    /**
+     * @var string The info provider DTOs are cached as serialized objects, and that cache outlives an update of
+     * Part-DB (it is not stored in the cache directory). Restoring an object of an older version into a class with
+     * new properties fails, as those properties stay uninitialized, so this marker is part of every cache key of a
+     * DTO and has to be increased whenever the structure of the DTOs changes.
+     */
+    public const DTO_CACHE_VERSION = 'v2';
 
     public function __construct(private readonly ProviderRegistry $provider_registry,
         private readonly DTOtoEntityConverter $dto_to_entity_converter, private readonly CacheInterface $partInfoCache,
@@ -103,7 +110,7 @@ final class PartInfoRetriever
         //Generate a hash for the options, to ensure that different options result in different cache entries
         $options_hash = hash('xxh3', json_encode($options_without_cache, JSON_THROW_ON_ERROR));
 
-        $cache_key = "search_{$provider->getProviderKey()}_{$escaped_keyword}_{$options_hash}";
+        $cache_key = "search_".self::DTO_CACHE_VERSION."_{$provider->getProviderInfo()->key}_{$escaped_keyword}_{$options_hash}";
 
         //If no_cache is set, bypass the cache and get fresh results from the provider
         if ($no_cache) {
@@ -126,6 +133,7 @@ final class PartInfoRetriever
      * @param array<string, mixed>  $options An associative array of options which can be used to modify the search behavior. The supported options depend on the provider and should be documented in the provider's documentation.
      * @return PartDetailDTO
      * @throws InfoProviderNotActiveException if the the given providers is not active
+     * @throws \InvalidArgumentException if the given provider key does not match any registered provider
      */
     public function getDetails(string $provider_key, string $part_id, array $options = []): PartDetailDTO
     {
@@ -144,7 +152,7 @@ final class PartInfoRetriever
 
         //Generate key and escape reserved characters from the provider id
         $escaped_part_id = hash('xxh3', $part_id);
-        $cache_key = "details_{$provider_key}_{$escaped_part_id}_{$options_hash}";
+        $cache_key = "details_".self::DTO_CACHE_VERSION."_{$provider_key}_{$escaped_part_id}_{$options_hash}";
 
         //Delete the cache entry if no_cache is set, to ensure that the next get call will fetch fresh data from the provider, instead of returning stale data from the cache.
         if ($options[InfoProviderInterface::OPTION_NO_CACHE] ?? false) {
@@ -175,15 +183,15 @@ final class PartInfoRetriever
      */
     public function dtoToPart(PartDetailDTO $search_result): Part
     {
-        return $this->createPart($search_result->provider_key, $search_result->provider_id);
+        return $this->dto_to_entity_converter->convertPart($search_result);
     }
 
     /**
      * Use the given details to create a part entity
      */
-    public function createPart(string $provider_key, string $part_id): Part
+    public function createPart(string $provider_key, string $part_id, array $options): Part
     {
-        $details = $this->getDetails($provider_key, $part_id);
+        $details = $this->getDetails($provider_key, $part_id, $options);
 
         return $this->dto_to_entity_converter->convertPart($details);
     }

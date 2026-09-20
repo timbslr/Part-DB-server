@@ -26,8 +26,6 @@ use App\Form\Type\AttachmentTypeType;
 use App\Settings\SystemSettings\AttachmentsSettings;
 use Symfony\Bundle\SecurityBundle\Security;
 use App\Entity\Attachments\Attachment;
-use App\Entity\Attachments\AttachmentType;
-use App\Form\Type\StructuralEntityType;
 use App\Services\Attachments\AttachmentManager;
 use App\Services\Attachments\AttachmentSubmitHandler;
 use App\Validator\Constraints\UrlOrBuiltin;
@@ -209,7 +207,7 @@ class AttachmentFormType extends AbstractType
 
     public function finishView(FormView $view, FormInterface $form, array $options): void
     {
-        $view->vars['max_upload_size'] = $this->submitHandler->getMaximumAllowedUploadSize();
+        $view->vars['max_upload_size'] = $this->submitHandler->getMaximumEffectiveUploadSize();
     }
 
     public function getBlockPrefix(): string

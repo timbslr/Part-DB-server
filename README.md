@@ -31,6 +31,14 @@ Migrate Docker-DB:
 docker exec -it --user=www-data cft-partdb php bin/console doctrine:migrations:migrate
 ```
 
+When developing and changing js-files, you sometimes need to run:
+
+```console
+npm run build
+```
+
+and you may need to clear the cache beforehand.
+
 # Added features
 
 This fork adds the following features:

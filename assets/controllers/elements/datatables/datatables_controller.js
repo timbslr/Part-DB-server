@@ -35,7 +35,7 @@ import "datatables.net-responsive-bs5/css/responsive.bootstrap5.css";
 //Use our own styles for the select extension which fit the bootstrap theme better
 //import 'datatables.net-select-bs5/css/select.bootstrap5.css';
 import "../../../css/components/datatables_select_bs5.css";
-
+import $ from "jquery";
 //JS
 import "datatables.net-bs5";
 import "datatables.net-buttons-bs5";
@@ -89,8 +89,6 @@ export default class extends Controller {
         if (data) {
             //Do not save the start value (current page), as we want to always start at the first page on a page reload
             delete data.start;
-            //Reset the data length to the default value by deleting the length property
-            delete data.length;
 
             if (
                 window.location.pathname.endsWith("/parts-by-storage-location")
@@ -128,8 +126,16 @@ export default class extends Controller {
                     return null;
                 }
 
+                //The saved order index is visual (post-reorder). If colReorder state
+                //exists, map it back to the original column index so the server sorts
+                //the correct column. colReorder[visualIndex] == originalIndex.
+                let columnIndex = order[0];
+                if (saved_state.colReorder) {
+                    columnIndex = saved_state.colReorder[columnIndex];
+                }
+
                 return {
-                    column: order[0],
+                    column: columnIndex,
                     dir: order[1],
                 };
             });
@@ -157,7 +163,7 @@ export default class extends Controller {
 
         let options = {
             colReorder: true,
-
+            responsive: true,
             fixedHeader: {
                 header: window.innerWidth >= 768, //Only enable fixedHeaders on devices with big screen. Fixes scrolling issues on smartphones.
                 headerOffset: document.getElementById("navbar")?.offsetHeight,
@@ -247,14 +253,6 @@ export default class extends Controller {
                 selector.parentElement.replaceWith(selector);
             });
 
-            //The saved order index is visual (post-reorder). If colReorder state
-            //exists, map it back to the original column index so the server sorts
-            //the correct column. colReorder[visualIndex] == originalIndex.
-            let columnIndex = order[0];
-            if (saved_state.colReorder) {
-                columnIndex = saved_state.colReorder[columnIndex];
-            }
-
             //Find all column visibility buttons (button with buttons-colvis class) and remove the btn-secondary class
             const colVisButtons = document.querySelectorAll(
                 "button.buttons-colvis",
@@ -262,11 +260,6 @@ export default class extends Controller {
             colVisButtons.forEach((button) => {
                 button.classList.remove("btn-secondary");
             });
-
-            return {
-                column: columnIndex,
-                dir: order[1],
-            };
         });
 
         //Dispatch an event to let others know that the datatables has been loaded
@@ -368,9 +361,9 @@ export default class extends Controller {
     }
 
     _afterLoaded(dt) {
-        this.updateAmountHeaderWithTotalAmount();
+        this.updateAmountHeaderWithTotalAmount(dt);
         dt.on("draw", () => {
-            this.updateAmountHeaderWithTotalAmount();
+            this.updateAmountHeaderWithTotalAmount(dt);
         });
     }
 
@@ -393,7 +386,7 @@ export default class extends Controller {
         selected_rows.deselect();
     }
 
-    updateAmountHeaderWithTotalAmount() {
+    updateAmountHeaderWithTotalAmount(dt) {
         let targetHeader = "Amount"; // Text in the header you want to match
 
         // Find the column index by matching header text
